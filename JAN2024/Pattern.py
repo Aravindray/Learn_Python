@@ -267,9 +267,17 @@ def Acidental_Star_Pattern(n):
         for x in range(l,0,-1):
             print('*',end=' ')
         print()
+def Hollow_Box_Pattern(n):
+    for i in range(1,n+1):
+        for j in range(1,n+1):
+            if (i == 1 or j == 1 or i == n or j == n):
+                print('$',end=' ')
+            else:
+                print(' ',end=' ')
+    print()
 
 def main():
-    patternNames = ['-----Number Pattern (23)-----', "1 : Simple Number Triangle Pattern", "2 : Inverted Pyramid of Numbers", "3 : Half Pyramid Pattern of Numbers", "4 : Inverted Pyramid of Descending Numbers", "5 : Reverse Pyramid of Numbers", "6 : Inverted Half Pyramid Number Pattern", "7 : Pyramid of Natural Numbers", "8 : Reverse Pattern of Digits", "9 : Unique Pyramid Pattern of Digits", "10 : Connected Inverted Pyramid Pattern of Numbers", "11 : Even Number Pyramid Pattern", "12 : Pyramid of Horizontal Tables", "13 : Pyramid Pattern of Alternate Numbers", "14 :Right angled Triangle Mirrored Pyramid", "15 : Simple Inverted Pyramid of a Digit", "16 : Full Pyramid of Numbers", "17 : Pascals Triangle Pyramid", "18 : Reverse number pattern", "19 : Square pattern with numbers", "20 : Double the number pattern", "21 : Random number pattern", "22 : Pant style pattern of numbers", "23 : Pattern with a combination of numbers and stars", '-----Star Pattern (22)-----',"24 : Inverted Pyramid", "25 : Equilateral Triangle with Stars", "26 : Downward Triangle Pattern of Stars", "27 : Right Triangle", "28 : Left Triangle", "29 : Right down mirror star Pattern", "30 : Two pyramids of stars", "31 : Right start pattern of star", "32 : Left triangle pascals pattern", "33 : Sandglass pattern of star", "34 : Pant style pattern of stars", "35 : Diamond shaped pattern of stars", "36 : Hollow Diamond shaped pattern of stars", "37 : Dobule Hill", "38 : Butterfly", "39 : Two Columns Hollow cube", "40 : Two Rows Hollow cube", "41 : X Hollow Pattern", "42 : Plus Hollow Pattern", "43 : Hollow Right angle Triangle", "44 : Invered Right Hollow Triangle", "45 : Hollow sand hour glass",'-----Alphabetic Pattern(4)-----', "46 : Simple Alphabet Pyramid", "47 : Alphabetic Triangle Pattern", "48 : Right Alphabet Triangle", "49 : Continuous Character pattern", "50: Right Angle Triangle from given String",'-----Extra (1)-----','51: Acidental Star Pattern']
+    patternNames = ['-----Number Pattern (23)-----', "1 : Simple Number Triangle Pattern", "2 : Inverted Pyramid of Numbers", "3 : Half Pyramid Pattern of Numbers", "4 : Inverted Pyramid of Descending Numbers", "5 : Reverse Pyramid of Numbers", "6 : Inverted Half Pyramid Number Pattern", "7 : Pyramid of Natural Numbers", "8 : Reverse Pattern of Digits", "9 : Unique Pyramid Pattern of Digits", "10 : Connected Inverted Pyramid Pattern of Numbers", "11 : Even Number Pyramid Pattern", "12 : Pyramid of Horizontal Tables", "13 : Pyramid Pattern of Alternate Numbers", "14 :Right angled Triangle Mirrored Pyramid", "15 : Simple Inverted Pyramid of a Digit", "16 : Full Pyramid of Numbers", "17 : Pascals Triangle Pyramid", "18 : Reverse number pattern", "19 : Square pattern with numbers", "20 : Double the number pattern", "21 : Random number pattern", "22 : Pant style pattern of numbers", "23 : Pattern with a combination of numbers and stars", '-----Star Pattern (22)-----',"24 : Inverted Pyramid", "25 : Equilateral Triangle with Stars", "26 : Downward Triangle Pattern of Stars", "27 : Right Triangle", "28 : Left Triangle", "29 : Right down mirror star Pattern", "30 : Two pyramids of stars", "31 : Right start pattern of star", "32 : Left triangle pascals pattern", "33 : Sandglass pattern of star", "34 : Pant style pattern of stars", "35 : Diamond shaped pattern of stars", "36 : Hollow Diamond shaped pattern of stars", "37 : Dobule Hill", "38 : Butterfly", "39 : Two Columns Hollow cube", "40 : Two Rows Hollow cube", "41 : X Hollow Pattern", "42 : Plus Hollow Pattern", "43 : Hollow Right angle Triangle", "44 : Invered Right Hollow Triangle", "45 : Hollow sand hour glass",'-----Alphabetic Pattern(4)-----', "46 : Simple Alphabet Pyramid", "47 : Alphabetic Triangle Pattern", "48 : Right Alphabet Triangle", "49 : Continuous Character pattern", "50: Right Angle Triangle from given String",'-----Extra (1)-----','51: Acidental Star Pattern','52: Hollow Box Pattern']
     for pattern in patternNames:
         print(pattern)
     select = input('From the above list select and enter one of the pattern name or number to print: ')
@@ -702,6 +710,15 @@ def main():
               *''')
         rows = int(input('Enter no of rows as a postive integer: '))
         Acidental_Star_Pattern(rows)
+    elif select == 'Hollow Box Pattern' or select == '52':
+        print('''You have selected "Hollow Box Pattern" which look like this
+        * * * * *
+        *       *
+        *       *
+        *       *
+        * * * * *''')
+        rows = int(input('Enter no of rows as a positive integer: '))
+        Hollow_Box_Pattern(rows)
     else:
         print('Invalid Input')
         choose = input('If you wish to continue enter Y/N: ')
