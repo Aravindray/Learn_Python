@@ -102,11 +102,11 @@ def main():
     selectInterest = int(input('Enter 1 to perform simple interest or\nEnter 2 to perform compound interest: '))
     if selectInterest == 1:
         SI = simple_interest(principalAmount, Year, Month, interestRate)
-        print(f'Given principal amount is {principalAmount} and the simple interest is {SI} at the end of {Year} year you have to pay {principalAmount+SI}')
+        print(f'Given principal amount is {principalAmount} and the simple interest is {SI} at the end of {Year} year and {Month} month you have to pay {principalAmount+SI}')
         print('End of the Program')
     elif selectInterest == 2: 
         CI = compound_interest(principalAmount, Year, Month, interestRate)
-        print(f'Given principal amount is {principalAmount} and the compound interest is {CI} at the end of {Year} year you have to pay {principalAmount+CI}')
+        print(f'Given principal amount is {principalAmount} and the compound interest is {CI} at the end of {Year} year and {Month} month you have to pay {principalAmount+CI}')
         print('End of the Program')
     else:
         print("Oops, You didn't enter the valid input!")
