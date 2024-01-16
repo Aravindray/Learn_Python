@@ -1,0 +1,25 @@
+# Chapter 7 - Mutable and Immutable Objects
+
+'''Exercise 6 -Write a function that takes n as input and creates a list of n lists such that ith list contains first five multiples of i
+def e6(n):
+    count = 1
+    listOflist = [[] for i in range(n)]
+    for i in range(len(listOflist)):
+        for j in range(1,6):
+            listOflist[i].append(count * j)
+        count += 1
+    print(listOflist)
+if __name__ == '__main__':
+    e6(5)'''
+
+'''Exercise 7 - Write a function that takes a number as an input parameter and returns the correspond text in words. for example, on input 452, the function should return 'Four five Two'. Use a dictionary for mapping digits to their string representation
+def numToStr(n):
+    number_nameDictionary = {0:'Zero', 1:'One', 2:'Two', 3:'Three', 4:'Four', 5:'Five', 6:'Six', 7:'Seven', 8:'Eight', 9:'Nine'}
+    n = str(n)
+    result = []
+    for num in n:
+        result.append(number_nameDictionary[int(num)])
+    for rel in result:
+        print(rel,end=' ')
+if __name__ == '__main__':
+    numToStr(654166468716087467923)'''
