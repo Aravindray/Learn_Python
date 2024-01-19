@@ -49,3 +49,5 @@ def main():
 
 if __name__ == '__main__':
     main()'''
+
+'''Exercises - 2 Write a function that reads a file file1 and displays the number of words and the number of vowels in the file'''
