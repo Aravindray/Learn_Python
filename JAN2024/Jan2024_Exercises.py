@@ -23,3 +23,29 @@ def numToStr(n):
         print(rel,end=' ')
 if __name__ == '__main__':
     numToStr(654166468716087467923)'''
+
+# Chapter 9 - Files and Exceptions
+
+'''Exercise 1 - Write a function that takes two file names, file1 and file2 as input. The function should read the content of the file1 line by line write them to another file file2 after adding a newline at the end of the each line
+
+def LetsRead(a,b):
+    readA = open(a,'r')
+    readB = open(b,'w')
+    result = readA.readline()
+    while result != '':
+        readB.write(result)
+        readB.write('\n')
+        result = readA.readline()
+    readA.close()
+    readB.close()
+    readB = open(b,'r')
+    print(readB.read())
+    readB.close()
+
+def main():
+    file1 = input('Enter the file 1 name: ')
+    file2 = input('Enter the file 2 name: ')
+    LetsRead(file1,file2)
+
+if __name__ == '__main__':
+    main()'''
