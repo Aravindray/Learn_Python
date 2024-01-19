@@ -1,5 +1,0 @@
-4001,Aravind raj,89
-4002,Selva mani,76
-4003,Charles Bernando,90
-4004,Mark Rober,23
-4005,Aravind Ray,89
