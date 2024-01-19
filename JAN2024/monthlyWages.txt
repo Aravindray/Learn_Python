@@ -1,0 +1,33 @@
+1001,Aravind raj,7350
+1004,Jaya mani,8400
+
+
+'''if __name__ == '__main__':
+    eMas = open('empMaster.txt','r')
+    eMon = open('empMonthly.txt','r')
+    eWag = open('monthlyWages.txt','w')
+
+    eMasLine = eMas.readline()
+    while eMasLine != '':
+        print('Inside loop eMasLine',eMasLine)
+        eMonLine = eMon.readline()
+        eMasList = eMasLine.split(',')
+        while eMonLine != '':
+            print('Inside loop eMonLine',eMonLine)
+            eMonList = eMonLine.split(',')
+            if eMasList[0] == eMonList[0]:
+                result = int(eMasList[2]) * int(eMonList[1])
+                listOfResult = [eMasList[0],eMasList[1],str(result)+'\n']
+                finalResult = ','.join(listOfResult)
+                eWag.write(finalResult)
+            eMonLine = eMon.readline()
+        eMon.seek(0)
+        eMasLine = eMas.readline()
+
+eMas.close()
+eMon.close()
+eWag.close()
+
+eWag = open('monthlyWages.txt','r')
+print(eWag.read())
+eWag.close()'''
