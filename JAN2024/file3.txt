@@ -1,0 +1,5 @@
+Total weight of Apple is 25 total price of Apple is 500 so the unit price of Apple is 20.0
+Total weight of Pineapple is 23 total price of Pineapple is 400 so the unit price of Pineapple is 17.391304347826086
+Total weight of Dates is 12 total price of Dates is 1200 so the unit price of Dates is 100.0
+Total weight of Chocolate is 32 total price of Chocolate is 5470 so the unit price of Chocolate is 170.9375
+Total weight of cream is 90 total price of cream is 6500 so the unit price of cream is 72.22222222222223

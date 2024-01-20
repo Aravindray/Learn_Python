@@ -95,8 +95,7 @@ def main():
 if __name__ == '__main__':
     main()'''
 
-'''Exercises - 4 Write a function that reads the file file1 and copies only alternative lines to another file file2. Alternative lines copied should be the odd numbered lines. Handle all exceptions that can be raised'''
-
+'''Exercises - 4 Write a function that reads the file file1 and copies only alternative lines to another file file2. Alternative lines copied should be the odd numbered lines. Handle all exceptions that can be raised
 def OddLines(a,b):
     readFile = open(a,'r')
     writeFile = open(b,'w')
@@ -117,4 +116,35 @@ def main():
     OddLines('file1.txt','file2.txt')
 
 if __name__ == '__main__':
-    main()
+    main()'''
+
+'''Exercises - 5 Write a function that takes two files of equal size as input from user. The first file contains weights of items and the second file contains corresponding prices. Create another file that should contain price per unit weight for each item
+def main():
+    weightFile = open('file1.txt','r')
+    priceFile = open('file2.txt','r')
+    unitPriceFile = open('file3.txt','w')
+    
+    weightLine = weightFile.readline()
+    while weightLine != '':
+        weightList = weightLine.split(',')
+        priceLine = priceFile.readline()
+        while priceLine != '':
+            priceList = priceLine.split(',')
+            if weightList[0] == priceList[0]:
+                result = 'Total weight of ' + weightList[0] + ' is ' + str(int(weightList[1])) + ' total price of '+ priceList[0] + ' is ' + str(int(priceList[1])) +' so the unit price of ' + weightList[0] + ' is '+ str (int(priceList[1]) / int(weightList[1]))
+                unitPriceFile.write(result)
+                unitPriceFile.write('\n')
+            priceLine = priceFile.readline()
+        priceFile.seek(0)
+        weightLine = weightFile.readline()
+
+    weightFile.close()
+    priceFile.close()
+    unitPriceFile.close()
+
+    unitPriceFile = open('file3.txt','r')
+    print(unitPriceFile.read())
+    unitPriceFile.close()
+
+if __name__ == '__main__':
+    main()'''
