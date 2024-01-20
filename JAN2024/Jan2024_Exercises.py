@@ -50,4 +50,71 @@ def main():
 if __name__ == '__main__':
     main()'''
 
-'''Exercises - 2 Write a function that reads a file file1 and displays the number of words and the number of vowels in the file'''
+'''Exercises - 2 Write a function that reads a file file1 and displays the number of words and the number of vowels in the file
+def Words_Vowels(a):
+    readFile = open(a,'r')
+    readLine = readFile.readline()
+    wordCount = 0
+    letterList = []
+    vowels = list('aeiou')
+    vowelsCount = {}
+    while readLine != '':
+        readList = readLine.split(' ')
+        wordCount += len(readList)
+        readLine = readFile.readline()
+    readFile.close()
+    readFile = open(a,'r')
+    readLine = readFile.read()
+    for st in readLine:
+        letterList.append(st)
+    readFile.close()
+    for vowel in vowels:
+        vowelsCount[vowel] = letterList.count(vowel)
+    print('No of words present in the',a,'are',wordCount)
+    print('No of vowels present in the',a,'are',vowelsCount)
+def main():
+    Words_Vowels('file1.txt')
+
+if __name__ == '__main__':
+    main()'''
+
+'''Exercises - 3 Write a function that takes data to be stored in the file file2 as an interactive input from the user until he response with nothing as input. Each line (or paragraph) take as input from the user should be capitalized, and stored in the file file2
+def writeLine(a):
+    LetsWrite = open(a,'w')
+    userInput = input('Type here to store the data: ')
+    while userInput != '':
+        LetsWrite.writelines(userInput.capitalize() + '\n')
+        userInput = input('Type here to store the data: ')
+    LetsWrite.close()
+    LetsWrite = open(a,'r')
+    print(LetsWrite.read())
+    LetsWrite.close()
+def main():
+    writeLine('file2.txt')
+
+if __name__ == '__main__':
+    main()'''
+
+'''Exercises - 4 Write a function that reads the file file1 and copies only alternative lines to another file file2. Alternative lines copied should be the odd numbered lines. Handle all exceptions that can be raised'''
+
+def OddLines(a,b):
+    readFile = open(a,'r')
+    writeFile = open(b,'w')
+    readLine = readFile.readline()
+    oddValue = 1
+    while readLine != '':
+        if oddValue % 2 != 0:
+            writeFile.write(readLine)
+        oddValue += 1
+        readLine = readFile.readline()
+    readFile.close()
+    writeFile.close()
+    writeFile = open(b,'r')
+    print(writeFile.read())
+    writeFile.close()
+
+def main():
+    OddLines('file1.txt','file2.txt')
+
+if __name__ == '__main__':
+    main()
