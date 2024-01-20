@@ -149,26 +149,38 @@ def main():
 if __name__ == '__main__':
     main()'''
 
-'''Exercises - 6 Write a function that read the content of the file Poem.txt and count the number of alphabets, blank spaces, lowercase letters and uppercase letters, the number of words starting with vowels, and no of occurrences of word 'beautiful' in the file'''
-
-import re
-
+'''Exercises - 6 Write a function that read the content of the file Poem.txt and count the number of alphabets, blank spaces, lowercase letters and uppercase letters, the number of words starting with vowels, and no of occurrences of word 'beautiful' in the file
 def main():
-    noOfAlphabets = 0
     noOfLowercases = 0
     noOfUppercases = 0
-    vowels = list('aeiou')
-    noVowelWords = 0
-
+    noOfSpaces = 0
     poem = open('file1.txt','r')
     result = poem.read()
-    blankList = []
     for st in result:
-        blankList.append(st)
-    print(blankList)
-    print('No of occurrences of blank spaces is',blankList.count(" "))
-    print('No of occurrences of word "beautiful" is',result.count('beautiful'))
+        if st.islower():
+            noOfLowercases += 1
+        elif st.isupper():
+            noOfUppercases +=1
+        elif st == ' ':
+            noOfSpaces += 1
+    print('No of occurrences of lower case alphabets are:',noOfLowercases)
+    print('No of occurrences of upper case alphabets are:',noOfUppercases)
+    print('No of alphabets are:',noOfLowercases + noOfUppercases)
+    print('No of occurrences of blank spaces are:',noOfSpaces)
+    print('No of occurrences of word "beautiful" are:',result.count('beautiful'))
+    poem.close()
+
+    poem = open('file1.txt','r')
+    vowelsLine = poem.readline()
+    ListOfVowels = []
+    while vowelsLine != '':
+        vowelsList = vowelsLine.split(' ')
+        for i in range(len(vowelsList)):
+            if vowelsList[i][0] == 'a' or vowelsList[i][0] == 'e' or vowelsList[i][0] == 'i' or vowelsList[i][0] == 'o' or vowelsList[i][0] == 'u' or vowelsList[i][0] == 'A' or vowelsList[i][0] == 'E' or vowelsList[i][0] == 'I' or vowelsList[i][0] == 'O' or vowelsList[i][0] == 'U':
+                ListOfVowels.append(vowelsList[i])
+        vowelsLine = poem.readline()
+    print('No of words starts with vowels are:',len(ListOfVowels))
     poem.close()
 
 if __name__ == '__main__':
-    main()
+    main()'''
