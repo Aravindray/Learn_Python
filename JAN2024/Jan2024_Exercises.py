@@ -148,3 +148,27 @@ def main():
 
 if __name__ == '__main__':
     main()'''
+
+'''Exercises - 6 Write a function that read the content of the file Poem.txt and count the number of alphabets, blank spaces, lowercase letters and uppercase letters, the number of words starting with vowels, and no of occurrences of word 'beautiful' in the file'''
+
+import re
+
+def main():
+    noOfAlphabets = 0
+    noOfLowercases = 0
+    noOfUppercases = 0
+    vowels = list('aeiou')
+    noVowelWords = 0
+
+    poem = open('file1.txt','r')
+    result = poem.read()
+    blankList = []
+    for st in result:
+        blankList.append(st)
+    print(blankList)
+    print('No of occurrences of blank spaces is',blankList.count(" "))
+    print('No of occurrences of word "beautiful" is',result.count('beautiful'))
+    poem.close()
+
+if __name__ == '__main__':
+    main()
