@@ -45,11 +45,3 @@ class Person:
         '''This method will delete the instance of the class'''
         Person.count -= 1
         print('Deleted!')
-
-if __name__ == '__main__':
-    p1 = Person('Aravind','16-05-1999','Earth')
-    print(p1)
-    p2 = Person('Raj','16-05-1999','Earth')
-    print(p2)
-    print(Person.count)
-    print(p1.__str__())
