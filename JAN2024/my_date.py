@@ -1,4 +1,5 @@
 import sys
+
 class MyDate:
     '''A simplest implement of date as a class'''
 
@@ -39,15 +40,51 @@ class MyDate:
             If validate True return day else return error message
         '''
         if self.year % 400 == 0 or (self.year % 100 != 0 and self.year % 4 == 0):
-            currentYear = [31, 29, 31, 30,  31, 30,  31, 31,  30, 31,  30, 31]
+            currentYear = [31, 29, 31, 30,  31, 30, 31, 31,  30, 31,  30, 31]
         else:
-            currentYear = [31, 28, 31, 30,  31, 30,  31, 31,  30, 31,  30, 31]
+            currentYear = [31, 28, 31, 30,  31, 30, 31, 31,  30, 31,  30, 31]
 
         if (day > 0 and day <= currentYear[self.month - 1]):
             return day
         else:
             print('Invalid value for day')
             sys.exit()
+
+    def add_day(self,day):
+        '''Add new day into class object'''
+        self.day = self.checkDay(day)
+
+    def add_month(self,month):
+        '''Add new month into class object'''
+        if month > 0 and month <= 12:
+            self.month = month
+        else:
+            print('Invalid value for month')
+            sys.exit()
+
+    def add_year(self,year):
+        '''Add new year in the class object'''
+        if year > 1900:
+            self.year = year
+        else:
+            print('Invalid value for year. Year should be greater than 1900')
+            sys.exit()
+
+    def weekdays(self):
+        '''To return the week day like Monday to Sunday with respect to given date'''
+        pass
+
+    def diff_dates(self):
+        '''To find difference between two dates in terms of the years, months, and days.'''
+        pass
+
+    def future_date(self):
+        '''To find a future date after a given number of days, months and years.'''
+        pass
+
+    def past_date(self):
+        '''To find a date in the past before a give number of days, months and years.'''
+        pass
 
     def __str__(self):
         '''
