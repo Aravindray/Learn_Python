@@ -1,8 +1,39 @@
 # January - 2024
 
-## Calsses I
+## Table of Content
+
+### Mutable and Immutable Objects
+<hr>
 
 **Exercises**
+
+6. Write a function that takes n as input and creates a list of n lists such that ith list contains first five multiples of i.
+
+7. Write a function that takes a number as an input parameter and returns the correspond text in words. for example, on input 452, the function should return 'Four five Two'. Use a dictionary for mapping digits to their string representation.
+
+
+### Files and Exceptions
+<hr>
+
+**Exercises**
+
+1. Write a function that takes two file names, _file1_ and _file2_ as input. The function should read the content of the _file1_ line by line write them to another file _file2_ after adding a newline at the end of the each line.
+
+2. Write a function that reads a file _file1_ and displays the number of words and the number of vowels in the file.
+
+3. Write a function that takes data to be stored in the file _file2_ as an interactive input from the user until he response with nothing as input. Each line (or paragraph) take as input from the user should be capitalized, and stored in the file _file2_.
+
+4. Write a function that reads the file _file1_ and copies only alternative lines to another file _file2_. Alternative lines copied should be the odd numbered lines. Handle all exceptions that can be raised.
+
+5. Write a function that takes two files of equal size as input from user. The first file contains weights of items and the second file contains corresponding prices. Create another file that should contain price per unit weight for each item.
+
+6. Write a function that read the content of the file _Poem.txt_ and count the number of alphabets, blank spaces, lowercase letters and uppercase letters, the number of words starting with vowels, and no of occurrences of word 'beautiful' in the file.
+
+### Calsses I
+<hr>
+
+**Exercises**
+
 1. Define a class Rectangle. The class should contain sides: length and breadth of the rectangle as the data members. It should support the following methods:
     
     (a) \_\_init__ for initializing the data members: length and breadth.
