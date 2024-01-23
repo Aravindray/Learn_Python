@@ -52,7 +52,7 @@ class MyDate:
 
     def add_day(self,day):
         '''Add new day into class object'''
-        self.day = self.checkDay(day)
+        self.day = day
 
     def add_month(self,month):
         '''Add new month into class object'''
@@ -108,12 +108,12 @@ class MyDate:
             month = str(self.month)
         
         return f'{day}-{month}-{str(self.year)}'
-    
-def main():
-    today = MyDate(3,9,2004)
-    print(today)
-    defaultDate = MyDate()
-    print(defaultDate)
+  
+# def main():
+#     today = MyDate(3,9,2004)
+#     print(today)
+#     defaultDate = MyDate()
+#     print(defaultDate)
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
