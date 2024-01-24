@@ -52,7 +52,7 @@ class MyDate:
 
     def add_day(self,day):
         '''Add new day into class object'''
-        self.day = day
+        self.day = self.checkDay(day)
 
     def add_month(self,month):
         '''Add new month into class object'''
@@ -78,12 +78,75 @@ class MyDate:
         '''To find difference between two dates in terms of the years, months, and days.'''
         pass
 
-    def future_date(self):
-        '''To find a future date after a given number of days, months and years.'''
-        pass
+    def future_date(self, fdays = 0, fweeks = 0, fmonths = 0, fyears = 0):
+        '''To find a future date after a given number of days, weeks, months and years.'''
 
-    def past_date(self):
-        '''To find a date in the past before a give number of days, months and years.'''
+        nday = self.day
+        nmonth = self.month
+        nyear = self.year
+
+        if fdays >= 1:
+
+            for i in range(1,fdays+1):
+        
+                if nyear % 400 == 0 or (nyear % 4 == 0 and nyear % 100 != 0):
+                    month_days = {1:31, 2:29, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+                else:
+                    month_days = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+                
+                nday += 1
+
+                if nday > month_days[nmonth]:
+                    nmonth += 1
+                    nday = 1
+                    if nmonth > 12:
+                        nmonth = 1
+                        nyear += 1
+                        nday = 1
+
+        if fweeks >= 1:
+
+            fweeks = fweeks * 7
+            
+            for i in range(1,fweeks+1):
+        
+                if nyear % 400 == 0 or (nyear % 4 == 0 and nyear % 100 != 0):
+                    month_days = {1:31, 2:29, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+                else:
+                    month_days = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+                
+                nday += 1
+
+                if nday > month_days[nmonth]:
+                    nmonth += 1
+                    nday = 1
+                    if nmonth > 12:
+                        nmonth = 1
+                        nyear += 1
+                        nday = 1
+
+        if fmonths >= 1:
+
+            for i in range(1,fmonths+1):
+                nmonth += 1
+
+                if nmonth > 12:
+                    nyear += 1
+                    nmonth = 1
+
+        if fyears >= 1:
+             
+            nyear += fyears
+
+        if nday <= 9:
+            nday = '0' + str(nday)
+        if nmonth <= 9:
+            nmonth = '0' + str(nmonth)
+
+        print(f'{nday}-{nmonth}-{nyear}')
+
+    def past_date(self, fdays = 0, fweeks = 0, fmonths = 0, fyears = 0):
+        '''To find a date in the past before a give number of days, weeks, months and years.'''
         pass
 
     def __str__(self):
@@ -108,12 +171,3 @@ class MyDate:
             month = str(self.month)
         
         return f'{day}-{month}-{str(self.year)}'
-  
-# def main():
-#     today = MyDate(3,9,2004)
-#     print(today)
-#     defaultDate = MyDate()
-#     print(defaultDate)
-
-# if __name__ == '__main__':
-#     main()
