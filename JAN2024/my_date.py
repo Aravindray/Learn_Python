@@ -69,6 +69,18 @@ class MyDate:
         else:
             print('Invalid value for year. Year should be greater than 1900')
             sys.exit()
+    
+    def get_day(self):
+        '''This function return the day of an object'''
+        return self.day
+
+    def get_month(self):
+        '''This function return the month of an object'''
+        return self.month
+
+    def get_year(self):
+        '''This function return the year of an object'''
+        return self.year
 
     def weekdays(self):
         '''To return the week day like Monday to Sunday with respect to given date'''
@@ -147,7 +159,67 @@ class MyDate:
 
     def past_date(self, fdays = 0, fweeks = 0, fmonths = 0, fyears = 0):
         '''To find a date in the past before a give number of days, weeks, months and years.'''
-        pass
+    
+        new_day = self.day
+        new_month = self.month
+        new_year = self.year
+        fweeks = fweeks * 7
+
+        if fdays >= 1:
+
+            for i in range(1,fdays+1):
+        
+                if new_year % 400 == 0 or (new_year % 4 == 0 and new_year % 100 != 0):
+                    month_days = {1:31, 2:29, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+                else:
+                    month_days = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+
+                new_day -= 1
+
+                if new_day < 1:
+                    new_month -= 1
+                    if new_month < 1:
+                        new_year -= 1
+                        new_month = 12
+                    new_day = month_days[new_month]
+
+        if fweeks >= 1:
+
+            for i in range(1,fweeks+1):
+        
+                if new_year % 400 == 0 or (new_year % 4 == 0 and new_year % 100 != 0):
+                    month_days = {1:31, 2:29, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+                else:
+                    month_days = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+
+                new_day -= 1
+
+                if new_day < 1:
+                    new_month -= 1
+                    if new_month < 1:
+                        new_year -= 1
+                        new_month = 12
+                    new_day = month_days[new_month]
+
+        if fmonths >= 1:
+
+            for i in range(1,fmonths+1):
+                new_month -= 1
+                if new_month < 1:
+                    new_year -= 1
+                    new_month = 12
+
+        if fyears >= 1:
+
+            new_year -= fyears
+
+        if new_day <= 9:
+            new_day = '0' + str(new_day)
+
+        if new_month <= 9:
+            new_month = '0' + str(new_month)
+
+        print(f'{new_day}-{new_month}-{new_year}')
 
     def __str__(self):
         '''
