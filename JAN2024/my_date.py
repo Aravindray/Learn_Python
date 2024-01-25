@@ -86,9 +86,65 @@ class MyDate:
         '''To return the week day like Monday to Sunday with respect to given date'''
         pass
 
-    def diff_dates(self):
+    def __sub__(self, other):
         '''To find difference between two dates in terms of the years, months, and days.'''
-        pass
+        print('self',self)
+        print('other',other)
+        max_date = []
+        min_date = []
+        if isinstance(other, MyDate):
+            if self.year >= other.year:
+                if self.month >= other.month:
+                    if self.day > other.day:
+                        max_date = [self.day,self.month,self.year]
+                        min_date = [other.day,other.month,other.year]
+                    else:
+                        max_date = [self.day,self.month,self.year]
+                        min_date = [other.day,other.month,other.year]
+                else:
+                        max_date = [self.day,self.month,self.year]
+                        min_date = [other.day,other.month,other.year]        
+            else:
+                min_date = [self.day,self.month,self.year]
+                max_date = [other.day,other.month,other.year]
+
+            def leap_year(lyear):
+                if lyear % 400 == 0 or (lyear % 4 == 0 and lyear %100 != 0):
+                    return [31, 29, 31, 30,  31, 30, 31, 31,  30, 31,  30, 31]
+                else:
+                    return [31, 28, 31, 30,  31, 30, 31, 31,  30, 31,  30, 31]
+
+            print('Max Date',max_date)
+            print('Min Date',min_date)
+
+            rday = rmonth = ryear = 0
+
+            while True:
+
+                rday = max_date[0] - min_date[0]
+
+                if rday > 0:
+                    rmonth = max_date[1] - min_date[1]
+                    if rmonth < 0:
+                        max_date[2] -= 1
+                        max_date[1] += 12
+                    else:
+                        ryear = max_date[2] - min_date[2]
+                        break
+                else:
+                    leapYear = leap_year(max_date[2])
+                    max_date[0] += leapYear[max_date[1] - 2]
+                    max_date[1] -= 1
+                    if max_date[0] < 1:
+                        max_date[2] -= 1
+                        max_date[1] += 12
+
+            rweek = rday // 7
+
+            print(f'difference of two dates is {ryear} years, {rmonth} months, {rweek} weeks or ({rday} days)')
+        else:
+            print('Invalid dates')
+            sys.exit()
 
     def future_date(self, fdays = 0, fweeks = 0, fmonths = 0, fyears = 0):
         '''To find a future date after a given number of days, weeks, months and years.'''
