@@ -125,3 +125,25 @@
     | < 1,00,000                |          3             |
 
     (e) \_\_str__ that displays information about the bank customer.
+
+5. Define a class _Item_ that keeps track of item available in the shop. The class should contain the following data members:
+
+    name - Name of the item <br>
+    price - Price of the item <br>
+    quantity - Quantity of the item available in the stock
+
+    The class should support the following methods:
+
+    (a) \_\_init__ for initializing the data members. <br>
+    (b) _purchase_ for updating the quantity after a purchase made by the customer. The method should take the number of items to be purchased as an input. <br>
+    (c) _increaseStock_ for updating the quantity of an items for which new stock has arrived. The method should take the number of items to be added as an input. <br>
+    (d) display that display information about an item. <br>
+
+6. Fill in the details to define the method to compute the date on the following day of a given date for the class MyDate.
+    
+        def next_day(self):
+            '''Objective: To display next day's date
+            Input parameter: self - Object of the type MyDate
+            Return value: string representations of next day's date'''
+            '''Approach: Increment day if next day is within same month, else adjust month and year'''
+            pass

@@ -475,3 +475,37 @@ Question 4:
             return f'Name: {self.name}\nAccount Number: {self.account_num}\naccount_type: {self.account_type}\nBalance: {self.amount}'
 
 Question 5:
+
+        class Item:
+            '''To track a Item available in a shop'''
+            def __init__(self, name, price, quantity):
+                '''This is a class initializer'''
+                self.name = name
+                self.price = price
+                self.quantity = quantity
+                self.profit = 0
+            
+            def purchase(self, new_quantity):
+                '''This method is track the item available in shop and purchase'''
+                assert new_quantity > 0 and isinstance(new_quantity, int)
+                if new_quantity > self.quantity:
+                    print(f'Invalid Input, In shop we have {self.quantity} but you have entered purchased quantity as {new_quantity}')
+                else:
+                    self.quantity -= new_quantity
+                    self.profit += (new_quantity * self.price)
+                
+                if self.quantity == 0:
+                    print('A reminder! We are out of order')
+
+            def increase_stock(self, new_quantity):
+                '''This method is track the item available in shop'''
+                assert new_quantity > 0 and isinstance(new_quantity, int)
+                self.quantity += new_quantity
+
+            def display(self):
+                '''This method will display the Item price and quantity'''
+                print(f'Price and Quantity of "{self.name}"\n--> Price: {self.price}\n--> Quantity: {self.quantity}')
+
+            def __str__(self):
+                '''This method will print'''
+                return f'Item Name: {self.name}\nPrice: {self.price}\nQuantity: {self.quantity}\nProfit: {self.profit}'
