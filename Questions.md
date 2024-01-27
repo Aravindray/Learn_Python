@@ -65,3 +65,39 @@
     (f) _future_date_ - To find a future date after a given number of days, months and years.
 
     (g) _past_date_ - To find a date in the past before a give number of days, months and years.
+
+3. Define a class _student_ that keep tracks of academic records of students in a school. The class should contain the following data members:
+
+    rollNum - Roll number of student <br>
+    name - Name of the student <br>
+    markList - List of the mark in five subjects <br>
+    stream - A: Arts, C: Commerce, S: Science <br>
+    percentage - Percentage computed using marks <br>
+    grade - Grade in each subject computed using marks <br>
+    division - Division computed on the basis of overall percentage
+
+    The Class should support the following methods:
+
+    (a) _\_\_init___ for initializing the data members. <br>
+    (b) _set_marks_ to take marks for five subjects as an input from user. <br>
+    (c) _get_stream_ for accessing the stream of the student. <br>
+    (d) _percentage_ for computing the overall percentage for the student. <br>
+    (e) _grade_gen_ that generates grade for each students in each courses on the basis of the marks obtained. Criteria for computing the grade is as follows:
+
+    | Marks        | Grades |
+    |--------------|--------|
+    | >= 90        |    A   |
+    | < 90 & >= 80 |    B   |
+    | < 80 & >= 65 |    C   |
+    | < 65 & >= 40 |    D   |
+    | < 40         |    E   |
+
+    (f) _division_ for computing division on the basis of the following criteria based on overall percentage of marks scored:
+
+    | Percentage        | Division |
+    |-------------------|----------|
+    | >= 60             |    I     |
+    | <60 and >= 50     |    II    |
+    | <50 and >= 35     |    III   |
+        
+    (g) _\_\_str___ that displays student information.
