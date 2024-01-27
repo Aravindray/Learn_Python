@@ -415,3 +415,63 @@ Question 3:
         def __str__(self):
             '''Return string representation of object'''
             return f'Name: {self.name}\nRoll Number: {self.roll_num}\nStream: {self.stream}\nMarks: {self.mark_list}\nAchieved Grades: {self.grades}\nAchieved Percentage: {self.percentage}\nAchieved Division: {self.division}'
+
+Question 4:
+
+    import sys
+    class Bank:
+        '''Manage customer details'''
+        def __init__(self, name, account_num, account_type, amount):
+            self.name = name
+            self.account_num = account_num
+            if account_type == 'S':
+                self.account_type = 'Savings'
+            elif account_type == 'C':
+                self.account_type = 'Current'
+            else:
+                print('Invalid entry for account_type')
+                sys.exit()
+            assert amount >= 0
+            self.amount = amount
+
+        def deposit(self, amount):
+            '''This method to add deposit amount'''
+            assert amount > 0
+            self.amount += amount
+            print(f'Amount successfully deposited your balance is {self.amount}')
+
+        def withdrawal(self, amount):
+            '''This method to subtract the withdrawal amount'''
+            assert amount > 0
+            self.amount -= amount
+            print(f'Amount successfully withdrawal your balance is {self.amount}')
+
+        def check_balance(self):
+            '''This method will return the current balance'''
+            print(f'Your current balance is {self.amount}')
+
+        def find_interest(self):
+            '''This method will find the interest and return the amount'''
+            if self.amount >= 500000:
+                interest_rate = 8 / 100
+                after_a_year = self.amount + (self.amount * interest_rate)
+                print(f'Your current balance is {self.amount}. Since your deposited amount is more than 5,00,000 you will gain interest rate of 8 %, so after a year your balance will be {after_a_year}')
+            elif self.amount < 500000 and self.amount >= 300000:
+                interest_rate = 7 / 100
+                after_a_year = self.amount + (self.amount * interest_rate)
+                print(f'Your current balance is {self.amount}. Since your deposited amount is between less than 5,00,000 and more than or equal to 3,00,00 you will gain interest rate of 7 %, so after a year your balance will be {after_a_year}')
+            elif self.amount < 300000 and self.amount >= 100000:
+                interest_rate = 5 / 100
+                after_a_year = self.amount + (self.amount * interest_rate)
+                print(f'Your current balance is {self.amount}. Since your deposited amount is between less than 3,00,000 and more than or equal to 1,00,00 you will gain interest rate of 5 %, so after a year your balance will be {after_a_year}')
+            elif self.amount < 100000:
+                interest_rate = 3 / 100
+                after_a_year = self.amount + (self.amount * interest_rate)
+                print(f'Your current balance is {self.amount}. Since your deposited amount is less than 1,00,000 you will gain interest rate of 3 %, so after a year your balance will be {after_a_year}')
+            elif self.amount == 0:
+                print('You balance is {self.amount}, so your are applicable for annual interest')
+
+        def __str__(self):
+            return f'Name: {self.name}\nAccount Number: {self.account_num}\naccount_type: {self.account_type}\nBalance: {self.amount}'
+
+Question 5:
