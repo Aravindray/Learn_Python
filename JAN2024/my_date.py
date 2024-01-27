@@ -84,7 +84,39 @@ class MyDate:
 
     def weekdays(self):
         '''To return the week day like Monday to Sunday with respect to given date'''
-        pass
+        last_two_digit = str(self.year)
+        last_two_digit = last_two_digit[2] + last_two_digit[3]
+        last_two_digit = int(last_two_digit)
+
+        Quarter = last_two_digit // 4
+
+        month_table = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6]
+
+        cal = self.day + month_table[self.month -1] + last_two_digit + Quarter
+
+        if self.year >= 2000 and self.year <= 2099:
+            cal -= 1
+
+
+        final_remainder = cal % 7
+
+
+        if final_remainder == 1:
+            print('Sunday')
+        elif final_remainder == 2:
+            print('Monday')
+        elif final_remainder == 3:
+            print('Tuesday')
+        elif final_remainder == 4:
+            print('Wednesday')
+        elif final_remainder == 5:
+            print('Thursday')
+        elif final_remainder == 6:
+            print('Friday')
+        elif final_remainder == 0:
+            print('Saturday')
+        else:
+            print('Something is wrong')
 
     def __sub__(self, other):
         '''To find difference between two dates in terms of the years, months, and days.'''
