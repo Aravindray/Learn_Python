@@ -333,3 +333,85 @@ Question 1:
 
 
 Question 2: 
+
+Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JAN2024/my_date.py)
+
+Question 3:
+
+    import sys
+
+    class Student:
+        '''This class is to store students academic record and give percentage and division of a student'''
+
+        def __init__(self, roll_num, name, stream, mark_list = None):
+            '''This is the contractor of the object'''
+            self.roll_num = roll_num
+            self.name = name
+            if stream == 'C':
+                self.stream = 'Commerce'
+            elif stream == 'A':
+                self.stream = 'Arts'
+            elif stream == 'S':
+                self.stream = 'Science'
+            else:
+                print('Allowed streams are A: Arts, C: Commerce, S: Science')
+                sys.exit()
+            self.mark_list = mark_list
+            if mark_list == None or mark_list == []:
+                self.set_marks()
+            self.percentage = self.percent()
+            self.grades = self.grade_gen()
+            self.division = self.percentage_division()
+            
+        def set_marks(self):
+            '''Get the marks for 5 subject from the user and return it as a list'''
+            self.mark_list = []
+            no_of_subject = int(input('Enter no of subjects that you want to enter the marks: '))
+            assert no_of_subject > 0 and no_of_subject < 100
+            for i in range(1,no_of_subject+1):
+                enter_marks = float(input(f'Enter the mark of subject {i}: '))
+                assert enter_marks > 0 and enter_marks <= 100
+                self.mark_list.append(enter_marks)
+
+        def get_stream(self):
+            '''Display the student stream'''
+            return self.stream
+
+        def percent(self):
+            '''Calculated the percentage of entered marks'''
+            mrk_lst = self.mark_list
+            percentage = ( sum(mrk_lst) / (len(mrk_lst) * 100) ) * 100
+            return percentage
+
+        def grade_gen(self):
+            '''Generate grades based on the entered marks by user'''
+            grades = {}
+            mrk_lst = self.mark_list
+            for mrk in mrk_lst:
+                if mrk >= 90:
+                    grades[mrk] = 'A'
+                elif mrk < 90 and mrk >= 80:
+                    grades[mrk] = 'B'
+                elif mrk < 80 and mrk >= 65:
+                    grades[mrk] = 'C'
+                elif mrk < 65 and mrk >= 40:
+                    grades[mrk] = 'D'
+                else:
+                    grades[mrk] = 'E'
+            return grades
+
+        def percentage_division(self):
+            '''Take the percentage and return the division'''
+            percentage = self.percentage
+            if percentage >= 60:
+                return 'I'
+            elif percentage < 60 and percentage >= 50:
+                return 'II'
+            elif percentage < 50 and percentage >= 35:
+                return 'III'
+            else:
+                return 'Fail'
+
+        def __str__(self):
+            '''Return string representation of object'''
+            return f'Name: {self.name}\nRoll Number: {self.roll_num}\nStream: {self.stream}\nMarks: {self.mark_list}\nAchieved Grades: {self.grades}\nAchieved Percentage: {self.percentage}\nAchieved Division: {self.division}'
