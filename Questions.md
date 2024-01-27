@@ -85,7 +85,7 @@
     (e) _grade_gen_ that generates grade for each students in each courses on the basis of the marks obtained. Criteria for computing the grade is as follows:
 
     | Marks        | Grades |
-    |--------------|--------|
+    |:------------:|:------:|
     | >= 90        |    A   |
     | < 90 & >= 80 |    B   |
     | < 80 & >= 65 |    C   |
@@ -95,9 +95,33 @@
     (f) _division_ for computing division on the basis of the following criteria based on overall percentage of marks scored:
 
     | Percentage        | Division |
-    |-------------------|----------|
+    |:-----------------:|:--------:|
     | >= 60             |    I     |
     | <60 and >= 50     |    II    |
     | <50 and >= 35     |    III   |
         
     (g) _\_\_str___ that displays student information.
+
+4. Define a class _Bank_ that keeps track of bank customers. The class should contain the following data members:
+
+name - Name of the customer <br>
+account_num = Account Number <br>
+type - Account Type (Savings or Current) <br>
+amount - amount deposited in the bank account <br>
+interest - Interest earned by the customer
+
+The class should support the following methods:
+
+(a) \_\_init__ for initializing the data members. <br>
+(b) _deposit_ for depositing money in the account. <br>
+(c) _withdrawal_ for withdrawing money from the account. <br>
+(d) _find_interest_ that determines the interest on the basis of amount in the account:
+
+| Account                   | Interest per annum (%) |
+|:-------------------------:|:----------------------:|
+| >= 5,00,000               |          8             |
+| >= 3,00,000 and <5,00,000 |          7             |
+| >= 1,00,000 and <3,00,000 |          5             |
+| < 1,00,000                |          3             |
+
+(e) \_\_str__ that displays information about the bank customer.
