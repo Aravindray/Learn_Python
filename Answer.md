@@ -509,3 +509,7 @@ Question 5:
             def __str__(self):
                 '''This method will print'''
                 return f'Item Name: {self.name}\nPrice: {self.price}\nQuantity: {self.quantity}\nProfit: {self.profit}'
+
+Question 6:
+
+Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JAN2024/my_date.py) I already created a method name _future_date_ will add the day, month and year.
