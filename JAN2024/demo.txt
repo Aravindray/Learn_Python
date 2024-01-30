@@ -1,0 +1,11 @@
+after files are created or modified we need to perform staging and then we need to commit it (it's like saving the file in git)
+
+to commit all use below command
+
+git commit -a -m 'commit it'
+
+once commit was done successfully with respective branch we need to sync those change with github to achieve it use below command
+
+git pull
+
+git push
