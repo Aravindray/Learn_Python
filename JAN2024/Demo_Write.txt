@@ -1,6 +1,0 @@
-How to use File Handling in python?
-First open the with with this built-in syntax: open('File_name', 'mode_of_operation')
-and to read or write the file use .read or .write method with open object.
-Don't forget to close the opened file, because file only get saved when we close it properly.
-With the help of append argument while we defined initial when open the file, we can inset the data at end the line if file is already existed in the directory
-With the help of 'a+', 'r+', and 'w+' we can write and read the files simultaneously.
