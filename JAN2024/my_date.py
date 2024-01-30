@@ -309,6 +309,21 @@ class MyDate:
 
         print(f'{new_day}-{new_month}-{new_year}')
 
+    def __lt__(self, other):
+        if isinstance(other, MyDate):
+            if self.year < other.year:
+                answer = True
+            elif self.year == other.year and self.month < other.month:
+                answer = True
+            elif self.year == other.year and self.month == other.month and self.day < other.day:
+                answer = True
+            else:
+                answer = False
+            return answer
+        else:
+            print('Type Mistake')
+            sys.exit()
+
     def __eq__(self, other):
         '''This method will check'''
         if isinstance(other, MyDate):
