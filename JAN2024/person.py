@@ -1,14 +1,24 @@
 class Person:
     '''This is the blueprint of a person'''
 
-    count = 0
+    person_count = 0
 
     def __init__(self,name,dob,address):
         '''This is the constructor of an object'''
         self.name = name
         self.dob = dob
         self.address = address
-        Person.count += 1
+        Person.inc_person_count()
+
+    @staticmethod
+    def inc_person_count():
+        '''This will increase the person count'''
+        Person.person_count += 1
+
+    @staticmethod
+    def get_person_count():
+        '''This will return count of class attribute'''
+        return Person.person_count
 
     def get_name(self):
         '''This will return name'''
@@ -33,10 +43,6 @@ class Person:
     def set_address(self,address):
         '''This will add new address in an object'''
         self.address = address
-
-    def get_count(self):
-        '''This will return count of class attribute'''
-        return Person.count
     
     def __str__(self):
         '''Print function will know what to do'''
@@ -46,9 +52,3 @@ class Person:
         '''This will delete the instance or object of a class'''
         print('Deleted!!')
         Person.count -= 1
-    
-p1 = Person('Aravindraj','15-05-1999','AG Street, Vazhapadi')
-print(p1)
-p2 = Person('Not Aravindraj','not 15-05-1999','Not Vazhapadi')
-p2.set_dob('16-05-1999')
-print(p2)
