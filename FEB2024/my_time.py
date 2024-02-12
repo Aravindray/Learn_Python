@@ -36,11 +36,41 @@ class MyTime:
         '''This will return seconds SS'''
         return self.seconds
     
-    def add_new(self,new_hours = 0, new_minutes = 0, new_seconds = 0)
-        ns = self.seconds + new_seconds
-        if ns > 59:
-            carry_minutes = new_seconds / 60
-    
+    def add_new(self,new_hours = 0, new_minutes = 0, new_seconds = 0):
+        assert not new_seconds < 0
+        if new_seconds > 0:
+            self.seconds += new_seconds
+            if self.seconds > 59:
+                carry_seconds = self.seconds % 60
+                carry_minutes = self.seconds // 60
+                self.minutes += carry_minutes
+                if self.minutes > 59:
+                    new_carry_minutes = self.minutes % 60
+                    carry_hours = self.minutes // 60
+                    self.hours += carry_hours
+                    if self.hours > 23:
+                        new_carry_hours = self.hours % 24
+                        self.hours = new_carry_hours
+                    self.minutes = new_carry_minutes
+                self.seconds = carry_seconds
+        assert not new_minutes < 0
+        if new_minutes > 0:
+            self.minutes += new_minutes
+            if self.minutes > 59:
+                carry_minutes = self.minutes % 60
+                carry_hours = self.minutes // 60
+                self.hours += carry_hours
+                if self.hours > 59:
+                    new_carry_hours = self.hours % 24
+                    self.hours = new_carry_hours
+                self.minutes = carry_minutes
+        assert not new_hours < 0
+        if new_hours > 0:
+            self.hours += new_hours
+            if self.hours > 23:
+                carry_hours = self.hours % 24
+                self.hours = carry_hours
+
     def __str__(self):
         '''This will return for print statement'''
         if self.hours <= 9:
