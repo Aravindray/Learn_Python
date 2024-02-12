@@ -72,12 +72,27 @@ class MyTime:
                 carry_hours = self.hours % 24
                 self.hours = carry_hours
 
-    def sub_new(self,sub_hour=0,sub_minutes=0,sub_seconds=0):
+    def sub_new(self,sub_hours=0,sub_minutes=0,sub_seconds=0):
         '''This will calculate new hours, minutes and seconds based on user input'''
-        if sub_hour > 1:
-            self.hours -= sub_hour
+        if sub_hours > 1:
+            self.hours -= sub_hours
             if self.hours < 0:
-                self.hours = 24 - self.hours
+                carry_hours = abs(self.hours) // 24
+                self.hours = 24 - abs(carry_hours)
+        if sub_minutes > 1:
+            self.minutes -= sub_minutes
+            if self.minutes < 0:
+                carry_minutes = abs(self.minutes) % 60
+                carry_hours = abs(self.minutes) // 60
+                self.minutes = carry_minutes
+                self.hours -= carry_hours
+                if self.hours < 0:
+                    self.hours = 24 - abs(self.hours)
+        if sub_seconds > 1:
+            self.seconds -= sub_seconds
+            if self.seconds < 0:
+                self.seconds = 60 - abs(self.seconds)
+                self.minutes -= 1
 
     def __str__(self):
         '''This will return for print statement'''
