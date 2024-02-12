@@ -37,6 +37,7 @@ class MyTime:
         return self.seconds
     
     def add_new(self,new_hours = 0, new_minutes = 0, new_seconds = 0):
+        '''This will calculate new hours, minutes and seconds based on user input'''
         assert not new_seconds < 0
         if new_seconds > 0:
             self.seconds += new_seconds
@@ -70,6 +71,13 @@ class MyTime:
             if self.hours > 23:
                 carry_hours = self.hours % 24
                 self.hours = carry_hours
+
+    def sub_new(self,sub_hour=0,sub_minutes=0,sub_seconds=0):
+        '''This will calculate new hours, minutes and seconds based on user input'''
+        if sub_hour > 1:
+            self.hours -= sub_hour
+            if self.hours < 0:
+                self.hours = 24 - self.hours
 
     def __str__(self):
         '''This will return for print statement'''
