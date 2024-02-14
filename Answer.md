@@ -569,3 +569,10 @@ Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JA
         open_file.write(f'Out of {no_of_question - 1} question you scored {score}')
 
     open_file.close()
+
+# February - 2024
+
+### Calsses II
+<hr>
+
+**Exercises**
