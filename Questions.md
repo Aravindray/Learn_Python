@@ -147,3 +147,58 @@
             Return value: string representations of next day's date'''
             '''Approach: Increment day if next day is within same month, else adjust month and year'''
             pass
+
+
+# February - 2024
+
+### Calsses II
+<hr>
+
+**Exercises**
+
+1. Write a class _Point_ having *x* and *y* coordinates as data members. Write another class *LineSegment* that derives the class *Point* Also, list appropriate methods.
+
+2. Define the method \_\_ne__ for the class MyDate.
+
+3. Define the method \_\_sub__ for the class MyDate.
+        
+        def __sub__(self,other):
+            '''Objective: To subtract two date objects
+            Input Parameters:
+                self (implicit parameter) - Object of type MyDate
+                other - Object of type MyDate
+            Return value: string representation of difference of two objects if second object passed as parameter is of MyDate type else message 'Undefined type' is printed and program is terminated'''
+            '''Examples:
+                yyyy-mm-dd   yyyy-mm-dd   yyyy-mm-dd
+                2014-04-04   2012-01-12   2014-06-06
+              - 2012-06-06 - 2010-05-13 - 2012-04-04
+               ------------ ------------ -----------
+                0001-09-28   0001-07-30   0002-02-02 
+
+4. Define a class *ComplexNumbers*. Write operations for addition, subtraction, and multiplication, using the notion of operator overloading.
+
+5. Examine the following class *Shape*:
+        
+        class Shape:
+            def __init__(self,shapeType,x,y):
+                self.shapeType = shapeType
+                self.length = x
+                self.width = y
+            def compute_area():
+                pass
+            
+    The class *Shape* should be inherited by the class *Rectangle* and *Triangle*. Both the derived classes should invoke the method \_\_init__ to initialize data members. Note that *length* and *width* correspond to *height* and *base* for a triangle. The derived classes should override the method *compute_area* fo the superclass Shape.
+
+6. Examine the class *Person* defined in this chapter. Define a class *Student* that derives this class and define *name, roll_number, class, total_marks* and *Year* as the data members. The class should contain the instance method \_\_init__ and the abstract method *percentage*. Define two classes *Grad* and *PostGrad* which inherit from the base class *Student*. Both the classes should define their \_\_init__ method and should override the abstract method *percentage* of the superclass. Note that *total_marks* obtained are out of 600 and 400 for *Grad* and *PostGrad* classes respectively.
+
+7. Define a base class *Vehicle*, having attributes registration number, make, model and color. Also, define classes *PassengerVehicle* and *CommercialVehicle* that derived from the class *Vehicle*. The *PassengerVehicle* class should have additional attribute for maximum passenger capacity. The *CommercialVehicle* class should have an additional attribute for maximum load capacity. Define \_\_init__ method for all these classes. Also, define get and set methods to retrieve and set the value of the data attributes.
+
+8. Define classes *Car*, *Autorickshaw*, and *Bus* which derive from the *PassengerVehicle* class mentioned in the previous question. The *Car* and *Bus* should have attributes for storing information about the number of doors, not shared by *Autorickshaw*. The *Bus* should have Boolean attributes *doubleDecker* not shared by *Car* and *Autorickshaw*. Define \_\_init__ method for all these classes. Also, define get and set methods to determine and set the value of the data attributes.
+
+9. Define a class *Account*, have attributes account holder's name, account number, account type, the amount deposited and minimum deposit amount. Define two classes, namely *Savings* and *Current*. The *Savings* class should have a property interest. Define \_\_init__ method for all these classes. Also, define get and set methods to determine and set the value of the data attributes.
+
+10. Using Python bulit-in functions, write the statements to
+    (a) Determine whether A is a subclass of B.
+    (b) Determine whether attribute attr exists in the namespace of object ob of class A.
+    (c) Assign value 70 to attribute attr of object ob of class A.
+    (d) Delete an attribute attr of object ob of class A.

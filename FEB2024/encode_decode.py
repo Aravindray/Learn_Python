@@ -12,7 +12,7 @@ class Encode:
         '''This method will convert sting to binary value'''
         str_bin = ''
         for x in self.message:
-            str_bin += format(ord(x),'b')
+            str_bin += format(ord(x),'b') + ' '
         return str_bin
     
     def bin_to_invert(self):
@@ -21,8 +21,10 @@ class Encode:
         for x in self.str_to_bin():
             if x == '1':
                 bin_inv += '0'
-            else:
+            elif x == '0':
                 bin_inv += '1'
+            else:
+                bin_inv += ' '
         return bin_inv
     
     def invert_to_morse(self):
@@ -32,9 +34,11 @@ class Encode:
         for x in self.bin_to_invert():
             if x == '0':
                 inv_morse += '.....'
-            else:
+            elif x == '1':
                 inv_morse += '_____'
-        return inv_morse
+            else:
+                inv_morse += ' '
+        return inv_morse.rstrip()
     
     def key(self):
         '''This method will store the key in separate file'''
@@ -50,39 +54,32 @@ class Decode:
     '''This class will decode the key and return the actual message'''
     def __init__(self,key):
         '''This is a class constructor'''
-        self.key = key
+        self.key = key.split(' ')
 
     def morse_to_invert(self):
         '''This method will convert the morse code and return 1st level of binary value'''
         inc = 0
         morse_inv = ''
-        for x in range(len(self.key)//5):
-            code = self.key[inc:inc+5]
-            if code == '.....':
-                morse_inv += '0'
-            else:
-                morse_inv += '1'
-            inc += 5
-        return morse_inv
-    
-    def invert_to_bin(self):
-        '''This method will flip the inverted binary to values to original binary'''
-        inv_bin = ''
-        for x in self.morse_to_invert():
-            if x == '1':
-                inv_bin += '0'
-            else:
-                inv_bin += '1'
-        return inv_bin
+        for i in range(len(self.key)):
+            x = self.key[i]
+            for j in range(len(x)//5):
+                code = x[inc:inc+5]
+                if code == '.....':
+                    morse_inv += '1'
+                else:
+                    morse_inv += '0'
+                inc += 5
+            morse_inv += ' '
+            inc = 0
+        morse_inv = morse_inv.rstrip()
+        morse_inv_lst = morse_inv.split(' ')
+        return morse_inv_lst
     
     def bin_to_str(self):
         '''This method will convert the binary to string'''
-        inc = 0
         bin_str = ''
-        for x in range(len(self.invert_to_bin())//7):
-            output = self.invert_to_bin()[inc:inc+7]
-            bin_str += chr(int(output,2))
-            inc += 7
+        for i in range(len(self.morse_to_invert())):
+            bin_str += chr(int(self.morse_to_invert()[i],2))
         return bin_str
 
     def __str__(self):
