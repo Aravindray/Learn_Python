@@ -46,9 +46,9 @@ class Person:
     
     def __str__(self):
         '''Print function will know what to do'''
-        return f'\nName: {self.name}\nDoB: {self.dob}\nAddress: {self.address}\n'
+        return f'Name: {self.name}\nDoB: {self.dob}\nAddress: {self.address}'
     
     def __del__(self):
         '''This will delete the instance or object of a class'''
         print('Deleted!!')
-        Person.count -= 1
+        Person.person_count -= 1
