@@ -1,10 +1,11 @@
+'''This is a module for person'''
 class Person:
-    '''This is the blueprint of a person'''
+    '''This class is the blueprint of person'''
 
     person_count = 0
 
     def __init__(self,name,dob,address):
-        '''This is the constructor of an object'''
+        '''This is a class constructor'''
         self.name = name
         self.dob = dob
         self.address = address
@@ -12,43 +13,49 @@ class Person:
 
     @staticmethod
     def inc_person_count():
-        '''This will increase the person count'''
+        '''This will increase the count of class attribute person_count'''
         Person.person_count += 1
-
+    
     @staticmethod
     def get_person_count():
-        '''This will return count of class attribute'''
+        '''This will return the class attribute person count'''
         return Person.person_count
-
+    
+    @staticmethod
+    def dec_person_count():
+        '''This will decrease the count of the class attribute person_count'''
+        Person.person_count -= 1
+    
     def get_name(self):
-        '''This will return name'''
+        '''This will return object attribute name'''
         return self.name
     
     def get_dob(self):
-        '''This will return dob'''
+        '''This will return object attribute dob'''
         return self.dob
     
     def get_address(self):
-        '''This will return address'''
+        '''This will return object attribute address'''
         return self.address
     
-    def set_name(self,name):
-        '''This will add new name in an object'''
-        self.name = name
+    def set_name(self,new_name):
+        '''This will update new name of object attribute name'''
+        self.name = new_name
 
-    def set_dob(self,dob):
-        '''This will add new dob in an object'''
-        self.dob = dob
+    def set_dob(self,new_dob):
+        '''This will update new dob of object attribute dob'''
+        self.dob = new_dob
 
-    def set_address(self,address):
-        '''This will add new address in an object'''
-        self.address = address
-    
+    def set_address(self,new_address):
+        '''This will update new address of object attribute address'''
+        self.address = new_address
+
     def __str__(self):
-        '''Print function will know what to do'''
-        return f'Name: {self.name}\nDoB: {self.dob}\nAddress: {self.address}'
+        '''This will print'''
+        return f'Name: {self.name}\nDOB: {self.dob}\nAddress: {self.address}'
     
     def __del__(self):
-        '''This will delete the instance or object of a class'''
+        '''This will return Deleted!! when an class object was be deleted'''
         print('Deleted!!')
-        Person.person_count -= 1
+        Person.dec_person_count()
+        Person.get_person_count()
