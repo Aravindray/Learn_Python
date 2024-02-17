@@ -5,7 +5,7 @@ import sys
 
 class Calendar:
     '''This class comprise day, month, year, hour, minute and second'''
-    def __init__(self,day,month,year,hour,minute,second):
+    def __init__(self,day=1,month=1,year=2024,hour=0,minute=0,second=0):
         '''This is a class constructor'''
         if month >= 1 and month <= 12:
             self.month = month
@@ -27,12 +27,12 @@ class Calendar:
         else:
             print('Hours should be range of 0 to 23')
             sys.exit()
-        if minute >= 1 and minute <= 59:
+        if minute >= 0 and minute <= 59:
             self.minute = minute
         else:
             print('Minute should be range of 1 to 59')
             sys.exit()
-        if second >= 1 and second <= 59:
+        if second >= 0 and second <= 59:
             self.second = second
         else:
             print('Second should be range of 1 to 59')
@@ -127,7 +127,7 @@ class Calendar:
 
     def set_minute(self,new_minute):
         '''This will update new minute of an object'''
-        if new_minute >= 1 and new_minute <= 59:
+        if new_minute >= 0 and new_minute <= 59:
             self.minute = new_minute
         else:
             print('Entered minute is out of range')
@@ -135,7 +135,7 @@ class Calendar:
     
     def set_second(self,new_second):
         '''This will update new second of an object'''
-        if new_second >= 1 and new_second <= 59:
+        if new_second >= 0 and new_second <= 59:
             self.second = new_second
         else:
             print('Entered second is out of range')
@@ -159,9 +159,6 @@ class Calendar:
         return f'{day}/{month}/{year} {hour}:{minute}:{second}' # DD/MM/YYYY HH:MM:SS
 
 
-c1 = Calendar(28,2,2023,12,45,32)
-print(c1)
-c1.set_year(2024)
-print(c1)
-c1.set_day(29)
+# One second will change a year 31,12,2023 23:59:59
+c1 = Calendar()
 print(c1)
