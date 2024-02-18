@@ -1,6 +1,16 @@
-# January - 2024
-
 ## Table of Content
+
+- [January - 2024](#january---2024)
+    - [Mutable and Immutable Objects](#mutable-and-immutable-objects)
+    - [File and Exceptions](#file-and-exceptions)
+    - [Calsses I](#calsses-i)
+  - [Games](#games)
+- [February - 2024](#february---2024)
+    - [Calsses II](#calsses-ii)
+
+<br>
+
+# January - 2024
 
 ### Mutable and Immutable Objects
 <hr>
@@ -486,6 +496,7 @@ class Bank:
 ```
 
 Question 5:
+
 ```python
 class Item:
     '''To track a Item available in a shop'''
