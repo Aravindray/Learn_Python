@@ -9,38 +9,40 @@
 
 Question 6:
 
-    def e6(n):
+```python
+def e6(n):
 
-        count = 1
-        listOflist = [[] for i in range(n)]
+    count = 1
+    listOflist = [[] for i in range(n)]
 
-        for i in range(len(listOflist)):
-            for j in range(1,6):
-                listOflist[i].append(count * j)
-            count += 1
+    for i in range(len(listOflist)):
+        for j in range(1,6):
+            listOflist[i].append(count * j)
+        count += 1
 
-        print(listOflist)
+    print(listOflist)
 
-    if __name__ == '__main__':
-        e6(5)
-
+if __name__ == '__main__':
+    e6(5)
+```
 Question 7:
 
-    def numToStr(n):
+```python
+def numToStr(n):
 
-        number_nameDictionary = {0:'Zero', 1:'One', 2:'Two', 3:'Three', 4:'Four', 5:'Five', 6:'Six', 7:'Seven', 8:'Eight', 9:'Nine'}
-        n = str(n)
-        result = []
+    number_nameDictionary = {0:'Zero', 1:'One', 2:'Two', 3:'Three', 4:'Four', 5:'Five', 6:'Six', 7:'Seven', 8:'Eight', 9:'Nine'}
+    n = str(n)
+    result = []
 
-        for num in n:
-            result.append(number_nameDictionary[int(num)])
+    for num in n:
+        result.append(number_nameDictionary[int(num)])
 
-        for rel in result:
-            print(rel,end=' ')
+    for rel in result:
+        print(rel,end=' ')
 
-    if __name__ == '__main__':
-        numToStr(654166468716087467923)
-
+if __name__ == '__main__':
+    numToStr(654166468716087467923)
+```
 
 ### File and Exceptions
 <hr>
@@ -49,34 +51,37 @@ Question 7:
 
 Question 1:
 
-    def LetsRead(a,b):
+```python
+def LetsRead(a,b):
 
-        readA = open(a,'r')
-        readB = open(b,'w')
+    readA = open(a,'r')
+    readB = open(b,'w')
+    result = readA.readline()
+
+    while result != '':
+        readB.write(result)
+        readB.write('\n')
         result = readA.readline()
 
-        while result != '':
-            readB.write(result)
-            readB.write('\n')
-            result = readA.readline()
-
-        readA.close()
+    readA.close()
         readB.close()
         readB = open(b,'r')
         print(readB.read())
         readB.close()
 
-    def main():    
-        file1 = input('Enter the file 1 name: ')
-        file2 = input('Enter the file 2 name: ')
-        LetsRead(file1,file2)
+def main():    
+    file1 = input('Enter the file 1 name: ')
+    file2 = input('Enter the file 2 name: ')
+    LetsRead(file1,file2)
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 Question 2:
 
-    def Words_Vowels(a):
+```python
+def Words_Vowels(a):
 
         readFile = open(a,'r')
         readLine = readFile.readline()
@@ -85,161 +90,170 @@ Question 2:
         vowels = list('aeiou')
         vowelsCount = {}
 
-        while readLine != '':
+    while readLine != '':
             readList = readLine.split(' ')
             wordCount += len(readList)
             readLine = readFile.readline()
 
-        readFile.close()
-        readFile = open(a,'r')
-        readLine = readFile.read()
+    readFile.close()
+    readFile = open(a,'r')
+    readLine = readFile.read()
 
-        for st in readLine:
-            letterList.append(st)
-        readFile.close()
+    for st in readLine:
+        letterList.append(st)
+    readFile.close()
 
-        for vowel in vowels:
-            vowelsCount[vowel] = letterList.count(vowel)
-        print('No of words present in the',a,'are',wordCount)
-        print('No of vowels present in the',a,'are',vowelsCount)
+    for vowel in vowels:
+        vowelsCount[vowel] = letterList.count(vowel)
+    print('No of words present in the',a,'are',wordCount)
+    print('No of vowels present in the',a,'are',vowelsCount)
 
-    def main():
-        Words_Vowels('file1.txt')
+def main():
+    Words_Vowels('file1.txt')
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 Question 3:
 
-    def writeLine(a):
+```python
+def writeLine(a):
 
-        LetsWrite = open(a,'w')
+    LetsWrite = open(a,'w')
+    userInput = input('Type here to store the data: ')
+
+    while userInput != '':
+        LetsWrite.writelines(userInput.capitalize() + '\n')
         userInput = input('Type here to store the data: ')
 
-        while userInput != '':
-            LetsWrite.writelines(userInput.capitalize() + '\n')
-            userInput = input('Type here to store the data: ')
-
-        LetsWrite.close()
-        LetsWrite = open(a,'r')
-        print(LetsWrite.read())
-        LetsWrite.close()
+    LetsWrite.close()
+    LetsWrite = open(a,'r')
+    print(LetsWrite.read())
+    LetsWrite.close()
     
-    def main():
-        writeLine('file2.txt')
+def main():
+    writeLine('file2.txt')
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 Question 4:
 
-    def OddLines(a,b):
+```python
+def OddLines(a,b):
 
-        readFile = open(a,'r')
-        writeFile = open(b,'w')
+    readFile = open(a,'r')
+    writeFile = open(b,'w')
+    readLine = readFile.readline()
+    oddValue = 1
+
+    while readLine != '':
+        if oddValue % 2 != 0:
+            writeFile.write(readLine)
+        oddValue += 1
         readLine = readFile.readline()
-        oddValue = 1
 
-        while readLine != '':
-            if oddValue % 2 != 0:
-                writeFile.write(readLine)
-            oddValue += 1
-            readLine = readFile.readline()
+    readFile.close()
+    writeFile.close()
+    writeFile = open(b,'r')
+    print(writeFile.read())
+    writeFile.close()
 
-        readFile.close()
-        writeFile.close()
-        writeFile = open(b,'r')
-        print(writeFile.read())
-        writeFile.close()
+def main():
+    OddLines('file1.txt','file2.txt')
 
-    def main():
-        OddLines('file1.txt','file2.txt')
-
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 Question 5:
 
-    def main():
+```python
+def main():
 
-        weightFile = open('file1.txt','r')
-        priceFile = open('file2.txt','r')
-        unitPriceFile = open('file3.txt','w')
+    weightFile = open('file1.txt','r')
+    priceFile = open('file2.txt','r')
+    unitPriceFile = open('file3.txt','w')
+    weightLine = weightFile.readline()
+
+    while weightLine != '':
+        weightList = weightLine.split(',')
+        priceLine = priceFile.readline()
+
+        while priceLine != '':
+            priceList = priceLine.split(',')
+
+            if weightList[0] == priceList[0]:
+
+                result = 'Total weight of ' + weightList[0] + ' is ' + str(int(weightList[1])) + ' total price of '+ priceList[0] + ' is ' + str(int(priceList[1])) +' so the unit price of ' + weightList[0] + ' is '+ str (int(priceList[1]) / int(weightList[1]))
+
+                unitPriceFile.write(result)
+                unitPriceFile.write('\n')
+
+            priceLine = priceFile.readline()
+        priceFile.seek(0)
         weightLine = weightFile.readline()
 
-        while weightLine != '':
-            weightList = weightLine.split(',')
-            priceLine = priceFile.readline()
+    weightFile.close()
+    priceFile.close()
+    unitPriceFile.close()
 
-            while priceLine != '':
-                priceList = priceLine.split(',')
+    unitPriceFile = open('file3.txt','r')
+    print(unitPriceFile.read())
+    unitPriceFile.close()
 
-                if weightList[0] == priceList[0]:
-
-                    result = 'Total weight of ' + weightList[0] + ' is ' + str(int(weightList[1])) + ' total price of '+ priceList[0] + ' is ' + str(int(priceList[1])) +' so the unit price of ' + weightList[0] + ' is '+ str (int(priceList[1]) / int(weightList[1]))
-
-                    unitPriceFile.write(result)
-                    unitPriceFile.write('\n')
-
-                priceLine = priceFile.readline()
-            priceFile.seek(0)
-            weightLine = weightFile.readline()
-
-        weightFile.close()
-        priceFile.close()
-        unitPriceFile.close()
-
-        unitPriceFile = open('file3.txt','r')
-        print(unitPriceFile.read())
-        unitPriceFile.close()
-
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 Question 6:
 
-    def main():
+```python
+def main():
 
-        noOfLowercases = 0
-        noOfUppercases = 0
-        noOfSpaces = 0
-        poem = open('file1.txt','r')
-        result = poem.read()
+    noOfLowercases = 0
+    noOfUppercases = 0
+    noOfSpaces = 0
+    poem = open('file1.txt','r')
+    result = poem.read()
 
-        for st in result:
+    for st in result:
 
-            if st.islower():
-                noOfLowercases += 1
-            elif st.isupper():
-                noOfUppercases +=1
-            elif st == ' ':
-                noOfSpaces += 1
+        if st.islower():
+            noOfLowercases += 1
+        elif st.isupper():
+            noOfUppercases +=1
+        elif st == ' ':
+            noOfSpaces += 1
 
-        print('No of occurrences of lower case alphabets are:',noOfLowercases)
-        print('No of occurrences of upper case alphabets are:',noOfUppercases)
-        print('No of alphabets are:',noOfLowercases + noOfUppercases)
-        print('No of occurrences of blank spaces are:',noOfSpaces)
-        print('No of occurrences of word "beautiful" are:',result.count('beautiful'))
-        poem.close()
+    print('No of occurrences of lower case alphabets are:',noOfLowercases)
+    print('No of occurrences of upper case alphabets are:',noOfUppercases)
+    print('No of alphabets are:',noOfLowercases + noOfUppercases)
+    print('No of occurrences of blank spaces are:',noOfSpaces)
+    print('No of occurrences of word "beautiful" are:',result.count('beautiful'))
+    poem.close()
 
-        poem = open('file1.txt','r')
-        vowelsLine = poem.readline()
-        ListOfVowels = []
+    poem = open('file1.txt','r')
+    vowelsLine = poem.readline()
+    ListOfVowels = []
 
-        while vowelsLine != '':
-            vowelsList = vowelsLine.split(' ')
+    while vowelsLine != '':
+        vowelsList = vowelsLine.split(' ')
 
-            for i in range(len(vowelsList)):
+        for i in range(len(vowelsList)):
 
-                if vowelsList[i][0] == 'a' or vowelsList[i][0] == 'e' or vowelsList[i][0] == 'i' or vowelsList[i][0] == 'o' or vowelsList[i][0] == 'u' or vowelsList[i][0] == 'A' or vowelsList[i][0] == 'E' or vowelsList[i][0] == 'I' or vowelsList[i][0] == 'O' or vowelsList[i][0] == 'U':
-                    ListOfVowels.append(vowelsList[i])
+            if vowelsList[i][0] == 'a' or vowelsList[i][0] == 'e' or vowelsList[i][0] == 'i' or vowelsList[i][0] == 'o' or vowelsList[i][0] == 'u' or vowelsList[i][0] == 'A' or vowelsList[i][0] == 'E' or vowelsList[i][0] == 'I' or vowelsList[i][0] == 'O' or vowelsList[i][0] == 'U':
+                ListOfVowels.append(vowelsList[i])
                     
-            vowelsLine = poem.readline()
-        print('No of words starts with vowels are:',len(ListOfVowels))
-        poem.close()
+        vowelsLine = poem.readline()
+    print('No of words starts with vowels are:',len(ListOfVowels))
+    poem.close()
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+```
 
 ### Calsses I
 <hr>
