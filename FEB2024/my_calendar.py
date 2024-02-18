@@ -73,18 +73,32 @@ class Calendar:
     
     def __sub__(self,other):
         '''This will sub 2 dates and return new date possibly with decreased day/month/year/hour/minute/seconds'''
-        count_day, count_month, count_year, count_hour, count_minute, count_second = 0, 0, 0, 0, 0, 0
-        old_day, old_month, old_year, old_hour, old_minute, old_second = self.day, self.month, self.year, self.hour, self.minute, self.second
+        day_counter = 0
         if isinstance(other,Calendar):
             if self.__lt__(other):
-                while old_second != other.second:
-                        old_second += 1
-                        count_second += 1
-                return f'{count_second}'
+                min_date = Calendar(self.day,self.month,self.year,self.hour,self.minute,self.second)
+                max_date = Calendar(other.day,other.month,other.year,other.hour,other.minute,other.second)
             else:
-                print('What to do?')
+                max_date = Calendar(self.day,self.month,self.year,self.hour,self.minute,self.second)
+                min_date = Calendar(other.day,other.month,other.year,other.hour,other.minute,other.second)
+
+            while True:
+
+                if min_date.day == max_date.day and min_date.month == max_date.month and min_date.year == max_date.year:
+                    break
+
+                min_date.day += 1
+                day_counter += 1
+                if min_date.day > min_date.check_year(min_date.year,min_date.month):
+                    min_date.month += 1
+                    if min_date.month > 12:
+                        min_date.year += 1
+                        min_date.month = 1
+                    min_date.day = 1
+            
+            return f'Total difference is {day_counter} days.'
         else:
-            print('Not able to perform subtraction, both must be same data type!')
+            print('Both must be same data type')
             sys.exit()
 
     def __eq__(self,other):
@@ -190,5 +204,5 @@ class Calendar:
 
 # One second will change a year 31,12,2023 23:59:59
 c1 = Calendar(1,1,2001,1,1,1)
-c2 = Calendar(1,1,2001,1,1,6)
+c2 = Calendar(1,2,2002,1,1,1)
 print(c1-c2)
