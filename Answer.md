@@ -345,178 +345,182 @@ Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JA
 
 Question 3:
 
-    import sys
+```python
+import sys
 
-    class Student:
-        '''This class is to store students academic record and give percentage and division of a student'''
+class Student:
+    '''This class is to store students academic record and give percentage and division of a student'''
 
-        def __init__(self, roll_num, name, stream, mark_list = None):
-            '''This is the contractor of the object'''
-            self.roll_num = roll_num
-            self.name = name
-            if stream == 'C':
-                self.stream = 'Commerce'
-            elif stream == 'A':
-                self.stream = 'Arts'
-            elif stream == 'S':
-                self.stream = 'Science'
+    def __init__(self, roll_num, name, stream, mark_list = None):
+        '''This is the contractor of the object'''
+        self.roll_num = roll_num
+        self.name = name
+        if stream == 'C':
+            self.stream = 'Commerce'
+        elif stream == 'A':
+            self.stream = 'Arts'
+        elif stream == 'S':
+            self.stream = 'Science'
+        else:
+            print('Allowed streams are A: Arts, C: Commerce, S: Science')
+            sys.exit()
+        self.mark_list = mark_list
+        if mark_list == None or mark_list == []:
+            self.set_marks()
+        self.percentage = self.percent()
+        self.grades = self.grade_gen()
+        self.division = self.percentage_division()
+        
+    def set_marks(self):
+        '''Get the marks for 5 subject from the user and return it as a list'''
+        self.mark_list = []
+        no_of_subject = int(input('Enter no of subjects that you want to enter the marks: '))
+        assert no_of_subject > 0 and no_of_subject < 100
+        for i in range(1,no_of_subject+1):
+            enter_marks = float(input(f'Enter the mark of subject {i}: '))
+            assert enter_marks > 0 and enter_marks <= 100
+            self.mark_list.append(enter_marks)
+
+    def get_stream(self):
+        '''Display the student stream'''
+        return self.stream
+
+    def percent(self):
+        '''Calculated the percentage of entered marks'''
+        mrk_lst = self.mark_list
+        percentage = ( sum(mrk_lst) / (len(mrk_lst) * 100) ) * 100
+        return percentage
+
+    def grade_gen(self):
+        '''Generate grades based on the entered marks by user'''
+        grades = {}
+        mrk_lst = self.mark_list
+        for mrk in mrk_lst:
+            if mrk >= 90:
+                grades[mrk] = 'A'
+            elif mrk < 90 and mrk >= 80:
+                grades[mrk] = 'B'
+            elif mrk < 80 and mrk >= 65:
+                grades[mrk] = 'C'
+            elif mrk < 65 and mrk >= 40:
+                grades[mrk] = 'D'
             else:
-                print('Allowed streams are A: Arts, C: Commerce, S: Science')
-                sys.exit()
-            self.mark_list = mark_list
-            if mark_list == None or mark_list == []:
-                self.set_marks()
-            self.percentage = self.percent()
-            self.grades = self.grade_gen()
-            self.division = self.percentage_division()
-            
-        def set_marks(self):
-            '''Get the marks for 5 subject from the user and return it as a list'''
-            self.mark_list = []
-            no_of_subject = int(input('Enter no of subjects that you want to enter the marks: '))
-            assert no_of_subject > 0 and no_of_subject < 100
-            for i in range(1,no_of_subject+1):
-                enter_marks = float(input(f'Enter the mark of subject {i}: '))
-                assert enter_marks > 0 and enter_marks <= 100
-                self.mark_list.append(enter_marks)
+                grades[mrk] = 'E'
+        return grades
 
-        def get_stream(self):
-            '''Display the student stream'''
-            return self.stream
+    def percentage_division(self):
+        '''Take the percentage and return the division'''
+        percentage = self.percentage
+        if percentage >= 60:
+            return 'I'
+        elif percentage < 60 and percentage >= 50:
+            return 'II'
+        elif percentage < 50 and percentage >= 35:
+            return 'III'
+        else:
+            return 'Fail'
 
-        def percent(self):
-            '''Calculated the percentage of entered marks'''
-            mrk_lst = self.mark_list
-            percentage = ( sum(mrk_lst) / (len(mrk_lst) * 100) ) * 100
-            return percentage
-
-        def grade_gen(self):
-            '''Generate grades based on the entered marks by user'''
-            grades = {}
-            mrk_lst = self.mark_list
-            for mrk in mrk_lst:
-                if mrk >= 90:
-                    grades[mrk] = 'A'
-                elif mrk < 90 and mrk >= 80:
-                    grades[mrk] = 'B'
-                elif mrk < 80 and mrk >= 65:
-                    grades[mrk] = 'C'
-                elif mrk < 65 and mrk >= 40:
-                    grades[mrk] = 'D'
-                else:
-                    grades[mrk] = 'E'
-            return grades
-
-        def percentage_division(self):
-            '''Take the percentage and return the division'''
-            percentage = self.percentage
-            if percentage >= 60:
-                return 'I'
-            elif percentage < 60 and percentage >= 50:
-                return 'II'
-            elif percentage < 50 and percentage >= 35:
-                return 'III'
-            else:
-                return 'Fail'
-
-        def __str__(self):
-            '''Return string representation of object'''
-            return f'Name: {self.name}\nRoll Number: {self.roll_num}\nStream: {self.stream}\nMarks: {self.mark_list}\nAchieved Grades: {self.grades}\nAchieved Percentage: {self.percentage}\nAchieved Division: {self.division}'
+    def __str__(self):
+        '''Return string representation of object'''
+        return f'Name: {self.name}\nRoll Number: {self.roll_num}\nStream: {self.stream}\nMarks: {self.mark_list}\nAchieved Grades: {self.grades}\nAchieved Percentage: {self.percentage}\nAchieved Division: {self.division}'
+```
 
 Question 4:
 
-    import sys
-    class Bank:
-        '''Manage customer details'''
-        def __init__(self, name, account_num, account_type, amount):
-            self.name = name
-            self.account_num = account_num
-            if account_type == 'S':
-                self.account_type = 'Savings'
-            elif account_type == 'C':
-                self.account_type = 'Current'
-            else:
-                print('Invalid entry for account_type')
-                sys.exit()
-            assert amount >= 0
-            self.amount = amount
+```python
+import sys
+class Bank:
+    '''Manage customer details'''
+    def __init__(self, name, account_num, account_type, amount):
+        self.name = name
+        self.account_num = account_num
+        if account_type == 'S':
+            self.account_type = 'Savings'
+        elif account_type == 'C':
+            self.account_type = 'Current'
+        else:
+            print('Invalid entry for account_type')
+            sys.exit()
+        assert amount >= 0
+        self.amount = amount
 
-        def deposit(self, amount):
-            '''This method to add deposit amount'''
-            assert amount > 0
-            self.amount += amount
-            print(f'Amount successfully deposited your balance is {self.amount}')
+    def deposit(self, amount):
+        '''This method to add deposit amount'''
+        assert amount > 0
+        self.amount += amount
+        print(f'Amount successfully deposited your balance is {self.amount}')
 
-        def withdrawal(self, amount):
-            '''This method to subtract the withdrawal amount'''
-            assert amount > 0
-            self.amount -= amount
-            print(f'Amount successfully withdrawal your balance is {self.amount}')
+    def withdrawal(self, amount):
+        '''This method to subtract the withdrawal amount'''
+        assert amount > 0
+        self.amount -= amount
+        print(f'Amount successfully withdrawal your balance is {self.amount}')
 
-        def check_balance(self):
-            '''This method will return the current balance'''
-            print(f'Your current balance is {self.amount}')
+    def check_balance(self):
+        '''This method will return the current balance'''
+        print(f'Your current balance is {self.amount}')
 
-        def find_interest(self):
-            '''This method will find the interest and return the amount'''
-            if self.amount >= 500000:
-                interest_rate = 8 / 100
-                after_a_year = self.amount + (self.amount * interest_rate)
-                print(f'Your current balance is {self.amount}. Since your deposited amount is more than 5,00,000 you will gain interest rate of 8 %, so after a year your balance will be {after_a_year}')
-            elif self.amount < 500000 and self.amount >= 300000:
-                interest_rate = 7 / 100
-                after_a_year = self.amount + (self.amount * interest_rate)
-                print(f'Your current balance is {self.amount}. Since your deposited amount is between less than 5,00,000 and more than or equal to 3,00,00 you will gain interest rate of 7 %, so after a year your balance will be {after_a_year}')
-            elif self.amount < 300000 and self.amount >= 100000:
-                interest_rate = 5 / 100
-                after_a_year = self.amount + (self.amount * interest_rate)
-                print(f'Your current balance is {self.amount}. Since your deposited amount is between less than 3,00,000 and more than or equal to 1,00,00 you will gain interest rate of 5 %, so after a year your balance will be {after_a_year}')
-            elif self.amount < 100000:
-                interest_rate = 3 / 100
-                after_a_year = self.amount + (self.amount * interest_rate)
-                print(f'Your current balance is {self.amount}. Since your deposited amount is less than 1,00,000 you will gain interest rate of 3 %, so after a year your balance will be {after_a_year}')
-            elif self.amount == 0:
-                print('You balance is {self.amount}, so your are applicable for annual interest')
+    def find_interest(self):
+        '''This method will find the interest and return the amount'''
+        if self.amount >= 500000:
+            interest_rate = 8 / 100
+            after_a_year = self.amount + (self.amount * interest_rate)
+            print(f'Your current balance is {self.amount}. Since your deposited amount is more than 5,00,000 you will gain interest rate of 8 %, so after a year your balance will be {after_a_year}')
+        elif self.amount < 500000 and self.amount >= 300000:
+            interest_rate = 7 / 100
+            after_a_year = self.amount + (self.amount * interest_rate)
+            print(f'Your current balance is {self.amount}. Since your deposited amount is between less than 5,00,000 and more than or equal to 3,00,00 you will gain interest rate of 7 %, so after a year your balance will be {after_a_year}')
+        elif self.amount < 300000 and self.amount >= 100000:
+            interest_rate = 5 / 100
+            after_a_year = self.amount + (self.amount * interest_rate)
+            print(f'Your current balance is {self.amount}. Since your deposited amount is between less than 3,00,000 and more than or equal to 1,00,00 you will gain interest rate of 5 %, so after a year your balance will be {after_a_year}')
+        elif self.amount < 100000:
+            interest_rate = 3 / 100
+            after_a_year = self.amount + (self.amount * interest_rate)
+            print(f'Your current balance is {self.amount}. Since your deposited amount is less than 1,00,000 you will gain interest rate of 3 %, so after a year your balance will be {after_a_year}')
+        elif self.amount == 0:
+            print('You balance is {self.amount}, so your are applicable for annual interest')
 
-        def __str__(self):
-            return f'Name: {self.name}\nAccount Number: {self.account_num}\naccount_type: {self.account_type}\nBalance: {self.amount}'
+    def __str__(self):
+        return f'Name: {self.name}\nAccount Number: {self.account_num}\naccount_type: {self.account_type}\nBalance: {self.amount}'
+```
 
 Question 5:
+```python
+class Item:
+    '''To track a Item available in a shop'''
+    def __init__(self, name, price, quantity):
+        '''This is a class initializer'''
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+        self.profit = 0
+    
+    def purchase(self, new_quantity):
+        '''This method is track the item available in shop and purchase'''
+        assert new_quantity > 0 and isinstance(new_quantity, int)
+        if new_quantity > self.quantity:
+            print(f'Invalid Input, In shop we have {self.quantity} but you have entered purchased quantity as {new_quantity}')
+        else:
+            self.quantity -= new_quantity
+            self.profit += (new_quantity * self.price)
+        
+        if self.quantity == 0:
+            print('A reminder! We are out of order')
 
-        class Item:
-            '''To track a Item available in a shop'''
-            def __init__(self, name, price, quantity):
-                '''This is a class initializer'''
-                self.name = name
-                self.price = price
-                self.quantity = quantity
-                self.profit = 0
-            
-            def purchase(self, new_quantity):
-                '''This method is track the item available in shop and purchase'''
-                assert new_quantity > 0 and isinstance(new_quantity, int)
-                if new_quantity > self.quantity:
-                    print(f'Invalid Input, In shop we have {self.quantity} but you have entered purchased quantity as {new_quantity}')
-                else:
-                    self.quantity -= new_quantity
-                    self.profit += (new_quantity * self.price)
-                
-                if self.quantity == 0:
-                    print('A reminder! We are out of order')
+    def increase_stock(self, new_quantity):
+        '''This method is track the item available in shop'''
+        assert new_quantity > 0 and isinstance(new_quantity, int)
+        self.quantity += new_quantity
 
-            def increase_stock(self, new_quantity):
-                '''This method is track the item available in shop'''
-                assert new_quantity > 0 and isinstance(new_quantity, int)
-                self.quantity += new_quantity
+    def display(self):
+        '''This method will display the Item price and quantity'''
+        print(f'Price and Quantity of "{self.name}"\n--> Price: {self.price}\n--> Quantity: {self.quantity}')
 
-            def display(self):
-                '''This method will display the Item price and quantity'''
-                print(f'Price and Quantity of "{self.name}"\n--> Price: {self.price}\n--> Quantity: {self.quantity}')
-
-            def __str__(self):
-                '''This method will print'''
-                return f'Item Name: {self.name}\nPrice: {self.price}\nQuantity: {self.quantity}\nProfit: {self.profit}'
-
+    def __str__(self):
+        '''This method will print'''
+        return f'Item Name: {self.name}\nPrice: {self.price}\nQuantity: {self.quantity}\nProfit: {self.profit}'
+```
 Question 6:
 
 Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JAN2024/my_date.py) I already created a method name _future_date_ will add the day, month and year.
@@ -526,56 +530,58 @@ Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JA
 
 **Find the Next / Previous Letter**
 
-    import random
+```python
+import random
 
-    english_alphabets = {1 : 'a', 2 : 'b', 3 : 'c', 4 : 'd', 5 : 'e', 6 : 'f', 7 : 'g', 8 : 'h', 9 : 'i', 10 : 'j', 11 : 'k', 12 : 'l', 13 : 'm', 14 : 'n', 15 : 'o', 16 : 'p', 17 : 'q', 18 : 'r', 19 : 's', 20 : 't', 21 : 'u', 22 : 'v', 23 : 'w', 24 : 'x', 25 : 'y', 26 : 'z'}
-    user_input = input("Let's start the game! press 'S' to Start or 'Q' to quit: ")
-    score = 0
-    no_of_question = 0
-    list_choice = ['Next','Previous']
+english_alphabets = {1 : 'a', 2 : 'b', 3 : 'c', 4 : 'd', 5 : 'e', 6 : 'f', 7 : 'g', 8 : 'h', 9 : 'i', 10 : 'j', 11 : 'k', 12 : 'l', 13 : 'm', 14 : 'n', 15 : 'o', 16 : 'p', 17 : 'q', 18 : 'r', 19 : 's', 20 : 't', 21 : 'u', 22 : 'v', 23 : 'w', 24 : 'x', 25 : 'y', 26 : 'z'}
+user_input = input("Let's start the game! press 'S' to Start or 'Q' to quit: ")
+score = 0
+no_of_question = 0
+list_choice = ['Next','Previous']
 
-    open_file = open('demo_write.txt','w')
+open_file = open('demo_write.txt','w')
 
-    if user_input == 'Q' or user_input == 'q':
-        print('Okay, we play another time!')
-    else:
-        while user_input != '':
-            choice = random.choice(list_choice)
-            random_int = random.randint(2,25)
-            if choice == 'Next':
-                print(f'Find the "{choice}" letter of "{english_alphabets[random_int]}"')
-                open_file.write(f'Question: Find the "{choice}" letter of "{english_alphabets[random_int]}"\n')
-                no_of_question += 1
-                user_input = input('Enter the "next" letter in lowercase: ')
-                open_file.write(f'Answer: {user_input}\n')
-                if user_input == english_alphabets[random_int + 1]:
-                    score += 1
-                    open_file.write(f'Correct Answer! Score is {score}\n')
-                elif user_input == '':
-                    print('Empty String!, Game Ends!!!')
-                else:
-                    # score -= 1
-                    print(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int + 1]}"')
-                    open_file.write(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int + 1]}"\n')
+if user_input == 'Q' or user_input == 'q':
+    print('Okay, we play another time!')
+else:
+    while user_input != '':
+        choice = random.choice(list_choice)
+        random_int = random.randint(2,25)
+        if choice == 'Next':
+            print(f'Find the "{choice}" letter of "{english_alphabets[random_int]}"')
+            open_file.write(f'Question: Find the "{choice}" letter of "{english_alphabets[random_int]}"\n')
+            no_of_question += 1
+            user_input = input('Enter the "next" letter in lowercase: ')
+            open_file.write(f'Answer: {user_input}\n')
+            if user_input == english_alphabets[random_int + 1]:
+                score += 1
+                open_file.write(f'Correct Answer! Score is {score}\n')
+            elif user_input == '':
+                print('Empty String!, Game Ends!!!')
             else:
-                print(f'Find the "{choice}" letter of "{english_alphabets[random_int]}"')
-                open_file.write(f'Question: Find the "{choice}" letter of "{english_alphabets[random_int]}"\n')
-                no_of_question += 1
-                user_input = input('Enter the "previous" letter in lowercase: ')
-                open_file.write(f'Answer: {user_input}\n')
-                if user_input == english_alphabets[random_int - 1]:
-                    score += 1
-                    open_file.write(f'Correct Answer! Score is {score}\n')
-                elif user_input == '':
-                    print('Empty String!, Game Ends!!!')
-                else:
-                    # score -= 1
-                    print(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int - 1]}"')
-                    open_file.write(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int + 1]}"\n')
-        print(f'Out of {no_of_question - 1} you scored {score}')
-        open_file.write(f'Out of {no_of_question - 1} question you scored {score}')
+                # score -= 1
+                print(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int + 1]}"')
+                open_file.write(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int + 1]}"\n')
+        else:
+            print(f'Find the "{choice}" letter of "{english_alphabets[random_int]}"')
+            open_file.write(f'Question: Find the "{choice}" letter of "{english_alphabets[random_int]}"\n')
+            no_of_question += 1
+            user_input = input('Enter the "previous" letter in lowercase: ')
+            open_file.write(f'Answer: {user_input}\n')
+            if user_input == english_alphabets[random_int - 1]:
+                score += 1
+                open_file.write(f'Correct Answer! Score is {score}\n')
+            elif user_input == '':
+                print('Empty String!, Game Ends!!!')
+            else:
+                # score -= 1
+                print(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int - 1]}"')
+                open_file.write(f'Oops! Wrong Answer! The correct answer is "{english_alphabets[random_int + 1]}"\n')
+    print(f'Out of {no_of_question - 1} you scored {score}')
+    open_file.write(f'Out of {no_of_question - 1} question you scored {score}')
 
-    open_file.close()
+open_file.close()
+```
 
 # February - 2024
 
