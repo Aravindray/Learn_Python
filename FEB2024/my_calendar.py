@@ -1,5 +1,9 @@
 # This is test my knowledge to create a new calendar based on previous module that I created as my_date (JAN2024) and my_time (FEB2024)
 
+# for adding days I used days to years but recommended method is add years to days (smaller unit to higher unit - I used).
+# for subtracting days I used days to years which is the recommended method (smaller unit to higher unit - I used).
+
+
 '''This is the module for calendar'''
 import sys
 
@@ -240,8 +244,75 @@ class Calendar:
                         self.day = 1
                     self.hour = 0
 
-        # return f'{Calendar(day,month,year,hour,minute,second)}'
+    def sub(self,sub_day=0,sub_month=0,sub_year=0,sub_hour=0,sub_minute=0,sub_second=0):
+        '''This will subtract the given parameter and return new date'''
+        if sub_day >= 1:
+            for _ in range(1,sub_day+1):
+                self.day -= 1
+                if self.day < 1:
+                    self.month -= 1
+                    if self.month < 1:
+                        self.year -= 1
+                        self.month = 12
+                    self.day = self.check_year(self.year,self.month)
+        
+        if sub_month >= 1:
+            for _ in range(1,sub_month+1):
+                self.month -= 1
+                if self.month < 1:
+                    self.year -= 1
+                    self.month = 12
 
+        if sub_year >= 1:
+            self.year -= sub_year
+
+        if sub_second >= 1:
+            for _ in range(1,sub_second+1):
+                self.second -= 1
+                if self.second < 0:
+                    self.minute -= 1
+                    if self.minute < 0:
+                        self.hour -= 1
+                        if self.hour < 0:
+                            self.day -= 1
+                            if self.day < 1:
+                                self.month -= 1
+                                if self.month < 1:
+                                    self.year -= 1
+                                    self.month = 12
+                                self.day = self.check_year(self.year,self.month)
+                            self.hour = 23
+                        self.minute = 59
+                    self.second = 59
+        
+        if sub_minute >= 1:
+            for _ in range(1,sub_minute+1):
+                self.minute -= 1
+                if self.minute < 0:
+                    self.hour -= 1
+                    if self.hour < 0:
+                        self.day -= 1
+                        if self.day < 1:
+                            self.month -= 1
+                            if self.month < 1:
+                                self.year -= 1
+                                self.month = 12
+                            self.day = self.check_year(self.year,self.month)
+                        self.hour = 23
+                    self.minute = 59
+
+        if sub_hour >= 1:
+            for _ in range(1,sub_hour+1):
+                self.hour -= 1
+                if self.hour < 0:
+                    self.day -= 1
+                    if self.day < 1:
+                        self.month -= 1
+                        if self.month < 1:
+                            self.year -= 1
+                            self.month = 12
+                        self.day = self.check_year(self.year,self.month)
+                    self.hour = 23
 
     def set_day(self,new_day):
         '''This will update new day of an object'''
@@ -313,7 +384,18 @@ class Calendar:
 
 
 # One second will change a year 31,12,2023 23:59:59
+print('c1')
 c1 = Calendar(19,2,2024,0,0,0)
 print(c1)
 c1.add(add_month=7,add_day=123)
 print(c1)
+c1.sub(sub_month=7,sub_day=123)
+print(c1)
+
+print('c2')
+c2 = Calendar(31,12,2023,23,59,59)
+print(c2)
+c2.add(add_second=1)
+print(c2)
+c2.sub(sub_second=1)
+print(c2)
