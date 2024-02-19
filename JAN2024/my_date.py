@@ -354,3 +354,8 @@ class MyDate:
             month = str(self.month)
         
         return f'{day}-{month}-{str(self.year)}'
+
+
+d1 = MyDate(19,2,2024)
+print(d1)
+d1.future_date(fmonths=7,fdays=123)

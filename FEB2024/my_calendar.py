@@ -74,6 +74,11 @@ class Calendar:
     def __sub__(self,other):
         '''This will sub 2 dates and return new date possibly with decreased day/month/year/hour/minute/seconds'''
         day_counter = 0
+        seconds_counter = 0
+        day_checker = True
+        day_diff = 0
+        month_checker = True
+        month_diff = 0
         if isinstance(other,Calendar):
             if self.__lt__(other):
                 min_date = Calendar(self.day,self.month,self.year,self.hour,self.minute,self.second)
@@ -95,8 +100,38 @@ class Calendar:
                         min_date.year += 1
                         min_date.month = 1
                     min_date.day = 1
+                
+                if day_checker:
+                    if min_date.day == max_date.day:
+                        day_diff = day_counter
+                        day_checker = False
+
+                if month_checker:
+                    if min_date.month == max_date.month and min_date.day == max_date.day:
+                        month_diff = day_counter
+                        month_checker = False
+                    
+            while True:
+                if min_date.second == max_date.second and min_date.minute == max_date.minute and min_date.hour == max_date.hour:
+                    break
+
+                min_date.second += 1
+                seconds_counter += 1
+                if min_date.second > 59:
+                    min_date.minute += 1
+                    if min_date.minute > 59:
+                        min_date.hour += 1
+                        min_date.minute = 0
+                    min_date.second = 0
             
-            return f'Total difference is {day_counter} days.'
+            result_year = day_counter // 365
+            result_month = month_diff // 30
+            result_day = day_diff
+            result_hour = seconds_counter // 3600
+            result_minute = (seconds_counter - result_hour * 3600) // 60
+            result_second = seconds_counter - result_hour * 3600 - result_minute * 60
+            
+            return f'Total difference is {result_year} year {result_month} month {result_day} days (or total {day_counter} days) {result_hour} hours {result_minute} minute {result_second} second'
         else:
             print('Both must be same data type')
             sys.exit()
@@ -132,6 +167,81 @@ class Calendar:
         else:
             print('Only able to sort if both are same data type or same object')
             sys.exit()
+    
+
+    def add(self,add_day=0,add_month=0,add_year=0,add_hour=0,add_minute=0,add_second=0):
+        '''This will add the given parameter and return new date'''
+
+        if add_day >= 1:
+            for i in range(1,add_day+1):
+                self.day += 1
+                if self.day > self.check_year(self.year,self.month):
+                    self.month += 1
+                    if self.month > 12:
+                        self.year += 1
+                        self.month = 1
+                    self.day = 1
+
+        if add_month >= 1:
+            for i in range(1,add_month+1):
+                self.month += 1
+                if self.month > 12:
+                    self.year += 1
+                    self.month = 1
+
+        if add_year >= 1:
+            self.year += add_year
+
+        if add_second >= 1:
+            for i in range(1,add_second+1):
+                self.second += 1
+                if self.second > 59:
+                    self.minute += 1
+                    if self.minute > 59:
+                        self.hour += 1
+                        if self.hour > 23:
+                            self.day += 1
+                            if self.day > self.check_year(self.year,self.month):
+                                self.month += 1
+                                if self.month > 12:
+                                    self.year += 1
+                                    self.month = 1
+                                self.day = 1
+                            self.hour = 0
+                        self.minute = 0
+                    self.second = 0
+
+        if add_minute >= 1:
+            for i in range(1,add_minute+1):
+                self.minute += 1
+                if self.minute > 59:
+                    self.hour += 1
+                    if self.hour > 23:
+                        self.day += 1
+                        if self.day > self.check_year(self.year,self.month):
+                            self.month += 1
+                            if self.month > 12:
+                                self.year += 1
+                                self.month = 1
+                            self.day = 1
+                        self.hour = 0
+                    self.minute = 0
+
+        if add_hour >= 1:
+            for i in range(1,add_hour+1):
+                self.hour += 1
+                if self.hour > 23:
+                    self.day += 1
+                    if self.day > self.check_year(self.year,self.month):
+                        self.month += 1
+                        if self.month > 12:
+                            self.year += 1
+                            self.month = 1
+                        self.day = 1
+                    self.hour = 0
+
+        # return f'{Calendar(day,month,year,hour,minute,second)}'
+
 
     def set_day(self,new_day):
         '''This will update new day of an object'''
@@ -203,6 +313,7 @@ class Calendar:
 
 
 # One second will change a year 31,12,2023 23:59:59
-c1 = Calendar(1,1,2001,1,1,1)
-c2 = Calendar(1,2,2002,1,1,1)
-print(c1-c2)
+c1 = Calendar(19,2,2024,0,0,0)
+print(c1)
+c1.add(add_month=7,add_day=123)
+print(c1)
