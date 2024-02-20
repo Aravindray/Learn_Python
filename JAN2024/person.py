@@ -1,4 +1,6 @@
 '''This is a module for person'''
+from my_date import MyDate
+
 class Person:
     '''This class is the blueprint of person'''
 
@@ -58,4 +60,3 @@ class Person:
         '''This will return Deleted!! when an class object was be deleted'''
         print('Deleted!!')
         Person.dec_person_count()
-        Person.get_person_count()

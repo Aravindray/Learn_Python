@@ -141,12 +141,21 @@ class Calendar:
             sys.exit()
 
     def __eq__(self,other):
-        '''This will compare 2 dates and return True or False'''
+        '''This will compare the equality of 2 dates and return True or False'''
         if isinstance(other,Calendar):
             if self.year == other.year and self.month == other.month and self.day == other.day:
                 return True
-            else:
-                return False
+            return False
+        else:
+            print('To perform both must be same data type or same object')
+            sys.exit()
+
+    def __ne__(self,other):
+        '''This class will compare the not equality of 2 dates and return True if both are not equal else return False'''
+        if isinstance(other,Calendar):
+            if self.year != other.year and self.month != other.month and self.day != other.day:
+                return True
+            return False
         else:
             print('To perform both must be same data type or same object')
             sys.exit()
@@ -382,20 +391,7 @@ class Calendar:
         else: second = self.second
         return f'{day}/{month}/{year} {hour}:{minute}:{second}' # DD/MM/YYYY HH:MM:SS
 
-
-# One second will change a year 31,12,2023 23:59:59
-print('c1')
-c1 = Calendar(19,2,2024,0,0,0)
-print(c1)
-c1.add(add_month=7,add_day=123)
-print(c1)
-c1.sub(sub_month=7,sub_day=123)
-print(c1)
-
-print('c2')
-c2 = Calendar(31,12,2023,23,59,59)
-print(c2)
-c2.add(add_second=1)
-print(c2)
-c2.sub(sub_second=1)
-print(c2)
+dates = [Calendar(15,5,1999), Calendar(21,12,2015), Calendar(30,12,2015), Calendar(11,1,1888)]
+dates.sort()
+for date in dates:
+    print(date)
