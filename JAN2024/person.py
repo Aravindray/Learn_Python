@@ -54,7 +54,7 @@ class Person:
 
     def __str__(self):
         '''This will print'''
-        return f'Name: {self.name}\nDOB: {self.dob}\nAddress: {self.address}\n'
+        return f'Name: {self.name}\nDOB: {self.dob}\nAddress: {self.address}'
     
     def __del__(self):
         '''This will return Deleted!! when an class object was be deleted'''

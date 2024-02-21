@@ -22,6 +22,10 @@ class Student(Person):
         '''This is the abstract method'''
         pass
 
+    def __str__(self):
+        '''This will print'''
+        return f'Name: {self.name}\nRoll Number: {self.roll_number}\nClass: {self.standard}\nScored Mark: {self.obtained_mark}'
+
 class Grade(Student):
     '''This is the derived class from Student'''
     total_mark = 600
@@ -46,7 +50,11 @@ class Grade(Student):
     def percentage(self):
         '''This will calculate percentage'''
         percent = (self.obtained_mark / Grade.get_total_mark()) * 100
-        return percent
+        return round(percent,2)
+    
+    def __str__(self):
+        '''This will print'''
+        return f'{super().__str__()}\nTotal Mark: {Grade.get_total_mark()}\nPercentage: {self.percentage()}'
 
 class PostGrad(Student):
     '''This class is the derived class of Student'''
@@ -72,8 +80,15 @@ class PostGrad(Student):
     def percentage(self):
         '''This will calculate percentage'''
         percent = (self.obtained_mark / PostGrad.get_total_mark()) * 100
-        return percent
+        return round(percent,2)
+    
+    def __str__(self):
+        '''This will print'''
+        return f'{super().__str__()}\nTotal Mark: {PostGrad.get_total_mark()}\nPercentage: {self.percentage()}'
 
 
 grade1 = Grade('Aravind',1001,'ECE',500,'2016')
-print(grade1.percentage())
+print(grade1)
+print()
+postgrade1 = PostGrad('Dani',1002,'MECH',302,'2017')
+print(postgrade1)
