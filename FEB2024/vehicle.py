@@ -87,9 +87,3 @@ class CommercialVehicle(Vehicle):
     def __str__(self):
         '''This will print'''
         return f'{super().__str__()}\nLoad Capacity: {self.get_load_capacity()}'
-
-
-cv1 = CommercialVehicle(1,'what is make','what is model','white',1000)
-print(cv1)
-pv1 = PassengerVehicle(1,'what is make','what is model','black',50)
-print(pv1)

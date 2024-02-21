@@ -664,3 +664,10 @@ class Triangle(Shapes):
         '''This will print rectangle's width and height'''
         return f'Shape Type: {self.shape_type}\nBase: {self.x}\nHeight: {self.y}'
 ```
+Question 6:
+
+Answer File Path: I have implemented the answer as a separate module class _[Student](https://github.com/Aravindray/Python/blob/main/FEB2024/students.py)_
+
+Question 7 & 8:
+
+Answer File Path: I have also implemented the answers as a separate module classes _[Vehicle, PassengerVehicle, CommercialVehicle](https://github.com/Aravindray/Python/blob/main/FEB2024/vehicle.py)_ & classes _[Car, Bus, Autorickshaw](https://github.com/Aravindray/Python/blob/main/FEB2024/passenger_vehicle.py)_
