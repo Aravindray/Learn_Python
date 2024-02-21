@@ -1,5 +1,5 @@
 '''This is the derived class of person'''
-from JAN2024.person import Person
+from  import Person
 from my_calendar import Calendar
 import sys
 
@@ -58,7 +58,7 @@ class Employee(Person):
 
     def __str__(self):
         '''This will print'''
-        return f'Name: {self.name}\nDOB: {self.dob}\nAddress: {self.address}\nEmployee ID: {self.employee_id}\nEmployee Salary: {self.basic_salary}\nEmployee Joining date: {self.date_of_joining}'
+        return f'{Person.__str__(self)}Employee ID: {self.get_id()}\nEmployee Salary: {self.get_salary()}\nEmployee Joining date: {self.get_date_of_joining()}'
     
     def __del__(self):
         '''This will delete the employee count when user execute del method'''
@@ -66,3 +66,7 @@ class Employee(Person):
         Employee.dec_employee_count()
 
 
+emp1 = Employee('Aravind',Calendar(16,5,1999),'Earth',50000,Calendar(26,8,2024))
+print(emp1)
+emp2 = Employee('Dani',Calendar(12,12,1998),'Earth',50000,Calendar(3,3,2024))
+print(emp2)
