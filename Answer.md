@@ -603,4 +603,64 @@ open_file.close()
 
 Question 1:
 
-Answer File Path: Base class [Points]() and derived class [Linesegments](). I just added 2 methods only which are Distance and Midpoint.
+Answer File Path: Base class _[Points](https://github.com/Aravindray/Python/blob/main/FEB2024/points.py)_ and derived class _[Linesegments](https://github.com/Aravindray/Python/blob/main/FEB2024/line_segments.py)_. I just added 2 methods only which are Distance and Midpoint.
+
+Question 2 & 3:
+
+Answer File Path: I have implemented the method in class _[Calendar](https://github.com/Aravindray/Python/blob/main/FEB2024/my_calendar.py)_
+
+Question 4:
+
+Need more time to execute
+
+Question 5:
+
+```python
+from abc import abstractmethod, ABCMeta
+
+class Shapes:
+    '''This is the abstract class with area function'''
+    __metaclass__ = ABCMeta
+    def __init__(self,shape_type,x,y):
+        '''Objective: to initialize the object with shape type and it's dimensions
+        shape type - str
+        x, y - number type'''
+        self.shape_type = shape_type
+        self.x = x
+        self.y = y
+
+    @abstractmethod
+    def compute_area(self):
+        '''This is a abstract method'''
+        pass
+
+class Rectangle(Shapes):
+    '''This is the derived class of shapes'''
+    def __init__(self,width,height):
+        '''This will initialize the width and height'''
+        super().__init__('Rectangle',width,height)
+    
+    def compute_area(self):
+        '''formula to compute area of rectangle is width * height'''
+        area = self.x * self.y
+        return area
+
+    def __str__(self):
+        '''This will print rectangle's width and height'''
+        return f'Shape Type: {self.shape_type}\nWidth: {self.x}\nHeight: {self.y}'
+
+class Triangle(Shapes):
+    '''This is the derived class of shapes'''
+    def __init__(self,base,height):
+        '''This will initialize the base and height'''
+        super().__init__('Triangle',base,height)
+
+    def compute_area(self):
+        '''Formula to compute area of triangle is 1/2 * base * height'''
+        area = 0.5 * self.x * self.y
+        return area
+    
+    def __str__(self):
+        '''This will print rectangle's width and height'''
+        return f'Shape Type: {self.shape_type}\nBase: {self.x}\nHeight: {self.y}'
+```
