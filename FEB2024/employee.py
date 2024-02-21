@@ -1,7 +1,9 @@
 '''This is the derived class of person'''
-from  import Person
-from my_calendar import Calendar
 import sys
+sys.path.append('d:\\Github\\Python\\JAN2024')
+from my_calendar import Calendar
+from person import Person
+
 
 class Employee(Person):
     '''The class attributes are next_id and employee_count'''

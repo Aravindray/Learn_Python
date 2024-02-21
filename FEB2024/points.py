@@ -26,4 +26,4 @@ class Points:
     
     def __str__(self):
         '''This will print'''
-        return f'({self.x},{self.y})'
+        return f'({self.x}, {self.y})'

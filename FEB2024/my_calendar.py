@@ -374,7 +374,11 @@ class Calendar:
         else:
             print('Entered second is out of range')
             sys.exit()
-    
+
+    # def __del__(self):
+    #     '''This will delete'''
+    #     print('Deleted!!!')
+
     def __str__(self):
         '''This will print'''
         if self.day <= 9: day = '0' + str(self.day)
@@ -390,8 +394,3 @@ class Calendar:
         if self.second <= 9: second = '0' + str(self.second) 
         else: second = self.second
         return f'{day}/{month}/{year} {hour}:{minute}:{second}' # DD/MM/YYYY HH:MM:SS
-
-dates = [Calendar(15,5,1999), Calendar(21,12,2015), Calendar(30,12,2015), Calendar(11,1,1888)]
-dates.sort()
-for date in dates:
-    print(date)

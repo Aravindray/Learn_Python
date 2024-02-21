@@ -600,3 +600,7 @@ open_file.close()
 <hr>
 
 **Exercises**
+
+Question 1:
+
+Answer File Path: Base class [Points]() and derived class [Linesegments](). I just added 2 methods only which are Distance and Midpoint.
