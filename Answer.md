@@ -675,3 +675,23 @@ Answer File Path: I have also implemented the answers as a separate module class
 Question 9:
 
 Answer File Path: I have also implemented the answer as a separate module classes _[Account, Savings, Current](https://github.com/Aravindray/Python/blob/main/FEB2024/account.py)_
+
+Question 10:
+
+```python
+class B:
+    def __init__(self,attr):
+        self.attr = attr
+
+    def __str__(self):
+        return f'{self.attr}'
+
+class A(B):
+    pass
+
+ob = A(0)
+print(issubclass(A,B))
+print(hasattr(ob,'attr'))
+setattr(ob,'attr',70)
+delattr(ob,'attr')
+```
