@@ -1,4 +1,5 @@
 # This script is about Bank and Account
+import sys
 
 class Account:
     '''This class is perform basic interest calculation'''
@@ -51,8 +52,12 @@ class Saving(Account):
     minimum_deposit_amount = 2000
     def __init__(self,name,account_number,account_type,amount_deposited):
         '''This is a class constructor with minimum deposit amount'''
-        super().__init__(name,account_number,account_type,amount_deposited)
-        self.minimum_deposit_amount = Saving.get_minimum_deposit_amount()
+        if account_type == 'Saving' or account_type == 'saving':
+            super().__init__(name,account_number,account_type,amount_deposited)
+            self.minimum_deposit_amount = Saving.get_minimum_deposit_amount()
+        else:
+            print('Invalid account type!')
+            sys.exit()
 
     @staticmethod
     def get_minimum_deposit_amount():
@@ -61,7 +66,12 @@ class Saving(Account):
     
     def property_interest(self):
         '''This method calculate interest'''
-        pass
+        principal_amount = float(input('Enter the principal amount: '))
+        interest_rate = float(input('Enter the interest rate as %: '))
+        duration = float(input('Enter the period as year: '))
+        interest_amount = interest_rate / 100
+        simple_interest = principal_amount * interest_amount * duration
+        return simple_interest
 
     def __str__(self):
         '''This will print'''
@@ -72,8 +82,12 @@ class Current(Account):
     minimum_deposit_amount = 10000
     def __init__(self,name,account_number,account_type,amount_deposited):
         '''This is a class constructor with minimum deposit amount'''
-        super().__init__(name,account_number,account_type,amount_deposited)
-        self.minimum_deposit_amount = Current.get_minimum_deposit_amount()
+        if account_type == 'Current' or account_type == 'current':
+            super().__init__(name,account_number,account_type,amount_deposited)
+            self.minimum_deposit_amount = Current.get_minimum_deposit_amount()
+        else:
+            print('Invalid Account Type!')
+            sys.exit()
 
     @staticmethod
     def get_minimum_deposit_amount():
