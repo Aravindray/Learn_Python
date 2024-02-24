@@ -29,23 +29,24 @@ class Sorting:
             if swap == False:
                 break
 
-    def selection_sort(self):
-        '''Selection sorting'''
-        pass
+    def insertion_sort(self):
+        '''insertion sorting'''
+        length_of_lst = len(self.lst)
+        for i in range(1,length_of_lst):
+            temp = self.lst[i]
+            j = i - 1
+            while j >= 0 and self.lst[j] > temp:
+                self.lst[j + 1] = self.lst[j]
+                j = j - 1
+            self.lst[j+1] = temp
 
     def __str__(self):
         '''This will return the lst'''
         return f'{self.lst}'
 
 
-# names = ['Vijaya', 'Sanvi', 'Ruby', 'Zafar', 'Maya', 'Anya']
-# # numbers = [1001,1006,1002,1005,1004,1003]
-# s1 = Sorting(names)
-# print(s1)
-# s1.bubble_sort()
-# print(s1)
-
-new_names = ['Ruby', 'Sanvi', 'Maya', 'Vijaya', 'Anya', 'Zafar']
-s2 = Sorting(new_names)
-s2.bubble_sort()
-print(s2)
+names = ['Vijaya', 'Sanvi', 'Anya', 'Zafar', 'Maya', 'Ruby']
+s1 = Sorting(names)
+print(s1)
+s1.insertion_sort()
+print(s1)
