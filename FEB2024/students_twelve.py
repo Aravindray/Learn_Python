@@ -10,4 +10,4 @@ class Student:
     
     def __str__(self):
         '''This will return the object of printable one'''
-        return f'Roll Number: {self.roll_number}, Name: {self.name}, Mark: {self.mark}'
+        return f'Roll Number: {self.roll_number}\nName: {self.name}\nMark: {self.mark}'

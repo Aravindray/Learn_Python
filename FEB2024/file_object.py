@@ -27,12 +27,3 @@ def object_to_text(source, destination):
         pass
     f1.close()
     f2.close()
-
-
-tto_source = 'std_text.txt'
-tto_destination = 'std_object.txt'
-text_to_object(tto_source,tto_destination)
-
-ott_source = 'std_object.txt'
-ott_destination = 'text_std.txt'
-object_to_text(ott_source, ott_destination)
