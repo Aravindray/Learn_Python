@@ -7,6 +7,7 @@
   - [Games](#games)
 - [February - 2024](#february---2024)
     - [Calsses II](#calsses-ii)
+  - [Sorting Methods](#sorting-methods)
 
 <br>
 
@@ -694,4 +695,39 @@ print(issubclass(A,B))
 print(hasattr(ob,'attr'))
 setattr(ob,'attr',70)
 delattr(ob,'attr')
+```
+
+## Sorting Methods
+
+**Merge Sort**
+
+```python
+def merge(lst1, lst2):
+    sorted_list = []
+    while len(lst1) != 0 and len(lst2) != 0:
+        if lst1[0] < lst2[0]:
+            sorted_list.append(lst1[0])
+            lst1.remove(lst1[0])
+        else:
+            sorted_list.append(lst2[0])
+            lst2.remove(lst2[0])
+
+    if len(lst2) == 0:
+        sorted_list += lst1
+    else:
+        sorted_list += lst2
+    return sorted_list
+
+def merge_sort(lst):
+    if len(lst) == 0 or len(lst) == 1:
+        return lst
+    else:
+        mid = len(lst) // 2
+        lst1 = merge_sort(lst[:mid])
+        lst2 = merge_sort(lst[mid:])
+        return merge(lst1, lst2)
+
+numbers = [15, 12, 14, 17, 13, 11, 12, 16, 14]
+print(numbers)
+print(merge_sort(numbers))
 ```
