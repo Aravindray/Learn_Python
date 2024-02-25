@@ -43,10 +43,3 @@ class Sorting:
     def __str__(self):
         '''This will return the lst'''
         return f'{self.lst}'
-
-
-names = ['Vijaya', 'Sanvi', 'Anya', 'Zafar', 'Maya', 'Ruby']
-s1 = Sorting(names)
-print(s1)
-s1.insertion_sort()
-print(s1)

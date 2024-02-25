@@ -15,8 +15,7 @@ def binary_search(lst,key):
     return False
 
 def main():
-    import random
-    lst = random.sample(range(1,1000),99)
+    lst = [1, 63, 64, 65, 23, 609, 321, 4356, 326, 323]
     lst.sort()
     print(lst)
     key = int(input('Enter the key to find: '))

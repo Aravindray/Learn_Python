@@ -1,97 +1,146 @@
-'''This module hold section class and it's methods'''
-import pickle
+'''Is it possible to store the instance of a class in a list? Let's Explore'''
 from students_twelve import Student
+import pickle
+import sys
 
 class Section:
-    '''This section class can perform list manipulation operation which are students class objects'''
+    '''This class store the object of another class and perform some basic list operation'''
     def __init__(self):
-        '''Objective: This class initialize the empty list of the object'''
+        '''Lets store the object of class student in the form of list, to do so let's initialize an empty list'''
         self.records = list()
-    
-    def read_list(self, source):
-        '''This method reads the source file of students object and store it in class section object list'''
+   
+    def file_import(self,source):
+        '''Lets open the binary file of student object and store it in list'''
         self.records = list()
-        f1 = open(source, 'rb')
-        try:
-            while True:
-                student = pickle.load(f1)
-                self.records.append(student)
-        except EOFError:
-            pass
-        f1.close()
+        with open(source,'rb') as file:
+            try:
+                while True:
+                    student = pickle.load(file)
+                    self.records.append(student)
+            except EOFError:
+                pass
 
-    def write_list(self, destination):
-        '''This method will write the result of class section object into text file'''
-        f = open(destination, 'wb')
-        for student in self.records:
-            pickle.dump(student)
-        f.close()
+    def lst_export(self,destination):
+        '''This method export the list self records into a binary file and store it in destination'''
+        with open(destination,'wb') as file:
+            for student in self.records:
+                pickle.dump(student, file)
+   
+    def linear_search(self,search,key):
+        '''This method perform linear search if the list is not sorted'''
+        if not (search == 'roll_number' or search == 'name' or search == 'mark'):
+            print('Invalid a argument for sorting')
+            sys.exit()
+        for i, record in enumerate(self.records):
+            if search == 'roll_number' and record.roll_number == key:
+                return i
+            elif search == 'name' and record.name == key:
+                return i
+            elif search == 'mark' and record.mark == key:
+                return i
+        return -1
 
-    def insert_end(self,roll_no,name,mark):
-        '''This method insert the new student object into list record if it not already present in the list'''
-        student = Student(roll_no,name,mark)
-        if student.roll_number not in [i.roll_number for i in self.records]:
-            self.records.append(student)
-            return 'record inserted successfully'
-        return 'Student record already exists'
-    
-    def is_sorted(self):
-        '''This method check whether the given list is ascending order based on the roll number'''
-        for i in range(1,len(self.records)):
-            if self.records[i].roll_number < self.records[i-1].roll_number:
+    def insertion_sort(self,based_on):
+        '''This method sort the list based on the given object attribute'''
+        length_of_list = len(self.records)
+
+        if based_on == 'roll_number':
+            for i in range(1,length_of_list):
+                temp = self.records[i]
+                j = i - 1
+                while j >= 0 and temp.roll_number < self.records[j].roll_number:
+                    self.records[j+1] = self.records[j]
+                    j = j - 1
+                self.records[j+1] = temp
+            print('sorted')
+
+        elif based_on == 'name':
+            for i in range(1,length_of_list):
+                temp = self.records[i]
+                j = i - 1
+                while j >= 0 and temp.name < self.records[j].name:
+                    self.records[j+1] = self.records[j]
+                    j = j - 1
+                self.records[j+1] = temp
+            print('sorted')
+
+        elif based_on == 'mark':
+            for i in range(1,length_of_list):
+                temp = self.records[i]
+                j = i - 1
+                while j >= 0 and temp.mark < self.records[j].mark:
+                    self.records[j+1] = self.records[j]
+                    j = j - 1
+                self.records[j+1] = temp
+            print('sorted')
+        
+        else:
+            print('Invalid a argument for sorting')
+            sys.exit()
+
+    def is_sorted(self, based_on):
+        '''This method will check whether the list is sorted or not based on the given type and return True or False'''
+        if not (based_on == 'roll_number' or based_on == 'name' or based_on == 'mark'):
+            print('Invalid a argument for sorting')
+            sys.exit()
+        length_of_list = len(self.records)
+        for i in range(1,length_of_list):
+            if based_on == 'roll_number' and self.records[i].roll_number < self.records[i-1].roll_number:
+                return False
+            elif based_on == 'name' and self.records[i].name < self.records[i-1].name:
+                return False
+            elif based_on == 'mark' and self.records[i].mark < self.records[i-1].mark:
                 return False
         return True
-    
-    def binary_search(self, key):
-        '''This is the binary search method based on the given key as of now user suppose to enter the key as roll number'''
-        if not(self.is_sorted()):
-            print('List is not sorted')
-            return False
-        start = 0
-        end = len(self.records)-1
-        while start <= end:
-            mid = (start + end) // 2
-            if key < self.records[mid].roll_number:
-                end = mid -1
-            elif key > self.records[mid].roll_number:
-                start = mid + 1
-            elif key == self.records[mid].roll_number:
-                return True
-        return False
-    
-    def liner_search(self, key):
-        '''This method will helpful if the list is not shorted'''
-        for student in self.records:
-            if student.roll_number == key:
-                return True
-        return False
-    
-    def insertion_sort(self):
-        '''As of now this method will sort the list based on the roll number'''
-        length_lst = len(self.records)
-        for i in range(1,length_lst):
-            temp = self.records[i]
-            j = i - 1
-            while j >= 0 and temp.roll_number < self.records[j].roll_number:
-                self.records[j+1] = self.records[j]
-                j = i - 1
-            self.records[j+1] = temp
-        
-    def sorted_insert(self,roll_no,name,mark):
-        '''This method will add the new object in the list record on ascending order'''
-        pass
 
-    def delete(self, roll_no):
-        '''This will delete the entry from a list record'''
-        for i, r in enumerate(self.records):
-            if r.roll_number == roll_no:
-                del self.records[i]
-                return 'Entry deleted'
-        return 'Roll Number not in the list'
+    def binary_search(self,search,key):
+        '''This method accept 2 arguments where search is for type of search and key is for what to search
+        before binary search let's check whether the list is sorted or not'''
+        # Binary Search
+        self.insertion_sort(search)
+        if search == 'roll_number':
+            start = 0
+            end = len(self.records) - 1
+            while start <= end:
+                mid = (start + end) // 2
+                if key < self.records[mid].roll_number:
+                    end = mid - 1
+                elif key > self.records[mid].roll_number:
+                    start = mid + 1
+                elif key == self.records[mid].roll_number:
+                    return mid
+            return -1
+        elif search == 'name':
+            start = 0
+            end = len(self.records) - 1
+            while start <= end:
+                mid = (start + end) // 2
+                if key < self.records[mid].name:
+                    end = mid - 1
+                elif key > self.records[mid].name:
+                    start = mid + 1
+                elif key == self.records[mid].name:
+                    return mid
+            return -1
+        elif search == 'mark':
+            start = 0
+            end = len(self.records) - 1
+            while start <= end:
+                mid = (start + end) // 2
+                if key < self.records[mid].mark:
+                    end = mid - 1
+                elif key > self.records[mid].mark:
+                    start = mid + 1
+                elif key == self.records[mid].mark:
+                    return mid
+            return -1
+        else:
+            print('Invalid a argument for search')
+            sys.exit()
 
     def __str__(self):
-        '''This method print'''
-        string = ''
-        for record in self.records:
-            string += Student().__str__(record)
-        print(string)
+        '''This is how it will print'''
+        empty_string = ''
+        for student in self.records:
+            empty_string += Student.__str__(student) + '\n'
+        return empty_string
