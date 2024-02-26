@@ -66,9 +66,3 @@ class Employee(Person):
         '''This will delete the employee count when user execute del method'''
         Person.__del__(self)
         Employee.dec_employee_count()
-
-
-emp1 = Employee('Aravind',Calendar(16,5,1999),'Earth',50000,Calendar(26,8,2024))
-print(emp1)
-emp2 = Employee('Dani',Calendar(12,12,1998),'Earth',50000,Calendar(3,3,2024))
-print(emp2)
