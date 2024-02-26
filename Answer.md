@@ -4,10 +4,11 @@
     - [Mutable and Immutable Objects](#mutable-and-immutable-objects)
     - [File and Exceptions](#file-and-exceptions)
     - [Calsses I](#calsses-i)
-  - [Games](#games)
+    - [Games](#games)
 - [February - 2024](#february---2024)
     - [Calsses II](#calsses-ii)
-  - [Sorting Methods](#sorting-methods)
+    - [Sorting Methods](#sorting-methods)
+    - [List Manipulation](#list-manipulation)
 
 <br>
 
@@ -538,7 +539,8 @@ Question 6:
 Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JAN2024/my_date.py) I already created a method name _future_date_ will add the day, month and year.
 
 
-## Games
+### Games
+<hr>
 
 **Find the Next / Previous Letter**
 
@@ -697,7 +699,7 @@ setattr(ob,'attr',70)
 delattr(ob,'attr')
 ```
 
-## Sorting Methods
+### Sorting Methods
 
 **Merge Sort**
 
@@ -753,4 +755,104 @@ def quick_sort(lst, start = 0, end = None):
         splitPoint = partition(lst, start, end)
         quick_sort(lst, start, splitPoint-1)
         quick_sort(lst, splitPoint+1, end)
+```
+
+### List Manipulation
+<hr>
+
+**Exercises**
+
+Question 1:
+
+```python
+'''
+Step 1: Fist store the employee object in the list
+Step 2: Sort the list using the bubble, insertion and selection sort algorithm
+'''
+from employee import Employee
+
+object_list = list()
+file_name = 'employee_data.txt'
+
+def file_list(file_name):
+    '''This function will store the employee object in the list'''
+    with open(file_name,'r') as file:
+        line = file.readline()
+        while line != '':
+            name, salary = line.split(',')
+            emp = Employee(name,None,None,salary,None)
+            object_list.append(emp)
+            line = file.readline()
+
+file_list(file_name)
+print(object_list)
+
+def bubble_sort(lst,based_on):
+    if based_on == 'employee_id':
+        length_of_list = len(lst)
+        for i in range(length_of_list):
+            swap = False
+            for j in range(length_of_list-1,i,-1):
+                if lst[j].employee_id < lst[j-1].employee_id:
+                    swap = True
+                    lst[j], lst[j-1] = lst[j-1], lst[j]
+            if swap == False:
+                break
+        print('sorted')
+    elif based_on == 'name':
+        length_of_list = len(lst)
+        for i in range(length_of_list):
+            swap = False
+            for j in range(length_of_list-1,i,-1):
+                if lst[j].name < lst[j-1].name:
+                    swap = True
+                    lst[j], lst[j-1] = lst[j-1], lst[j]
+            if swap == False:
+                break
+        print('sorted')
+    elif based_on == 'basic_salary':
+        length_of_list = len(lst)
+        for i in range(length_of_list):
+            swap = False
+            for j in range(length_of_list-1,i,-1):
+                if lst[j].basic_salary < lst[j-1].basic_salary:
+                    swap = True
+                    lst[j], lst[j-1] = lst[j-1], lst[j]
+            if swap == False:
+                break
+        print('sorted')
+    else:
+        print('wrong argument')
+
+
+def insertion_sort(lst,based_on):
+    '''Already solved in section file'''
+
+def selection_sort(lst,based_on):
+    if based_on == 'employee_id':
+        length_of_list = len(lst)
+        for i in range(length_of_list-1):
+            small = i
+            for j in range(i,length_of_list-1):
+                if lst[j+1].employee_id < lst[small].employee_id:
+                    small = j+1
+            lst[i], lst[small] = lst[small], lst[i]
+    elif based_on == 'name':
+        length_of_list = len(lst)
+        for i in range(length_of_list-1):
+            small = i
+            for j in range(i,length_of_list-1):
+                if lst[j+1].name < lst[small].name:
+                    small = j+1
+            lst[i], lst[small] = lst[small], lst[i]
+    elif based_on == 'basic_salary':
+        length_of_list = len(lst)
+        for i in range(length_of_list-1):
+            small = i
+            for j in range(i,length_of_list-1):
+                if lst[j+1].basic_salary < lst[small].basic_salary:
+                    small = j+1
+            lst[i], lst[small] = lst[small], lst[i]
+    else:
+        print('Wrong Arguments')
 ```

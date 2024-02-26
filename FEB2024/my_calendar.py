@@ -375,9 +375,9 @@ class Calendar:
             print('Entered second is out of range')
             sys.exit()
 
-    # def __del__(self):
-    #     '''This will delete'''
-    #     print('Deleted!!!')
+    def __del__(self):
+        '''This will delete'''
+        print('Deleted!!!')
 
     def __str__(self):
         '''This will print'''

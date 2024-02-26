@@ -60,7 +60,7 @@ class Employee(Person):
 
     def __str__(self):
         '''This will print'''
-        return f'{Person.__str__(self)}\nEmployee ID: {self.get_id()}\nEmployee Salary: {self.get_salary()}\nEmployee Joining date: {self.get_date_of_joining()}'
+        return f'{Person.__str__(self)}\nEmployee ID: {self.get_id()}\nEmployee Salary: {self.get_salary()}\nEmployee Joining date: {self.get_date_of_joining()}\n'
     
     def __del__(self):
         '''This will delete the employee count when user execute del method'''
