@@ -856,3 +856,29 @@ def selection_sort(lst,based_on):
     else:
         print('Wrong Arguments')
 ```
+
+Question 4:
+
+```python
+def binary_search(lst, key):
+    start = 0
+    print('start index',start,'value',lst[start])
+    end = len(lst) - 1
+    print('end index',end,'value',lst[end])
+    counter = 0
+    while start <= end:
+        mid = (start + end) // 2
+        print('while loop is',counter,'initial mid',mid,'and value is',lst[mid])
+        if key < lst[mid]:
+            end = mid - 1
+            print('while loop is',counter,'end',end,'and value is',lst[end])
+        elif key > lst[mid]:
+            start = mid + 1
+            print('while loop is',counter,'start',start,'and value is',lst[start])
+        elif key == lst[mid]:
+            print('while loop is',counter,'conditional mid',mid,'and value is',lst[mid])
+            print(f'{key} is found at index {mid}')
+            return True
+        counter += 1
+    return False
+```
