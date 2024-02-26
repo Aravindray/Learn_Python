@@ -731,3 +731,26 @@ numbers = [15, 12, 14, 17, 13, 11, 12, 16, 14]
 print(numbers)
 print(merge_sort(numbers))
 ```
+
+**Quick Sort** No idea how it's working!!!
+
+```python
+def partition(lst, start, end):
+    pivotElement = lst[end]
+    i = start - 1
+    for j in range(start, end):
+        if lst[j] <= pivotElement:
+            i += 1
+            lst[i], lst[j] = lst[j], lst[i]
+    lst[i+1], lst[end] = lst[end], lst[i+1]
+    return i+1
+
+
+def quick_sort(lst, start = 0, end = None):
+    if end == None:
+        end = len(lst) - 1
+    if start < end:
+        splitPoint = partition(lst, start, end)
+        quick_sort(lst, start, splitPoint-1)
+        quick_sort(lst, splitPoint+1, end)
+```

@@ -6,6 +6,7 @@
     - [Calsses I](#calsses-i)
 - [February - 2024](#february---2024)
     - [Calsses II](#calsses-ii)
+    - [List Manipulation](#list-manipulation)
 
 
 <br>
@@ -212,3 +213,29 @@
     (b) Determine whether attribute attr exists in the namespace of object ob of class A.
     (c) Assign value 70 to attribute attr of object ob of class A.
     (d) Delete an attribute attr of object ob of class A.
+
+
+### List Manipulation
+<hr>
+
+**Exercises**
+
+1. Develop a program to sort the employee data on the basis of pay of the employees using (i) selection sort, (ii) bubble sort, (iii) insertion sort. Consider a list L containing objects of class _Employee_ having _emp\_num_, _name_, and _salary_.
+
+2. Write the recursive version of linear search and binary search algorithms, discussed in the text.
+
+3. Rewrite selection sort, bubble sort and insertion sort functions using recursion.
+
+4. for the list shown below, show the values of indexes _low_, _high_ and _mid_ at each step of the binary search method discussed in the text when we are searching for the key:
+
+    list = [10, 15, 22, 24, 45, 55]
+
+    (a) 15
+    (b) 25
+    (c) 55
+    (d) 40
+    (e) 22
+
+5. Write a function _left\_circulate_ that take a list as an input and left circulates the values in the list so that in the final list, each value is left shifted by one position and leftmost value in the original list now appears as the rightmost value. For example, on execution of the function on the list [1, 2, 3, 4, 5] it would be transformed to the list [2, 3, 4, 5, 1]. Modify the function to include a numeric argument to specify the number of position by which left rotation is to carried out.
+
+6. Write a program that define a class Card which can be used to instantiate cards with a particular rank and suit. Create another class DeckOfCards for maintaining a sorted list of cards using a method sorted_insert that takes an object of class Card as an input parameter and insert it at the suitable position in the sorted list.
