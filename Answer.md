@@ -882,3 +882,31 @@ def binary_search(lst, key):
         counter += 1
     return False
 ```
+
+Question 5:
+
+```python
+import time
+def left_circulate(lst, shift):
+    len_of_lst = len(lst)
+    for i in range(shift):
+        temp = lst[0]
+        for j in range(1,len_of_lst):
+            lst[j-1] = lst[j]
+        lst.pop(-1)
+        lst.append(temp)
+    print(lst)
+
+numbers = [1, 2, 3, 4, 5]
+user_input = int(input('Enter the shift counter: '))
+print(numbers)
+start = time.perf_counter()
+left_circulate(numbers, user_input)
+end = time.perf_counter()
+print(f'Total time to run the function: {end-start} if shift count is {user_input}')
+```
+
+Question 6:
+
+```python
+```
