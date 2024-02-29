@@ -19,7 +19,7 @@ class Queue:
         if not(self.is_empty()):
             return self.que.pop(0)
         else:
-            print('Underflow!! Queue is empty')
+            print('Underflow!! Queue is already empty')
             return None
         
     def front(self):
@@ -42,5 +42,5 @@ class Queue:
         '''This will represent each element from queue'''
         string = str()
         for element in self.que:
-            string += element + ' '
+            string += str(element) + ' '
         return string
