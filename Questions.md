@@ -7,7 +7,7 @@
 - [February - 2024](#february---2024)
     - [Calsses II](#calsses-ii)
     - [List Manipulation](#list-manipulation)
-    - [List Manipulation](#list-manipulation-1)
+    - [Data Structures I: Stack and Queues](#data-structures-i-stack-and-queues)
 
 
 <br>
@@ -243,9 +243,11 @@
 
 6. Write a program that define a class *Card* which can be used to instantiate cards with a particular rank and suit. Create another class *DeckOfCards* for maintaining a sorted list of cards using a method *sorted_insert* that takes an object of class *Card* as an input parameter and insert it at the suitable position in the sorted list.
 
-### List Manipulation
+### Data Structures I: Stack and Queues
 <hr>
 
 **Exercises**
 
-1. Imagine that python list does not support methods *append* and *pop*. Examine the script  and define your implementation of push and pop operation of the stack by filling up the code.
+1. Imagine that python list does not support methods *append* and *pop*. Examine the [script](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/own_stack.py)  and define your implementation of push and pop operation of the stack by filling up the code.
+
+2. Imagine the python list does not support methods *append* and *pop*. Examine the [script](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/own_queue.py) and define your own implementation of enqueue and dequeue operation on a queue by filling up the missing code.

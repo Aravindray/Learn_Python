@@ -30,18 +30,44 @@ class Stack:
             self (implicit parameter) - Object of type stack
             element - value to be inserted
         Return Value: None'''
+        if self.is_empty():
+            self.values[0] = element
+            self.inc_size()
+        elif self.top + 1 < self.stack_size:
+            self.values[self.top + 1] = element
+            self.inc_size()
+        else:
+            print('Stack is overflow')
 
     def pop(self):
         '''Objective: To remove an element from the top of stack
         Input parameter:
             self (implicit parameter) - Object of type stack
         Return Value: Top element of the stack if stack is not empty else None'''
+        if self.is_empty():
+            print('Stack underflow')
+            return None
+        else:
+            popped = self.top_element()
+            self.values[self.top] = None
+            self.top -= 1
+            return popped
+
 
     def top_element(self):
         '''Objective: To return top element of the stack
         Input parameter:
             self (implicit parameter) - Object of type stack
         Return Value: top element of the stack if stack is not empty else None'''
+        if self.is_empty():
+            print('Stack is empty')
+            return None
+        else:
+            return self.values[self.top]
+
+    def inc_size(self):
+        '''Once the element added it will increase the size by one'''
+        self.top += 1
 
     def size(self):
         '''Objective: To return no of element in the stack
