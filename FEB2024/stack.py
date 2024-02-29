@@ -24,11 +24,20 @@ class Stack:
     
     def top(self):
         '''Top method fetch the top value from the stack'''
-        return self.stk[-1]
+        if not (self.is_empty()):
+            return self.stk[-1]
+        else:
+            # print('stack is empty')
+            return None
     
     def __str__(self):
         '''A list will be printed with tab spaces'''
         empty_stk = ''
         for element in self.stk:
-            empty_stk += str(element) + '\t'
+            empty_stk += str(element) + ' '
         return empty_stk
+
+
+stk1 = Stack()
+stk1.top()
+print(stk1)
