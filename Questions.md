@@ -7,6 +7,7 @@
 - [February - 2024](#february---2024)
     - [Calsses II](#calsses-ii)
     - [List Manipulation](#list-manipulation)
+    - [List Manipulation](#list-manipulation-1)
 
 
 <br>
@@ -241,3 +242,10 @@
 5. Write a function _left\_circulate_ that take a list as an input and left circulates the values in the list so that in the final list, each value is left shifted by one position and leftmost value in the original list now appears as the rightmost value. For example, on execution of the function on the list [1, 2, 3, 4, 5] it would be transformed to the list [2, 3, 4, 5, 1]. Modify the function to include a numeric argument to specify the number of position by which left rotation is to carried out.
 
 6. Write a program that define a class *Card* which can be used to instantiate cards with a particular rank and suit. Create another class *DeckOfCards* for maintaining a sorted list of cards using a method *sorted_insert* that takes an object of class *Card* as an input parameter and insert it at the suitable position in the sorted list.
+
+### List Manipulation
+<hr>
+
+**Exercises**
+
+1. Imagine that python list does not support methods *append* and *pop*. Examine the script  and define your implementation of push and pop operation of the stack by filling up the code.
