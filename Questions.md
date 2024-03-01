@@ -251,3 +251,38 @@
 1. Imagine that python list does not support methods *append* and *pop*. Examine the [script](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/own_stack.py)  and define your implementation of push and pop operation of the stack by filling up the code.
 
 2. Imagine the python list does not support methods *append* and *pop*. Examine the [script](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/own_queue.py) and define your own implementation of enqueue and dequeue operation on a queue by filling up the missing code.
+
+<style>
+    red {color: Red}
+    green {color: Green}
+</style>
+
+3. The queue implementation defined in question 2 does not utilize the storage space effectively since if front points to index j and rear points to index i >= j, empty space at indexes 0 to i-1 cannot be utilized as shown in book fig 13.13 <green>(But I have implemented the program to overcome this, so no worries!) </green> & rest of the question I didn't type here.
+
+4. Develop a program using a stack to find out whether the given string is a palindrome.
+
+
+5. Rewrite the code in question 2, so that whenever there is a deletion, all the elements in the queue are shifted towards the front by one position. <green>(I have already overcome this scenario, so no need to worries!)</green>
+
+6. Rewrite the code in exercise 2 so that whenever there is a queue overflow scenario, all the elements in the queue are sifted (if possible so that the front element is at index 0). <red>(I Didn't quit understand this question)</red>
+
+7. Write a program to reverse a string using stack
+
+8. Evaluate the following postfix expression. Show the status of the stack on the execution of each operation.
+
+    (a) 99/52\*9-+ <br>
+    (b) 25\*94/5-+ <br>
+    (c) 526\*93/-* <br>
+    (d) 51+31-* <br>
+    (e) 687+\*82/- <br>
+    (f) 152-\*25*+ <br>
+    (g) 55+93-\*3/ <br>
+    (h) 651+21-+\* <br>
+    (i) 836+27-9+\*/
+
+9. Convert the following infix expression to its equivalent postfix expression, showing the stack content at each step.
+
+    (a) 8+6/(5-3)\*2 <br>
+    (b) (8-3-1)\*6/2+8/4 <br>
+    (c) 8+(9-9/3-4*7)-5 <br>
+    (d) 7+6-7/2-7\*4-3
