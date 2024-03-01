@@ -1,3 +1,8 @@
+<style>
+    red {color: Red}
+    green {color: Green}
+</style>
+
 ## Table of Content
 
 - [January - 2024](#january---2024)
@@ -7,6 +12,7 @@
 - [February - 2024](#february---2024)
     - [Calsses II](#calsses-ii)
     - [List Manipulation](#list-manipulation)
+- [March - 2024](#march---2024)
     - [Data Structures I: Stack and Queues](#data-structures-i-stack-and-queues)
 
 
@@ -173,33 +179,37 @@
 2. Define the method \_\_ne__ for the class MyDate.
 
 3. Define the method \_\_sub__ for the class MyDate.
-        
-        def __sub__(self,other):
-            '''Objective: To subtract two date objects
-            Input Parameters:
-                self (implicit parameter) - Object of type MyDate
-                other - Object of type MyDate
-            Return value: string representation of difference of two objects if second object passed as parameter is of MyDate type else message 'Undefined type' is printed and program is terminated'''
-            '''Examples:
-                yyyy-mm-dd   yyyy-mm-dd   yyyy-mm-dd
-                2014-04-04   2012-01-12   2014-06-06
-              - 2012-06-06 - 2010-05-13 - 2012-04-04
-               ------------ ------------ -----------
-                0001-09-28   0001-07-30   0002-02-02 
+
+```python        
+def __sub__(self,other):
+    '''Objective: To subtract two date objects
+    Input Parameters:
+        self (implicit parameter) - Object of type MyDate
+        other - Object of type MyDate
+    Return value: string representation of difference of two objects if second object passed as parameter is of MyDate type else message 'Undefined type' is printed and program is terminated'''
+    '''Examples:
+        yyyy-mm-dd   yyyy-mm-dd   yyyy-mm-dd
+        2014-04-04   2012-01-12   2014-06-06
+      - 2012-06-06 - 2010-05-13 - 2012-04-04
+        ------------ ------------ -----------
+        0001-09-28   0001-07-30   0002-02-02 
+```
 
 4. Define a class *ComplexNumbers*. Write operations for addition, subtraction, and multiplication, using the notion of operator overloading.
 
 5. Examine the following class *Shape*:
         
-        class Shape:
-            def __init__(self,shapeType,x,y):
-                self.shapeType = shapeType
-                self.length = x
-                self.width = y
-            def compute_area():
-                pass
-            
-    The class *Shape* should be inherited by the class *Rectangle* and *Triangle*. Both the derived classes should invoke the method \_\_init__ to initialize data members. Note that *length* and *width* correspond to *height* and *base* for a triangle. The derived classes should override the method *compute_area* fo the superclass Shape.
+```python        
+class Shape:
+    def __init__(self,shapeType,x,y):
+        self.shapeType = shapeType
+        self.length = x
+        self.width = y
+    def compute_area():
+        pass
+```
+
+The class *Shape* should be inherited by the class *Rectangle* and *Triangle*. Both the derived classes should invoke the method \_\_init__ to initialize data members. Note that *length* and *width* correspond to *height* and *base* for a triangle. The derived classes should override the method *compute_area* fo the superclass Shape.
 
 6. Examine the class *Person* defined in this chapter. Define a class *Student* that derives this class and define *name, roll_number, class, total_marks* and *Year* as the data members. The class should contain the instance method \_\_init__ and the abstract method *percentage*. Define two classes *Grad* and *PostGrad* which inherit from the base class *Student*. Both the classes should define their \_\_init__ method and should override the abstract method *percentage* of the superclass. Note that *total_marks* obtained are out of 600 and 400 for *Grad* and *PostGrad* classes respectively.
 
@@ -243,6 +253,8 @@
 
 6. Write a program that define a class *Card* which can be used to instantiate cards with a particular rank and suit. Create another class *DeckOfCards* for maintaining a sorted list of cards using a method *sorted_insert* that takes an object of class *Card* as an input parameter and insert it at the suitable position in the sorted list.
 
+# March - 2024
+
 ### Data Structures I: Stack and Queues
 <hr>
 
@@ -252,15 +264,9 @@
 
 2. Imagine the python list does not support methods *append* and *pop*. Examine the [script](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/own_queue.py) and define your own implementation of enqueue and dequeue operation on a queue by filling up the missing code.
 
-<style>
-    red {color: Red}
-    green {color: Green}
-</style>
-
 3. The queue implementation defined in question 2 does not utilize the storage space effectively since if front points to index j and rear points to index i >= j, empty space at indexes 0 to i-1 cannot be utilized as shown in book fig 13.13 <green>(But I have implemented the program to overcome this, so no worries!) </green> & rest of the question I didn't type here.
 
 4. Develop a program using a stack to find out whether the given string is a palindrome.
-
 
 5. Rewrite the code in question 2, so that whenever there is a deletion, all the elements in the queue are shifted towards the front by one position. <green>(I have already overcome this scenario, so no need to worries!)</green>
 
