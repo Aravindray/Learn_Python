@@ -980,7 +980,7 @@ class DeckOfCards:
 ### Data Structure I: Stack and Queues
 <hr>
 
-Question 1:
+Question 4:
 
 ```python
 from FEB2024.own_stack import Stack
@@ -1005,3 +1005,34 @@ if user_input == string:
 else:
     print(f'Given string {user_input} is "not palindrome"')
 ```
+
+Question 7:
+
+```python
+from FEB2024.stack import Stack
+
+stk = Stack()
+
+user_input = input('Enter the string: ')
+
+for UI in user_input:
+    stk.push(UI)
+
+lgth = len(user_input)
+
+empty_string = str()
+
+for i in range(lgth):
+    value = stk.pop()
+    empty_string += value
+
+print(empty_string)
+```
+
+Question 8:
+
+Answer File Path: I have implemented the answer as a separate module [postfix_evaluate.py](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/postfix_evaluate.py)
+
+Question 9:
+
+Answer File Path: I have implemented the answer as a separate module [infix_postfix.py](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/infix_postfix.py)
