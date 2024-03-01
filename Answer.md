@@ -9,6 +9,8 @@
     - [Calsses II](#calsses-ii)
     - [Sorting Methods](#sorting-methods)
     - [List Manipulation](#list-manipulation)
+- [March - 2024](#march---2024)
+    - [Data Structure I: Stack and Queues](#data-structure-i-stack-and-queues)
 
 <br>
 
@@ -971,4 +973,35 @@ class DeckOfCards:
         for record in self.records:
             string += f'{Cards.__str__(record)}\n'
         return string
+```
+
+# March - 2024
+
+### Data Structure I: Stack and Queues
+<hr>
+
+Question 1:
+
+```python
+from FEB2024.own_stack import Stack
+
+user_input = input('Enter the palindrome: ')
+
+len_of_ui = len(user_input)
+
+stk = Stack(len_of_ui)
+
+for ui in user_input:
+    stk.push(ui)
+
+string = str()
+
+for i in range(len_of_ui):
+    value = stk.pop()
+    string += value
+
+if user_input == string:
+    print(f'Given string {user_input} is "palindrome"')
+else:
+    print(f'Given string {user_input} is "not palindrome"')
 ```

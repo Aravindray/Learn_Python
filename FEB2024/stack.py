@@ -29,15 +29,10 @@ class Stack:
         else:
             # print('stack is empty')
             return None
-    
+        
     def __str__(self):
         '''A list will be printed with tab spaces'''
         empty_stk = ''
         for element in self.stk:
             empty_stk += str(element) + ' '
         return empty_stk
-
-
-stk1 = Stack()
-stk1.top()
-print(stk1)
