@@ -1,12 +1,7 @@
-# Style block
-
-<style>
-    red {color: Red}
-    green {color: Green}
-</style>
 
 ## Table of Content
 
+- [Style block](#style-block)
 - [January - 2024](#january---2024)
     - [Mutable and Immutable Objects](#mutable-and-immutable-objects)
     - [Files and Exceptions](#files-and-exceptions)
@@ -19,6 +14,14 @@
 
 
 <br>
+
+# Style block
+
+<style>
+    red {color: Red}
+    green {color: Green}
+</style>
+
 
 # January - 2024
 
