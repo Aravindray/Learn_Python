@@ -65,12 +65,21 @@ class LinkedList:
 
     def delete_begin(self):
         '''Objective: Delete the first element/node in the linked list'''
+        if self.head is None:
+            print('Linked list is empty!!')
+            return None
+        temp = self.head
+        value = self.head.data
+        self.head = self.head.next
+        del temp
+        print('First element from the linked list is deleted!')
+        return value
 
     def __str__(self):
         '''This method returns the string representation of linked list a→b→c'''
         result = str()
         current = self.head
-        while current.next != None:
+        while current.next is not None:
             result += str(current.data) + '→'
             current = current.next
         result += str(current.data)
