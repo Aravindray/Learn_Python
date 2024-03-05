@@ -9,4 +9,4 @@ class Node:
 
     def __str__(self):
         '''This method return string format of value and next'''
-        return f'{self.data} - [{self.next}]'
+        return f'{self.data}:{self.next}'

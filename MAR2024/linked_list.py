@@ -75,6 +75,24 @@ class LinkedList:
         print('First element from the linked list is deleted!')
         return value
 
+    def insert_end(self, value):
+        pass
+
+    def delete_end(self):
+        pass
+
+    def find_value(self, node_number):
+        pass
+
+    def reverse(self):
+        pass
+
+    def reverse_display(self):
+        pass
+
+    def divide_list(self):
+        pass
+
     def __str__(self):
         '''This method returns the string representation of linked list a→b→c'''
         result = str()
