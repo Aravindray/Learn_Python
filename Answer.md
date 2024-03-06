@@ -364,7 +364,7 @@ if __name__ == '__main__':
 
 Question 2: 
 
-Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JAN2024/my_date.py)
+Answer file path: [my_date.py](https://github.com/Aravindray/Learn_Python/blob/main/JAN2024/my_date.py)
 
 Question 3:
 
@@ -547,7 +547,7 @@ class Item:
 ```
 Question 6:
 
-Answer file path: [my_date.py](https://github.com/Aravindray/Python/blob/main/JAN2024/my_date.py) I already created a method name _future_date_ will add the day, month and year.
+Answer file path: [my_date.py](https://github.com/Aravindray/Learn_Python/blob/main/JAN2024/my_date.py) I already created a method name _future_date_ will add the day, month and year.
 
 
 ### Games
@@ -617,15 +617,15 @@ open_file.close()
 
 Question 1:
 
-Answer File Path: Base class _[Points](https://github.com/Aravindray/Python/blob/main/FEB2024/points.py)_ and derived class _[Linesegments](https://github.com/Aravindray/Python/blob/main/FEB2024/line_segments.py)_. I just added 2 methods only which are Distance and Midpoint.
+Answer File Path: Base class _[Points](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/points.py)_ and derived class _[Linesegments](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/line_segments.py)_. I just added 2 methods only which are Distance and Midpoint.
 
 Question 2 & 3:
 
-Answer File Path: I have implemented the module in class _[Calendar](https://github.com/Aravindray/Python/blob/main/FEB2024/my_calendar.py)_
+Answer File Path: I have implemented the module in class _[Calendar](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/my_calendar.py)_
 
 Question 4:
 
-Answer File Path: I have implemented the module for class _[ComplexNumber](https://github.com/Aravindray/Python/blob/main/FEB2024/complex_number.py)_
+Answer File Path: I have implemented the module for class _[ComplexNumber](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/complex_number.py)_
 
 Question 5:
 
@@ -680,15 +680,15 @@ class Triangle(Shapes):
 ```
 Question 6:
 
-Answer File Path: I have implemented the answer as a separate module class _[Student](https://github.com/Aravindray/Python/blob/main/FEB2024/students.py)_
+Answer File Path: I have implemented the answer as a separate module class _[Student](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/students.py)_
 
 Question 7 & 8:
 
-Answer File Path: I have also implemented the answers as a separate module classes _[Vehicle, PassengerVehicle, CommercialVehicle](https://github.com/Aravindray/Python/blob/main/FEB2024/vehicle.py)_ & classes _[Car, Bus, Autorickshaw](https://github.com/Aravindray/Python/blob/main/FEB2024/passenger_vehicle.py)_
+Answer File Path: I have also implemented the answers as a separate module classes _[Vehicle, PassengerVehicle, CommercialVehicle](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/vehicle.py)_ & classes _[Car, Bus, Autorickshaw](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/passenger_vehicle.py)_
 
 Question 9:
 
-Answer File Path: I have also implemented the answer as a separate module classes _[Account, Savings, Current](https://github.com/Aravindray/Python/blob/main/FEB2024/account.py)_
+Answer File Path: I have also implemented the answer as a separate module classes _[Account, Savings, Current](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/account.py)_
 
 Question 10:
 
