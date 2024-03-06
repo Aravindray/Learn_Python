@@ -1,5 +1,6 @@
 ## Table of Content
 
+- [Style block](#style-block)
 - [January - 2024](#january---2024)
     - [Mutable and Immutable Objects](#mutable-and-immutable-objects)
     - [File and Exceptions](#file-and-exceptions)
@@ -11,8 +12,16 @@
     - [List Manipulation](#list-manipulation)
 - [March - 2024](#march---2024)
     - [Data Structure I: Stack and Queues](#data-structure-i-stack-and-queues)
+    - [Data Structure II: Linked List](#data-structure-ii-linked-list)
 
 <br>
+
+# Style block
+
+<style>
+    red {color: Red}
+    green {color: Green}
+</style>
 
 # January - 2024
 
@@ -1036,3 +1045,11 @@ Answer File Path: I have implemented the answer as a separate module [postfix_ev
 Question 9:
 
 Answer File Path: I have implemented the answer as a separate module [infix_postfix.py](https://github.com/Aravindray/Learn_Python/blob/main/FEB2024/infix_postfix.py)
+
+
+### Data Structure II: Linked List
+
+Question 1, 2, 4, 5, <red>6</red>, 7:
+
+Answer File Path: All the method I have implemented the same *class* [LinkedList](https://github.com/Aravindray/Learn_Python/blob/main/MAR2024/linked_list.py) <br>
+Note: I didn't implemented the 6th question as recursive method.

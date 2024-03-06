@@ -1,4 +1,3 @@
-
 ## Table of Content
 
 - [Style block](#style-block)
@@ -11,6 +10,7 @@
     - [List Manipulation](#list-manipulation)
 - [March - 2024](#march---2024)
     - [Data Structures I: Stack and Queues](#data-structures-i-stack-and-queues)
+    - [Data Structures II: Linked Lists](#data-structures-ii-linked-lists)
 
 
 <br>
@@ -297,3 +297,39 @@ The class *Shape* should be inherited by the class *Rectangle* and *Triangle*. B
     (b) (8-3-1)\*6/2+8/4 <br>
     (c) 8+(9-9/3-4*7)-5 <br>
     (d) 7+6-7/2-7\*4-3
+
+### Data Structures II: Linked Lists
+<hr>
+
+**Exercises**
+
+1. Write a method *insert_end* for the class *LinkedList* that takes a value as an input and adds a node having the value at the end of the linked list.
+
+2. Write a method *delete_end* for the class *LinkedList* that deletes the last node of the linked list and returns the value of the data attribute of the last node.
+
+3. Write a function that takes two sorted linked list as input parameter and returns the merged, sorted list.
+
+4. Write a method *find_value* for the class *LinkedList* that takes *n* as an input parameter and returns value of the data attribute of the *n*th node starting from the beginning.
+
+5. Write an iterative method *reverse* for the class *LinkedList* that reverses the given linked list.
+
+6. Write a recursive method *reverse_display* for the class *LinkedList* that displays the data values of the linked list from the right end.
+
+7. Write a method *divide_list* for the class *LinkedList*. The method should create and return a tuple comprising two linked lists. one comprising node at even position and another comprising node at odd positions.
+
+8. A variant of the linked list is know as doubly linked list or two-way linked list comprising the following node structure having two links (*next* and *previous*) for traversing in both directions.
+
+```python
+Class Node:
+    def __init__(self, value):
+        '''Objective: To initialize an object of class Node
+        Input Parameter:
+            self (implicit parameter) - object of type Node
+        Return Value: None'''
+        self.data = value
+        self.next = None
+        self.previous = None
+```
+Define a class *DoublyLinkedList* which supports methods *insert_begin*, *insert_end*, *delete_begin*, *delete_end*, *del_value* and *traverse*.
+
+9. A variant of linked list is known as a circular list for traversing the nodes of the linked list in a circular manner. Define a class *CircularLinkedList* which supports the methods *insert_begin*, *insert_end*, *delete_begin*, *delete_end*, *delete_value* and *traverse*.
