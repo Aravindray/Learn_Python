@@ -101,6 +101,48 @@ class CircularLinkedList:
 
     def delete_value(self, value):
         '''If the given value available in the list, first occurrence will be deleted else return None'''
+        if self.last is None:
+            print('List underflow')
+            return None
+        elif self.last.next is None:
+            if value == self.last.data:
+                result = self.last.data
+                self.last = None
+                print(f'{result} from the list is deleted')
+                return result
+            print('Value is not in the list')
+            return None
+        else:
+            current = self.last.next
+            if value == current.data:
+                if current.next == self.last:
+                    self.last.next = None
+                    result = current.data
+                    del current
+                    print(f'{result} from the list is deleted')
+                    return result
+                self.last.next = current.next
+                result = current.data
+                del current
+                print(f'{result} from the list is deleted')
+                return result
+            previous = None
+            while current.data != value:
+                previous = current
+                current = current.next
+            if current == self.last:
+                result = self.delete_end()
+                # previous.next = None
+                # self.last = previous
+                # value = current.data
+                # del current
+                print(f'{value} from the list is deleted')
+                return value
+            previous.next = current.next
+            value = current.data
+            del current
+            print(f'{value} from the list is deleted')
+            return value
 
     def __str__(self):
         '''String representation of circular linked list will be printed a→b→c'''
