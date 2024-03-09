@@ -13,6 +13,7 @@
 - [March - 2024](#march---2024)
     - [Data Structure I: Stack and Queues](#data-structure-i-stack-and-queues)
     - [Data Structure II: Linked List](#data-structure-ii-linked-list)
+    - [Recursion](#recursion)
 
 <br>
 
@@ -1049,7 +1050,38 @@ Answer File Path: I have implemented the answer as a separate module [infix_post
 
 ### Data Structure II: Linked List
 
-Question 1, 2, 4, 5, <red>6</red>, 7:
+Question 1, 2, 4, 5, 6, 7:
 
 Answer File Path: All the method I have implemented the same *class* [LinkedList](https://github.com/Aravindray/Learn_Python/blob/main/MAR2024/linked_list.py) <br>
 Note: I didn't implemented the 6th question as recursive method.
+
+Question 3:
+
+```python
+```
+
+Question 8:
+
+I have implement the program in the this [module](https://github.com/Aravindray/Learn_Python/blob/main/MAR2024/doubly_linked_list.py).
+
+Question 9:
+
+I have implement the circular linked list in the [module](https://github.com/Aravindray/Learn_Python/blob/main/MAR2024/circular_linked_list.py).
+
+### Recursion
+
+Question 1:
+
+```python
+def multi(a, b):
+    print(f'({a}, {b})')
+    if b == 0:
+        return 0
+    elif b == 1:
+        return a
+    else:
+        return a + multi(a,b-1)
+
+result = multi(4, 3)
+print('result',result)
+```

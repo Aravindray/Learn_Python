@@ -11,6 +11,7 @@
 - [March - 2024](#march---2024)
     - [Data Structures I: Stack and Queues](#data-structures-i-stack-and-queues)
     - [Data Structures II: Linked Lists](#data-structures-ii-linked-lists)
+    - [Recursion](#recursion)
 
 
 <br>
@@ -333,3 +334,10 @@ Class Node:
 Define a class *DoublyLinkedList* which supports methods *insert_begin*, *insert_end*, *delete_begin*, *delete_end*, *del_value* and *traverse*.
 
 9. A variant of linked list is known as a circular list for traversing the nodes of the linked list in a circular manner. Define a class *CircularLinkedList* which supports the methods *insert_begin*, *insert_end*, *delete_begin*, *delete_end*, *delete_value* and *traverse*.
+
+### Recursion
+<hr>
+
+**Exercises**
+
+1. Write a recursive function that multiplies two positive numbers a and b, and return the result. Multiplication is to be achieved as a + a + a (b times).
