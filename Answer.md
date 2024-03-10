@@ -1058,6 +1058,38 @@ Note: I didn't implemented the 6th question as recursive method.
 Question 3:
 
 ```python
+import sys
+sys.path.append('d:\\Github\\Python\\MAR2024')
+import random
+from linked_list import LinkedList
+
+
+ll1 = LinkedList()
+for _ in range(5):
+    value = random.randint(0, 1000)
+    ll1.insert(value)
+
+ll2 = LinkedList()
+for _ in range(5):
+    value = random.randint(0, 1000)
+    ll2.insert(value)
+
+print('ll1',ll1)
+print('ll2',ll2)
+
+first_lst = list()
+second_lst = list()
+
+for data1, data2 in zip(ll1, ll2):
+    first_lst.append(data1.data)
+    second_lst.append(data2.data)
+
+print(first_lst)
+print(second_lst)
+
+result = first_lst + second_lst
+result.sort()
+print('final result',result)
 ```
 
 Question 8:
