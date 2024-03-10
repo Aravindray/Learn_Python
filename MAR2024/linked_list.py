@@ -161,6 +161,14 @@ class LinkedList:
                 odd_tuple.append(data)
         return tuple(even_tuple), tuple(odd_tuple)
 
+    def __iter__(self):
+        '''Iterate through linked list'''
+        current = self.head
+        while current is not None:
+            yield current
+            current = current.next
+        
+
     def __str__(self):
         '''This method returns the string representation of linked list a→b→c'''
         result = str()
