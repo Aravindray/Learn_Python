@@ -23,3 +23,15 @@ class DoubleNode:
     def __str__(self):
         '''The structure of print will be Prev:Data:Next'''
         return f'{self.previous}:{self.data}:{self.next}'
+
+class TreeNode:
+    '''This class hold the left and right nodes of the root node'''
+    def __init__(self, value):
+        '''Object will constructed with left, data and right attributes'''
+        self.left = None
+        self.data = value
+        self.right = None
+    
+    def __str__(self):
+        '''The structure of print will be Left→Data←Right'''
+        return f'{self.left}→{self.data}←{self.right}'
