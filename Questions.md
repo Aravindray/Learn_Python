@@ -341,3 +341,20 @@ Define a class *DoublyLinkedList* which supports methods *insert_begin*, *insert
 **Exercises**
 
 1. Write a recursive function that multiplies two positive numbers a and b, and return the result. Multiplication is to be achieved as a + a + a (b times).
+
+2. Write a recursive function that takes number n as an input parameter and prints n-digit strictly increasing numbers.
+
+3. Write a recursive function that generates all binary strings of n-bit length.
+
+4. Write a recursive function that takes two strings as input parameter and prints all interleaving strings of the given two strings preserving their order of occurrence. for example, interleaving of string 'AB' and 'CD' will generate the strings: 'ABCD', 'ACBD', 'ACDB', 'CDAB', 'CADB' and 'CABD'.
+
+5. Write a recursive function that inserts the element x at every kth position in the given list, and returns the modified list. For example, if wew wish to insert element 50 at every 3rd position (counting 0, 1, 2, 3) in the list [1, 2, 3, 4, 5, 6, 7], the output list will be [1, 2, 3, 50, 4, 5, 6, 50, 7].
+
+6. Write a recursive function that deletes every kth element. and returns the modified list. For example, if we wish to delete every 3rd element from the list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], the output list will be [1, 2, 4, 5, 7, 8, 10, 11].
+
+7. Write a recursive function that recursively removes adjacent duplicates from a given list, and returns the modified list. for example, removing adjacent duplicates recursively from the list [1, 2, 4, 4, 5, 7, 7, 7, 8, 8, 9, 7] will yield list [1, 2, 5, 9, 7].
+
+8. write a recursive function that takes two numbers as input parameters and computes their greatest common divisor.
+
+9. In fig. 8.17 (from the book) after line 25, include following statement, execute the code again and justify the output:
+    lst2 = deep_copy(lst1)

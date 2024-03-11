@@ -105,17 +105,41 @@ def deepcopy(lst1, lst2 = []):
 
 # Permutation
 def permutation(lst1, lst2=[], k = 0, pos = 0):
-    pass
+    '''Nope'''
+    lst2.insert(pos, lst1[k])
+
+    if len(lst2) == len(lst1):
+        print(lst2)
+    else:
+        permutation(lst1, lst2, k+1, 0)
+
+    lst2.remove(lst1[k])
+
+    if pos < k:
+        permutation(lst1, lst2, k, pos+1)
+
+# Tower of Hanoi
+def hanoi(n, source, spare, target):
+    '''Nope'''
+    if n == 1:
+        print(f'Move a top disk from {source} to {target}')
+    elif n == 0:
+        return
+    else:
+        hanoi(n-1, source, target, spare)
+        print(f'Move a top disk from {source} to {target}')
+        hanoi(n-1, spare, source, target)
 
 def main():
     '''Just main'''
     start = time.perf_counter()
     print()
     # lst = [1, [2, [3, 4, [5, 6, [7, 8], [9, [10]], 11], 12], 13], 14, [[15, 16]], 17]
-    new_lst = [1, 3, 78, 13, 54, 1]
-    result = copy(new_lst)
+    # new_lst = [1, 2, 3, 4]
+    # permutation(new_lst)
+    hanoi(10,1,2,3)
     end = time.perf_counter()
-    print('result :',result)
+    # print('result :',result)
     print()
     print(f'Total time to run the function: {start} | {end} = {end-start}')
 
