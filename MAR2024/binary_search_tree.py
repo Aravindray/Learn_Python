@@ -70,11 +70,47 @@ class BinarySearchTree:
                 traversal_lst.append(root.data)
         postorder(self.root)
         return traversal_lst
-    
 
     def delete_value(self, value):
         '''Delete the node w.r.t given value'''
-
+        if self.root is None:
+            print('Tree is Empty!')
+            return None
+        current = self.root
+        previous = None
+        while current.data != value:
+            if value < current.data:
+                previous = current
+                current = current.left
+                if current is None:
+                    print('node not in the tree')
+                    return None
+            else:
+                previous = current
+                current = current.right
+                if current is None:
+                    print('node not in the tree')
+                    return None
+        if current.left is None and current.right is None:
+            del current
+        else:
+            if value == self.root.data:
+                if self.root.right is None:
+                    self.root = self.root.left
+                else:
+                    temp = self.root.left
+                    while temp.right is not None:
+                        temp = temp.right
+                    temp.right = self.root.right
+                    self.root = self.root.left
+            else:
+                previous.left = current.left
+                temp = current.left
+                while temp.right is not None:
+                    temp = temp.right
+                temp.right = current.right
+                del current
+            
     def level_order_traversal(self):
         '''Traverses Binary tree level by level'''
 
@@ -104,15 +140,17 @@ class BinarySearchTree:
     
     def __str__(self):
         '''String representation of bst with inorder traversal'''
-        result_lst = self.inorder_traversal()
+        # result_lst = self.inorder_traversal()
+        result_lst = self.preorder_traversal()
         result_str = str()
         for lst in result_lst:
             result_str += str(lst) + ' '
         return result_str
 
 bst = BinarySearchTree()
-bst.insert_value(12)
-bst.insert_value(10)
-bst.insert_value(7)
-bst.insert_value(15)
+nodes = [8, 8, 12, 5, 10, 13, 3, 7, 11, 1, 4, 6, 8]
+for node in nodes:
+    bst.insert_value(node)
+print(bst)
+bst.delete_value(7)
 print(bst)
