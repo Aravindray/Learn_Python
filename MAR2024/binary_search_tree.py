@@ -92,7 +92,16 @@ class BinarySearchTree:
                     print('node not in the tree')
                     return None
         if current.left is None and current.right is None:
-            del current
+            if current.data < previous.data:
+                previous.left = None
+                temp_data = current.data
+                del current
+                print(f'Leaf Node {temp_data} is deleted!')
+            else:
+                previous.right = None
+                temp_data = current.data
+                del current
+                print(f'Leaf Node {temp_data} is deleted!')
         else:
             if value == self.root.data:
                 if self.root.right is None:
@@ -103,28 +112,68 @@ class BinarySearchTree:
                         temp = temp.right
                     temp.right = self.root.right
                     self.root = self.root.left
+                print('root element is deleted')
             else:
-                previous.left = current.left
+                previous.right = current.left
                 temp = current.left
                 while temp.right is not None:
                     temp = temp.right
                 temp.right = current.right
                 del current
-            
+
     def level_order_traversal(self):
         '''Traverses Binary tree level by level'''
+        def lot(tree_node):
+            if not tree_node:
+                return
+            queue = list()
+            queue.append(tree_node)
+            while queue:
+                level_nodes = len(queue)
+                for _ in range(level_nodes):
+                    temp = queue.pop(0)
+                    print(temp.data,end=' ')
+                    if temp.left:
+                        queue.append(temp.left)
+                    if temp.right:
+                        queue.append(temp.right)
+                print()
+        lot(self.root)
 
     def count(self):
         '''Count and return no of nodes in BST'''
+        lst = self.preorder_traversal()
+        return len(lst)
 
     def count_leaves(self):
-        '''Count and return no of leaved nodes in BST'''
+        '''Count and return no of leaves nodes in BST'''
+        def count_lvs(tree_node):
+            count = int()
+            if tree_node is not None:
+                if tree_node.left is None and tree_node.right is None:
+                    return 1
+                count += count_lvs(tree_node.left)
+                count += count_lvs(tree_node.right)
+            return count
+        return count_lvs(self.root)
 
     def count_non_leaves(self):
         '''Count and return no of non leaves nodes in BST'''
+        return self.count() - self.count_leaves()
 
     def delete_leaves(self):
         '''Find and remove all the leaves'''
+        leaves = list()
+        def delete_lvs(tree_node):
+            if tree_node is not None:
+                if tree_node.left is None and tree_node.right is None:
+                    leaves.append(tree_node.data)
+                delete_lvs(tree_node.left)
+                delete_lvs(tree_node.right)
+        delete_lvs(self.root)
+        print(leaves)
+        for lvs in leaves:
+            self.delete_value(lvs)
 
     def mirror_bst(self):
         '''Create and return mirror image of binary search tree'''
@@ -151,6 +200,12 @@ bst = BinarySearchTree()
 nodes = [8, 8, 12, 5, 10, 13, 3, 7, 11, 1, 4, 6, 8]
 for node in nodes:
     bst.insert_value(node)
-print(bst)
-bst.delete_value(7)
-print(bst)
+bst.level_order_traversal()
+# print(bst.count())
+# print(bst.count_leaves())
+# print(bst.count_non_leaves())
+# print(bst.delete_leaves())
+# print('after delete the leaves',bst)
+bst.delete_value(8)
+print()
+bst.level_order_traversal()
