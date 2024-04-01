@@ -9,9 +9,9 @@ def main():
     bst.left.left = TreeNode(6)
     bst.right.left = TreeNode(20)
     bst.right.right = TreeNode(30)
-    level_order_traversal(bst)
+    # level_order_traversal(bst)
 
-def level_order_traversal(node):
+def lot(node):
     node_lst = [[node]]
     last = node_lst[-1]
     while last:

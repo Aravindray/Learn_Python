@@ -123,11 +123,30 @@ class BinarySearchTree:
 
     def level_order_traversal(self):
         '''Traverses Binary tree level by level'''
-        '''
-        [15],
-        [10, 23],
-        [6, 20, 30]
-        '''
+        def lot(node):
+            node_lst = [[node]]
+            last = node_lst[-1]
+            while last:
+                temp = []
+                for x in last:
+                    if x.left is not None:
+                        temp.append(x.left)
+                    if x.right is not None:
+                        temp.append(x.right)
+                node_lst.append(temp)
+                last = node_lst[-1]
+            node_lst.pop()
+            # result = list()
+            # new_temp = list()
+            for x in node_lst:
+                for y in x:
+                    print(y.data, end=' ')
+                print()
+                    # new_temp.append(y.data)
+                # result.append(new_temp)
+                # new_temp = list()
+            # print(result)
+        lot(self.root)
 
     def count(self):
         '''Count and return no of nodes in BST'''
@@ -189,3 +208,4 @@ bst = BinarySearchTree()
 nodes = [8, 8, 12, 5, 10, 13, 3, 7, 11, 1, 4, 6, 8]
 for node in nodes:
     bst.insert_value(node)
+bst.level_order_traversal()
