@@ -1,6 +1,24 @@
-Question: Find the "Next" letter of "w"
-Answer: x
+Question: Find the "Next" letter of "h"
+Answer: i
 Correct Answer! Score is 1
-Question: Find the "Previous" letter of "n"
+Question: Find the "Previous" letter of "x"
+Answer: v
+Oops! Wrong Answer! The correct answer is "y"
+Question: Find the "Previous" letter of "d"
+Answer: c
+Correct Answer! Score is 2
+Question: Find the "Next" letter of "i"
+Answer: j
+Correct Answer! Score is 3
+Question: Find the "Previous" letter of "v"
+Answer: u
+Correct Answer! Score is 4
+Question: Find the "Previous" letter of "w"
+Answer: v
+Correct Answer! Score is 5
+Question: Find the "Previous" letter of "m"
+Answer: l
+Correct Answer! Score is 6
+Question: Find the "Previous" letter of "u"
 Answer: 
-Out of 1 question you scored 1
+Out of 7 question you scored 6

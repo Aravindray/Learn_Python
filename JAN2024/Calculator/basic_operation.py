@@ -146,4 +146,4 @@ def main(NoS):
         else:
             print('Thanks for coming these far!')
 if __name__ == '__main__':
-    main()
+    main(2)
