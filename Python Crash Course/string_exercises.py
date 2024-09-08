@@ -1,3 +1,6 @@
+# Author: Aravind Date: Sun, 08/9 2024
+# Try it Yourself
+
 greetings = "Hello, Welcome!"
 print(greetings)
 
