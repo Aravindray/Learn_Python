@@ -48,8 +48,8 @@ for number in multiple_threes:
     print(number)
 print(f"The first three items in the list are: {multiple_threes[:3]}")
 middle_index = (len(multiple_threes)//2) - 1
-print(f"Three items from the middle of the list are:\
- {multiple_threes[middle_index:middle_index+3]}")
+print(f"Three items from the middle of the list are:"
+       "{multiple_threes[middle_index:middle_index+3]}")
 
 #4-8, 4-9
 print()
