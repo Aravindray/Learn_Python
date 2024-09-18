@@ -1,5 +1,5 @@
 # Author: Aravind Date: Sat, 14/9 2024
-
+#5-12
 #5-1, 5-2
 favorite_color = 'red'
 if favorite_color == 'green':
@@ -45,6 +45,7 @@ if 'dosa' not in foods:
     print("Yes, It's not available")
 
 #5-3
+print()
 alien_0_color = 'yellow'
 
 if alien_0_color == 'green':
@@ -56,17 +57,21 @@ if alien_1_color == 'green':
     print('You just earn 5 points')
 
 #5-4
-
+print()
 if alien_0_color == 'green':
     print('You just earn 5 points')
 else:
     print('You just earn 10 points')
 
+#5-5
+print()
 if alien_1_color == 'green':
     print('You just earn 5 points')
 else:
     print('You just earn 10 points')
 
+#5-6
+print()
 age = 26
 
 if age < 2:
@@ -82,6 +87,8 @@ elif age < 65:
 else:
     print("You're a elder person.")
 
+#5-7
+print()
 favorite_fruits = ['apple', 'banana', 'orange', 'watermelon', 'graph', 'pomegranate', 'jackfruit']
 
 if 'apple' in favorite_fruits:
@@ -99,10 +106,43 @@ if 'mango' in favorite_fruits:
 if 'papaya' in favorite_fruits:
     print('You really like papayas!')
 
+#5-8, 5-9
+print()
 users = ['admin', 'aravind', 'ray', 'john', 'bill', 'dan']
+# users = []
 
-for user in users:
-    if user == 'admin':
-        print(f"Hello {user.title()}, would you like to see a status report?")
+if users:
+    for user in users:
+        if user == 'admin':
+            print(f"Hello {user.title()}, would you like to see a status report?")
+        else:
+            print(f"Hello {user}, thank you for logging in again.")
+else:
+    print('We need to find some users!')
+
+# Date: Wed, 18/9 2024
+
+#5-10
+print()
+current_users = ['CodeCrafter', 'PixelPioneer', 'ScriptSage', 'ByteBender', 'TechTrekker']
+new_users = ['QuantumQuester', 'DataDynamo', 'CyberScribe', 'NexusNavigator', 'ByteBender', 'PixelPioneer']
+lowercase_current_users = [user.lower() for user in current_users]
+
+for user in new_users:
+    if user.lower() in lowercase_current_users:
+        print('Username is already available, Try different username!')
     else:
-        print(f"Hello {user}, thank you for logging in again.")
+        print('Username is available.')
+
+#5-11
+print()
+ordinal_numbers = list(range(1,10))
+for number in ordinal_numbers:
+    if number == 1:
+        print(f'{number}st')
+    elif number == 2:
+        print(f'{number}nd')
+    elif number == 3:
+        print(f'{number}rd')
+    else:
+        print(f'{number}th')
