@@ -1,6 +1,6 @@
 # Author: Aravind Date: Mon, 09/9 2024
 
-#3-1
+# 3-1
 print()
 names = ['Aravind', 'Raj', 'Ray', 'Python']
 print(names[0].title())
@@ -8,14 +8,14 @@ print(names[1].title())
 print(names[2].title())
 print(names[3].title())
 
-#3-2
+# 3-2
 print()
 print(f"Hey {names[0].title()}, How are you?")
 print(f"Hey {names[1].title()}, How are you?")
 print(f"Hey {names[2].title()}, How are you?")
 print(f"Hey {names[3].title()}, How are you?")
 
-#3-3
+# 3-3
 print()
 fav_trans = ['Motorcycle', 'Car', 'Boat', 'Airplane', 'Bus', 'Train']
 print(f'I would like to own a Honda {fav_trans[0].lower()}.')
@@ -25,14 +25,14 @@ print(f'I would like to own a Boeing {fav_trans[3].lower()}.')
 print(f'I would like to own a Volkswagen {fav_trans[4].lower()}.')
 print(f'I would like to own a Lionel {fav_trans[5].lower()}.')
 
-#3-4
+# 3-4
 print()
 guests = ['Dad', 'Mom', 'Sister']
 print(f'Hey! Hello {guests[0]}, I would like to invite you for next week friday dinner to my house')
 print(f'Hey! Hello {guests[1]}, I would like to invite you for next week friday dinner to my house')
 print(f'Hey! Hello {guests[2]}, I would like to invite you for next week friday dinner to my house')
 
-#3-5
+# 3-5
 print()
 old_guest = 'Sister'
 new_guest = 'Nephew-1'
@@ -44,7 +44,7 @@ print(f'Hey! Hello {guests[0]}, I would like to invite you for next week friday 
 print(f'Hey! Hello {guests[1]}, I would like to invite you for next week friday dinner to my house')
 print(f'Hey! Hello {guests[2]}, I would like to invite you for next week friday dinner to my house')
 
-#3-6
+# 3-6
 print()
 print(f'Hey! Hello {guests[0]}, I would like to let you know that I have found new bigger table for 6 people')
 print(f'Hey! Hello {guests[1]}, I would like to let you know that I have found new bigger table for 6 people')
@@ -59,7 +59,7 @@ print(f'Hey! Hello {guests[3]}, I would like to invite you for next week friday 
 print(f'Hey! Hello {guests[4]}, I would like to invite you for next week friday dinner to my house')
 print(f'Hey! Hello {guests[5]}, I would like to invite you for next week friday dinner to my house')
 
-#3-7
+# 3-7
 print()
 sry_1 = guests.pop()
 print(f"Hey {sry_1}, I am so sorry, Just now I received the message that new table will not delivered as per schedule again soo sorry, Now I have only 2 extra seats, so again sorry to cancel the dinner party.")
@@ -78,7 +78,7 @@ del guests[0]
 print('Empty guests')
 print(guests)
 
-#3-8
+# 3-8
 print()
 locations = ['USA', 'Japan', 'Christmas Island', 'Italy', 'Spain', 'Turkey', 'Caribbean']
 print(locations)
@@ -95,12 +95,12 @@ print(locations)
 locations.sort(reverse=True)
 print(locations)
 
-#3-9
+# 3-9
 print()
 new_guests = ['Dad', 'Mom', 'Sister', 'Uncle', 'Nephews']
 print(f"Total {len(new_guests)} guests are invited")
 
-#3-10
+# 3-10
 print()
 rivers = ['Jordan', 'Euphrates', 'Tigris', 'Nile', 'Jabbok', 'Missouri']
 print(f'Total rivers are - {len(rivers)}')
@@ -145,6 +145,6 @@ rivers.remove(remove_this)
 print(rivers)
 print(f'{rivers[1]} river is located in northeastern africa.')
 
-#3-11 (Intentional Error)
+# 3-11 (Intentional Error)
 hall_things = ['TV', 'Sofa', 'Table', 'AC', 'Photos']
 print(hall_things[5])

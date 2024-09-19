@@ -1,6 +1,6 @@
 # Author: Aravind Date: Sat, 14/9 2024
-#5-12
-#5-1, 5-2
+# 5-12
+# 5-1, 5-2
 favorite_color = 'red'
 if favorite_color == 'green':
     print('I think your favorite color is green')
@@ -44,7 +44,7 @@ if 'ice cream' in foods:
 if 'dosa' not in foods:
     print("Yes, It's not available")
 
-#5-3
+# 5-3
 print()
 alien_0_color = 'yellow'
 
@@ -56,21 +56,21 @@ alien_1_color = 'green'
 if alien_1_color == 'green':
     print('You just earn 5 points')
 
-#5-4
+# 5-4
 print()
 if alien_0_color == 'green':
     print('You just earn 5 points')
 else:
     print('You just earn 10 points')
 
-#5-5
+# 5-5
 print()
 if alien_1_color == 'green':
     print('You just earn 5 points')
 else:
     print('You just earn 10 points')
 
-#5-6
+# 5-6
 print()
 age = 26
 
@@ -87,7 +87,7 @@ elif age < 65:
 else:
     print("You're a elder person.")
 
-#5-7
+# 5-7
 print()
 favorite_fruits = ['apple', 'banana', 'orange', 'watermelon', 'graph', 'pomegranate', 'jackfruit']
 
@@ -106,7 +106,7 @@ if 'mango' in favorite_fruits:
 if 'papaya' in favorite_fruits:
     print('You really like papayas!')
 
-#5-8, 5-9
+# 5-8, 5-9
 print()
 users = ['admin', 'aravind', 'ray', 'john', 'bill', 'dan']
 # users = []
@@ -122,7 +122,7 @@ else:
 
 # Date: Wed, 18/9 2024
 
-#5-10
+# 5-10
 print()
 current_users = ['CodeCrafter', 'PixelPioneer', 'ScriptSage', 'ByteBender', 'TechTrekker']
 new_users = ['QuantumQuester', 'DataDynamo', 'CyberScribe', 'NexusNavigator', 'ByteBender', 'PixelPioneer']
@@ -134,7 +134,7 @@ for user in new_users:
     else:
         print('Username is available.')
 
-#5-11
+# 5-11
 print()
 ordinal_numbers = list(range(1,10))
 for number in ordinal_numbers:

@@ -1,6 +1,6 @@
 # Author: Aravind Date: Wed, 18/9
 
-#6-1, 6-7
+# 6-1, 6-7
 aravind = {
     'first_name': 'aravind',
     'last_name': 'ray',
@@ -29,7 +29,7 @@ for person in people:
     about_me = f'Hi, This is {full_name}. I am {person['age']} year old and I live in {person['city'].title()}.'
     print(about_me)
 
-#6-2, #6-10
+# 6-2, # 6-10
 favorite_numbers = {
     'ellen': [23, 89, 32],
     'rose': [1, 4, 34, 879],
@@ -43,7 +43,7 @@ for name, numbers in favorite_numbers.items():
     for number in numbers:
         print(f"\t- {number}")
 
-#6-3, 6-4
+# 6-3, 6-4
 glossaries = {
     'list': 'Is a collection of mutable datatype.',
     'dictionary': 'Is a collection of key-value pairs.',
@@ -60,7 +60,7 @@ glossaries = {
 for key, value in glossaries.items():
     print(f'\n{key.title()}:\n\t{value}')
 
-#6-5
+# 6-5
 print()
 rivers = {
     'nile': 'egypt',
@@ -81,7 +81,7 @@ print()
 for country in set(rivers.values()):
     print(country.title())
 
-#6-6
+# 6-6
 print()
 favorite_languages = {
  'jen': 'python',
@@ -99,9 +99,9 @@ for employee in employees:
     else:
         print(f'Dear {employee.title()}, You are invited to take the favorite language poll')
 
-#6-8 ignored, because 6-7 and 6-8 are same
+# 6-8 ignored, because 6-7 and 6-8 are same
 
-#6-9
+# 6-9
 favorite_places = {
     'aravind': ['america', 'england', 'australia'],
     'dani': ['india', 'singapore'],
@@ -113,7 +113,7 @@ for person, places in favorite_places.items():
     for place in places:
         print(f"\t-{place.title()}")
 
-#6-11
+# 6-11
 cities = {
     'new york city': {
         'country': 'america',
