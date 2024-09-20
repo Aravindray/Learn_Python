@@ -109,4 +109,35 @@ print('Original List:')
 print(messages)
 print('Moved Message List:')
 print(sent_messages)
+
+# 8-12
+def make_sandwich(*args):
+    '''This function accept as many arguments and print it'''
+    print()
+    print('Here are the items that you wanted for your sandwich:')
+    for item in args:
+        print(f'- {item.title()}')
+    
+make_sandwich('tomato', 'fried chicken', 'pickle', 'olives')
+make_sandwich('veggie patty', 'tomato', 'pickle', 'coconut', 'chocolate')
+make_sandwich('veggie patty', 'oregano')
+
+# 8-13
+def build_profile(first, last, **user_info):
+    '''This function build and return dictionary of user detail'''
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
+about_me = build_profile('aravind', 'ray', age=25, degree='b.e ece',location='earth')
+print(about_me)
 """
+# 8-14
+def make_car(manufacturer: str, model: str, **cars) -> dict:
+    '''This function will accept arbitrary kwargs and return dictionary'''
+    cars['manufacturer'] = manufacturer
+    cars['model'] = model
+    return cars
+
+my_car = make_car('subaru', 'outback', color='blue', tow_package=True)
+print(my_car)
