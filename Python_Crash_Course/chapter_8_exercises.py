@@ -1,3 +1,4 @@
+'''This module hold chapter 8 exercises'''
 # Author: Aravind Date: Thu, 19/9 2024
 # 8-17
 # 8-1
@@ -60,12 +61,12 @@ def make_album(name, title, no_of_songs=None):
         album['song count'] = no_of_songs
     return album
 
-# imagine_dragons = make_album('imagine dragons', 'evolve')
-# print(imagine_dragons)
-# whitney_houston = make_album('whitney houston', 'my love is your love', 13)
-# print(whitney_houston)
-# madonna = make_album('madonna', 'ray of light', 13)
-# print(madonna)
+imagine_dragons = make_album('imagine dragons', 'evolve')
+print(imagine_dragons)
+whitney_houston = make_album('whitney houston', 'my love is your love', 13)
+print(whitney_houston)
+madonna = make_album('madonna', 'ray of light', 13)
+print(madonna)
 
 while True:
     print('\nPress "q" to quit the loop')
