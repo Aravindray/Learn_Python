@@ -1,5 +1,5 @@
 # Author: Aravind Date: Thu, 19/9 2024
-"""
+# 8-17
 # 8-1
 def display_message():
     '''This function will print a simple statement.'''
@@ -131,7 +131,7 @@ def build_profile(first, last, **user_info):
 
 about_me = build_profile('aravind', 'ray', age=25, degree='b.e ece',location='earth')
 print(about_me)
-"""
+
 # 8-14
 def make_car(manufacturer: str, model: str, **cars) -> dict:
     '''This function will accept arbitrary kwargs and return dictionary'''
