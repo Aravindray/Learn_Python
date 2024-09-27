@@ -1,59 +1,7 @@
+'''Python Crash Course - Exercise 9 - Try it Yourself'''
 # Author: Aravind Date: Thu, 26/9 2024
-"""
-# 9-1, 9-3
-class Restaurant:
-    '''
-    Objective: Stores about restaurant_name and cuisine_type
-    '''
-    number_served = 0
 
-    def __init__(self, restaurant_name: str, cuisine_type: str) -> None:
-        '''Class Constructor'''
-        self.restaurant_name = restaurant_name
-        self.cuisine_type = cuisine_type
-
-    def describe_restaurant(self):
-        '''It describes about restaurant'''
-        print(f'\nName: {self.restaurant_name}\nCuisine Type: {self.cuisine_type}')
-
-    def open_restaurant(self):
-        '''Restaurant is always open'''
-        print(f'{self.restaurant_name} is now open.')
-    
-    def set_number_served(self, customers_count):
-        '''Add the new customer counts'''
-        self.number_served = customers_count
-    
-    def increment_number_served(self, new_customers_count):
-        '''Increase the number count with given count'''
-        self.number_served += new_customers_count
-
-restaurant1 = Restaurant('Le Bistro Du Parc', 'French')
-print(restaurant1.restaurant_name)
-print(restaurant1.cuisine_type)
-restaurant1.describe_restaurant()
-restaurant1.open_restaurant()
- 
-restaurant2 = Restaurant('Chicago Curry House', 'Indian & Nepalese')
-restaurant2.describe_restaurant()
-
-restaurant3 = Restaurant('McDonald\'s','American')
-restaurant3.describe_restaurant()
-
-print(restaurant1.number_served)
-restaurant1.number_served = 1
-print(restaurant1.number_served)
-
-print(restaurant2.number_served)
-restaurant2.set_number_served(3)
-print(restaurant2.number_served)
-
-restaurant3.set_number_served(5)
-print(restaurant3.number_served)
-restaurant3.increment_number_served(3)
-print(restaurant3.number_served)
-"""
-# 9-2
+# 9-2, 9-5
 class User:
     '''Stores about a user'''
     login_attempt = 0
@@ -67,7 +15,7 @@ class User:
         self.last_name = last_name
         self.email = email
         self.dob = dob
-    
+
     def describe_user(self):
         '''Describe about the user'''
         print(f"\nName: {self.first_name.title()} {self.last_name.title()}"
@@ -76,11 +24,11 @@ class User:
     def greet_user(self):
         '''Greet user with Hello'''
         print(f'Hello {self.first_name.title()} {self.last_name.title()}!')
-    
+
     def increment_login_attempt(self):
         '''Increase the class attribute by 1'''
         self.login_attempt += 1
-    
+
     def reset_login_attempt(self):
         '''Reset the login attempt to 0'''
         self.login_attempt = 0
@@ -105,3 +53,33 @@ u1.increment_login_attempt()
 print(u1.login_attempt)
 u1.reset_login_attempt()
 print(u1.login_attempt)
+
+# 9-8
+class Privilege:
+    '''Will store about privilege'''
+    privileges = ['can add post', 'can delete post', 'can ban user', 'can create channel', 'can delete server']
+
+    def show_privileges(self):
+        '''will display all privileges'''
+        print('Admin Privileges:')
+        for privilege in self.privileges:
+            print(f'- {privilege}')
+
+# 9-7, 9-8
+class Admin(User):
+    '''An extended version of user for admin'''
+    privileges = Privilege()
+
+a1 = Admin('Aravind', 'ray', 'admin@admin.com', '16-05-1999')
+a1.describe_user()
+a1.privileges.show_privileges()
+
+# 9-9 Check electric_car.py file
+
+# 9-10
+from restaurant import Restaurant
+
+restaurant4 = Restaurant('Erato', 'Greek')
+restaurant4.describe_restaurant()
+
+# 9-11, 9-12 - Skipped
