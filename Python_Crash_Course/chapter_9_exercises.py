@@ -1,5 +1,7 @@
 '''Python Crash Course - Exercise 9 - Try it Yourself'''
 # Author: Aravind Date: Thu, 26/9 2024
+import random
+from restaurant import Restaurant
 
 # 9-2, 9-5
 class User:
@@ -77,9 +79,76 @@ a1.privileges.show_privileges()
 # 9-9 Check electric_car.py file
 
 # 9-10
-from restaurant import Restaurant
 
 restaurant4 = Restaurant('Erato', 'Greek')
 restaurant4.describe_restaurant()
 
 # 9-11, 9-12 - Skipped
+
+# 9-13
+class Die:
+    '''An digital Die'''
+    sides = 6
+
+    def roll_die(self):
+        '''Print a random number between 1 to no of sides die has'''
+        print('Die landed in:')
+        print(f'{random.randint(1, self.sides)}')
+
+d1 = Die()
+for _ in range(1,11):
+    d1.roll_die()
+
+print()
+d2 = Die()
+d2.sides = 10
+for _ in range(1,11):
+    d2.roll_die()
+
+print()
+d3 = Die()
+d3.sides = 20
+for _ in range(1,11):
+    d3.roll_die()
+
+# 9-14
+
+numbers = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
+letters = ('a', 'b', 'c', 'd', 'e')
+lottery_number = '5648'
+lottery_letters = 'acdb'
+
+generated_lottery_numbers = ''.join(random.sample(numbers, k=4))
+
+if generated_lottery_numbers == lottery_number:
+    print('You won the lottery')
+else:
+    print(f'Your number {generated_lottery_numbers} didn\'t match the lottery {lottery_number}')
+
+generated_lottery_letters = ''.join(random.sample(letters, k=4))
+
+if generated_lottery_letters == lottery_letters:
+    print('You won the lottery')
+else:
+    print(f'Your number {generated_lottery_letters} didn\'t match the lottery {lottery_letters}')
+
+# 9-15
+letter_counter = 0
+while True:
+    generated_lottery_letters = ''.join(random.sample(letters, k=4))
+    letter_counter += 1
+    if generated_lottery_letters == lottery_letters:
+        print('You\'re letter matches! You have won the lottery price!')
+        break
+
+print(f'You won "1" in {letter_counter} attempt')
+
+number_counter = 0
+while True:
+    generated_lottery_numbers = ''.join(random.sample(numbers, k=4))
+    number_counter += 1
+    if generated_lottery_numbers == lottery_number:
+        print('You\'re number matches! You have won the lottery price!')
+        break
+
+print(f'You won "1" in {number_counter} attempt')
