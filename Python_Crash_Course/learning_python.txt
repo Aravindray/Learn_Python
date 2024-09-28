@@ -1,0 +1,5 @@
+In Python you can loop trough a list, tuple, set or dictionaries
+In Python you can work with random numbers
+In Python you can build build mini games
+In Python you can build websites with Django
+In Python you can organize and view data
