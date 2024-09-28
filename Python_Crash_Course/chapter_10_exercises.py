@@ -37,8 +37,8 @@ while True:
 
 path = Path('guest_book.txt')
 path.write_text(names)
-"""
-# 10-6
+
+# 10-6, 10-7
 print('Enter "q" for quit the program')
 while True:
     first_number = input('Enter the first number: ')
@@ -53,5 +53,20 @@ while True:
         print('We can\'t convert string to integer, Make sure to enter the integer')
     else:
         print(answer)
+"""
+# 10-8, 10-9
+path = Path('cars.txt')
+try:
+    contents = path.read_text().rstrip()
+except FileNotFoundError:
+    print(f'Your file {path} not exists in the current directory')
+else:
+    print(contents)
 
-# 10-7 Not descriptive so skipped
+bike_path = Path('bikes.txt')
+try:
+    contents = bike_path.read_text().rstrip()
+except FileNotFoundError:
+    pass
+else:
+    print(contents)
