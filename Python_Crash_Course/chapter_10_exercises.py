@@ -1,6 +1,7 @@
 '''This module will hold chapter 10 Try it yourself exercises'''
 # Author: Aravind Date: Sat, 28/9 2024
 from pathlib import Path
+import json
 """
 # 10-1, 10-2
 print('Using read_text()')
@@ -70,7 +71,7 @@ except FileNotFoundError:
     pass
 else:
     print(contents)
-"""
+
 path = Path('reviews.txt')
 contents = path.read_text(encoding='utf-8')
 lines = contents.splitlines()
@@ -80,3 +81,18 @@ for line in lines:
     counter += result
 
 print(f'The world "the" appears {counter} times.')
+"""
+# 10-11, 10-12
+
+def store_fav_number(path: Path) -> None:
+    '''Get favorite number of user and store it'''
+    fav_num = int(input('Enter your favorite number? '))
+    con_fav_num = json.dumps(fav_num)
+    path.write_text(con_fav_num)
+    print('Favorite number stored')
+
+def get_fav_number(path: Path) -> int:
+    '''Retrieve favorite number of user and return it'''
+    con_fav_num = path.read_text()
+    fav_num = json.loads(con_fav_num)
+    return fav_num
