@@ -53,7 +53,7 @@ while True:
         print('We can\'t convert string to integer, Make sure to enter the integer')
     else:
         print(answer)
-"""
+
 # 10-8, 10-9
 path = Path('cars.txt')
 try:
@@ -70,3 +70,13 @@ except FileNotFoundError:
     pass
 else:
     print(contents)
+"""
+path = Path('reviews.txt')
+contents = path.read_text(encoding='utf-8')
+lines = contents.splitlines()
+counter = 0
+for line in lines:
+    result = line.lower().count('the ')
+    counter += result
+
+print(f'The world "the" appears {counter} times.')
