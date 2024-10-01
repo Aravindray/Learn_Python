@@ -2,7 +2,7 @@
 # Author: Aravind Date: Sat, 28/9 2024
 from pathlib import Path
 import json
-"""
+
 # 10-1, 10-2
 print('Using read_text()')
 path = Path('learning_python.txt')
@@ -81,7 +81,7 @@ for line in lines:
     counter += result
 
 print(f'The world "the" appears {counter} times.')
-"""
+
 # 10-11, 10-12
 
 def store_fav_number(path: Path) -> None:
@@ -93,6 +93,64 @@ def store_fav_number(path: Path) -> None:
 
 def get_fav_number(path: Path) -> int:
     '''Retrieve favorite number of user and return it'''
-    con_fav_num = path.read_text()
-    fav_num = json.loads(con_fav_num)
-    return fav_num
+    if path.exists():
+        con_fav_num = path.read_text()
+        fav_num = json.loads(con_fav_num)
+        return fav_num
+    else:
+        return None
+
+def display_fav_number(path: Path) -> None:
+    '''If fav number available it displays it 
+    or it will ask user to enter their fav number
+    '''
+    fav_num = get_fav_number(path)
+    if fav_num:
+        print(f'I know your favorite number! It\'s {fav_num}.')
+    else:
+        store_fav_number(path)
+
+file_path = Path('fav_num.json')
+display_fav_number(file_path)
+
+# 10-13, 10-14
+
+def get_stored_username(path: Path) -> str:
+    '''Get stored username if available'''
+    if path.exists():
+        contents = path.read_text()
+        user_detail = json.loads(contents)
+        return user_detail
+    return None
+
+def get_new_username(path: Path) -> dict:
+    '''Prompt for a new user'''
+    user_detail = {}
+    first_name = input('Enter your first name: ')
+    last_name = input('Enter your last name: ')
+    age = int(input('What is your age? '))
+    username = input('Enter your username: ')
+    user_detail['username'] = username
+    user_detail['age'] = age
+    user_detail['first_name'] = first_name
+    user_detail['last_name'] = last_name
+    contents = json.dumps(user_detail)
+    path.write_text(contents)
+    return contents
+
+def greet_user() -> None:
+    '''Greet user by name'''
+    path = Path('user_details.json')
+    user_detail = get_stored_username(path)
+    if user_detail:
+        message = f'Is this your username "{user_detail['username']}" - Y/N: '
+        verify = input(message)
+        if verify == 'Y':
+            print(f'Welcome back {user_detail['first_name']} {user_detail['last_name']}!')
+        else:
+            user_detail = get_new_username(path)
+    else:
+        user_detail = get_new_username(path)
+        print(f'We will remember you when you come back, {user_detail}!')
+
+greet_user()
