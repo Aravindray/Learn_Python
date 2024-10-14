@@ -72,6 +72,7 @@ except FileNotFoundError:
 else:
     print(contents)
 
+# 10-10
 path = Path('reviews.txt')
 contents = path.read_text(encoding='utf-8')
 lines = contents.splitlines()
