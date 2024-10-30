@@ -12,7 +12,6 @@ class Account:
         '''Deposit an amount to account balance'''
         if password != self.password:
             return None
-
         if deposit_amount < 0:
             print('You can\'t deposit negative number in your account')
             return None
@@ -52,3 +51,12 @@ class Account:
             print(f'     Balance: {self.amount}')
             print(f'     Password: {self.password}')
             print()
+
+    def to_dict(self):
+        '''Represent the data into dict'''
+        user = {
+            'username': self.username,
+            'balance': self.get_balance(self.password),
+            'password': self.password
+        }
+        return user
